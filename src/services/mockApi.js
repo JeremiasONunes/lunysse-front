@@ -25,7 +25,7 @@ const initialUsers = [
   { id: 2, email: 'ana@test.com', password: '123456', type: 'psicologo', name: 'Dra. Ana Costa', specialty: 'Terapia Cognitivo-Comportamental', crp: 'CRP 01/23456' },
   { id: 3, email: 'carlos@test.com', password: '123456', type: 'psicologo', name: 'Dr. Carlos Mendes', specialty: 'Psicologia Infantil', crp: 'CRP 01/34567' },
   { id: 4, email: 'lucia@test.com', password: '123456', type: 'psicologo', name: 'Dra. Lucia Ferreira', specialty: 'Terapia Familiar', crp: 'CRP 01/45678' },
-  { id: 5, email: 'paciente@test.com', password: '123456', type: 'paciente', name: 'Maria Santos' }
+  { id: 5, email: 'maria@test.com', password: '123456', type: 'paciente', name: 'Maria Santos' }
 ];
 
 // Dados iniciais dos pacientes

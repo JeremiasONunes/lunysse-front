@@ -8,7 +8,7 @@ import { LoadingSpinner } from '../components/LoadingSpinner';
 import { Home } from '../pages/Home';
 import { About } from '../pages/About';
 import { Login } from '../pages/Login';
-import { LunysseLogin } from '../pages/LunysseLogin';
+
 import { Register } from '../pages/Register';
 
 // Protected Pages
@@ -83,11 +83,7 @@ export const AppRoutes = () => {
           </PublicRoute>
         } />
         
-        <Route path="/lunysse" element={
-          <div className="min-h-screen">
-            <LunysseLogin />
-          </div>
-        } />
+       
         
         <Route path="/register" element={
           <PublicRoute>
