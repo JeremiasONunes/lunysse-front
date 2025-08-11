@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Menu, X, LogOut, BarChart3, Calendar, User, Users } from 'lucide-react';
+import { Menu, X, LogOut, BarChart3, Calendar, User, Users, MessageCircle } from 'lucide-react';
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +18,7 @@ export const Sidebar = () => {
     ? [
         { to: '/dashboard', label: 'Dashboard', icon: BarChart3 },
         { to: '/pacientes', label: 'Pacientes', icon: Users },
+        { to: '/chat-ia', label: 'Chat IA', icon: MessageCircle },
         { to: '/relatorios', label: 'Relatórios', icon: BarChart3 }
       ]
     : [

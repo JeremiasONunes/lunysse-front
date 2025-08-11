@@ -14,6 +14,7 @@ Sistema web moderno para gestão de consultas psicológicas, desenvolvido com Re
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Modelo de Dados](#modelo-de-dados)
 - [API Mock](#api-mock)
+- [Chat com IA](#chat-com-ia)
 - [Componentes](#componentes)
 - [Rotas](#rotas)
 - [Design System](#design-system)
@@ -40,6 +41,7 @@ O **Lunysse** é uma plataforma web desenvolvida para facilitar o agendamento e 
 - **Gestão de Pacientes**: Lista completa com informações detalhadas
 - **Detalhes do Paciente**: Histórico de sessões, anotações e relatórios
 - **Gestão de Sessões**: Edição de status, anotações e relatórios clínicos
+- **Chat com IA**: Assistente especializada em psicologia clínica
 - **Relatórios e Analytics**: Gráficos de frequência, status e alertas de risco
 - **Agenda Individual**: Controle de disponibilidade por psicólogo
 
@@ -68,6 +70,7 @@ O **Lunysse** é uma plataforma web desenvolvida para facilitar o agendamento e 
 - **Lucide React** - Ícones
 - **Recharts** - Gráficos e visualizações
 - **React Hot Toast** - Notificações
+- **@huggingface/inference** - Integração com IA
 
 ### Persistência
 - **LocalStorage** - Armazenamento local dos dados
@@ -100,14 +103,20 @@ npm install
 yarn install
 ```
 
-3. **Execute o projeto**
+3. **Configure as variáveis de ambiente**
+```bash
+cp .env.example .env
+# Edite o arquivo .env e adicione seu token do Hugging Face
+```
+
+4. **Execute o projeto**
 ```bash
 npm run dev
 # ou
 yarn dev
 ```
 
-4. **Acesse no navegador**
+5. **Acesse no navegador**
 ```
 http://localhost:5173
 ```
@@ -141,6 +150,7 @@ src/
 │   ├── Button.jsx      # Botão customizado
 │   ├── Card.jsx        # Container com glassmorphism
 │   ├── LoadingSpinner.jsx
+│   ├── MarkdownRenderer.jsx # Renderizador de markdown
 │   ├── Modal.jsx       # Modal responsivo
 │   ├── PublicNavbar.jsx # Navbar para páginas públicas
 │   └── Sidebar.jsx     # Sidebar para usuários autenticados
@@ -149,6 +159,7 @@ src/
 ├── pages/              # Páginas da aplicação
 │   ├── About.jsx       # Página sobre
 │   ├── Agendamento.jsx # Agendamento de consultas
+│   ├── ChatIA.jsx      # Chat com IA especializada
 │   ├── DashboardPaciente.jsx
 │   ├── DashboardPsicologo.jsx
 │   ├── Home.jsx        # Página inicial
@@ -163,6 +174,7 @@ src/
 ├── routes/             # Configuração de rotas
 │   └── AppRoutes.jsx   # Rotas principais
 ├── services/           # Serviços e APIs
+│   ├── aiService.js    # Serviço de IA
 │   └── mockApi.js      # API mockada
 ├── App.jsx             # Componente principal
 ├── index.css           # Estilos globais Tailwind
@@ -308,6 +320,57 @@ Os dados são armazenados no `localStorage` do navegador:
 - `lunysse_patients` - Pacientes cadastrados
 - `lunysse_appointments` - Agendamentos e sessões
 
+## 🤖 Chat com IA
+
+### Funcionalidades
+
+- **Assistente Especializada**: IA treinada em psicologia clínica
+- **Respostas Estruturadas**: Formatação markdown para melhor legibilidade
+- **Histórico de Conversa**: Contexto mantido durante a sessão
+- **Tratamento de Erros**: Mensagens informativas para problemas de conexão
+- **Interface Moderna**: Design consistente com o sistema
+
+### Configuração
+
+1. **Obtenha um token do Hugging Face**:
+   - Acesse [huggingface.co](https://huggingface.co)
+   - Crie uma conta e gere um token de API
+
+2. **Configure o arquivo .env**:
+   ```bash
+   VITE_HF_TOKEN=seu_token_aqui
+   ```
+
+3. **Modelo Utilizado**:
+   - **Provider**: Novita
+   - **Modelo**: zai-org/GLM-4.5
+   - **Especialização**: Psicologia clínica
+
+### Exemplos de Uso
+
+- "Como lidar com pacientes com ansiedade?"
+- "Técnicas para terapia infantil"
+- "Abordagens para terapia de casal"
+- "Sinais de alerta em depressão"
+- "Orientações sobre aspectos éticos"
+
+### Componentes
+
+#### `ChatIA.jsx`
+- Interface principal do chat
+- Gerenciamento de mensagens e estado
+- Integração com o serviço de IA
+
+#### `MarkdownRenderer.jsx`
+- Renderização de markdown nas respostas
+- Formatação de títulos, listas e código
+- Estilos consistentes com o design system
+
+#### `aiService.js`
+- Integração com Hugging Face Inference API
+- Tratamento de erros e timeouts
+- Configuração de parâmetros do modelo
+
 ## 🎨 Design System
 
 ### Paleta de Cores
@@ -387,6 +450,13 @@ Modal responsivo com overlay.
 </Modal>
 ```
 
+#### `<MarkdownRenderer />`
+Renderizador de markdown para mensagens da IA.
+
+```jsx
+<MarkdownRenderer content={markdownText} />
+```
+
 ### Componentes de Layout
 
 #### `<Sidebar />`
@@ -415,6 +485,7 @@ Indicador de carregamento com tamanhos variados.
 - `/pacientes` - Lista de pacientes (apenas psicólogos)
 - `/pacientes/:id` - Detalhes do paciente
 - `/sessao/:sessionId` - Detalhes da sessão
+- `/chat-ia` - Chat com IA (apenas psicólogos)
 - `/relatorios` - Relatórios (apenas psicólogos)
 
 ### Proteção de Rotas
@@ -446,6 +517,14 @@ const ProtectedRoute = ({ children }) => {
 - **Alertas de Risco**: Baseados em padrões de comportamento
 - **Dados Históricos**: Análise temporal de sessões
 
+### Chat com IA Especializada
+
+- **Assistente Inteligente**: IA especializada em psicologia clínica
+- **Respostas Estruturadas**: Formatação markdown automática
+- **Contexto Mantido**: Histórico de conversa preservado
+- **Sugestões Inteligentes**: Perguntas pré-definidas para facilitar uso
+- **Tratamento de Erros**: Feedback claro sobre problemas de conexão
+
 ### Gestão de Agenda
 
 - **Disponibilidade Individual**: Cada psicólogo tem sua agenda
@@ -474,6 +553,12 @@ npm run preview
 
 # Lint do código
 npm run lint
+
+# Instalar dependências
+npm install
+
+# Instalar dependência da IA
+npm install @huggingface/inference
 ```
 
 ## 🤝 Contribuição

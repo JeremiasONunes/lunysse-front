@@ -20,6 +20,7 @@ import { Relatorios } from '../pages/Relatorios';
 import { Pacientes } from '../pages/Pacientes';
 import { PacienteDetalhes } from '../pages/PacienteDetalhes';
 import { SessaoDetalhes } from '../pages/SessaoDetalhes';
+import { ChatIA } from '../pages/ChatIA';
 import { NotFound } from '../pages/NotFound';
 
 const ProtectedRoute = ({ children }) => {
@@ -126,6 +127,12 @@ export const AppRoutes = () => {
         } />
         
 
+        
+        <Route path="/chat-ia" element={
+          <ProtectedRoute>
+            <ChatIA />
+          </ProtectedRoute>
+        } />
         
         <Route path="/relatorios" element={
           <ProtectedRoute>
