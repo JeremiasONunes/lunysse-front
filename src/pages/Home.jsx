@@ -49,7 +49,7 @@ export const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl overflow-hidden bg-white">
+            <div className="w-32 h-32 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl overflow-hidden bg-white">
               <img src="/logo.png" alt="Lunysse" className="w-full h-full object-cover" />
             </div>
             
