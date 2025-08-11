@@ -22,7 +22,6 @@ const setStorageData = (key, data) => {
 
 // Dados iniciais dos usuários
 const initialUsers = [
-  { id: 1, email: 'psicologo@test.com', password: '123456', type: 'psicologo', name: 'Dr. João Silva', specialty: 'Psicologia Clínica', crp: 'CRP 01/12345' },
   { id: 2, email: 'ana@test.com', password: '123456', type: 'psicologo', name: 'Dra. Ana Costa', specialty: 'Terapia Cognitivo-Comportamental', crp: 'CRP 01/23456' },
   { id: 3, email: 'carlos@test.com', password: '123456', type: 'psicologo', name: 'Dr. Carlos Mendes', specialty: 'Psicologia Infantil', crp: 'CRP 01/34567' },
   { id: 4, email: 'lucia@test.com', password: '123456', type: 'psicologo', name: 'Dra. Lucia Ferreira', specialty: 'Terapia Familiar', crp: 'CRP 01/45678' },
@@ -31,11 +30,6 @@ const initialUsers = [
 
 // Dados iniciais dos pacientes
 const initialPatients = [
-  // Pacientes do Dr. João Silva (ID: 1)
-  { id: 1, name: 'Maria Santos', email: 'maria.santos@email.com', phone: '(11) 99999-1111', birthDate: '1990-05-15', age: 34, status: 'Em tratamento', psychologistId: 1 },
-  { id: 2, name: 'Pedro Oliveira', email: 'pedro.oliveira@email.com', phone: '(11) 99999-2222', birthDate: '1985-08-22', age: 39, status: 'Em tratamento', psychologistId: 1 },
-  { id: 3, name: 'Julia Costa', email: 'julia.costa@email.com', phone: '(11) 99999-3333', birthDate: '1995-12-03', age: 29, status: 'Ativo', psychologistId: 1 },
-  { id: 4, name: 'Roberto Silva', email: 'roberto.silva@email.com', phone: '(11) 99999-4444', birthDate: '1988-07-18', age: 36, status: 'Em tratamento', psychologistId: 1 },
   // Pacientes da Dra. Ana Costa (ID: 2)
   { id: 5, name: 'Fernanda Lima', email: 'fernanda.lima@email.com', phone: '(11) 99999-5555', birthDate: '1992-03-12', age: 32, status: 'Em tratamento', psychologistId: 2 },
   { id: 6, name: 'Lucas Pereira', email: 'lucas.pereira@email.com', phone: '(11) 99999-6666', birthDate: '1987-11-25', age: 37, status: 'Ativo', psychologistId: 2 },
@@ -62,94 +56,6 @@ const generateFutureDate = (daysFromNow) => {
 
 // Dados iniciais dos agendamentos
 const initialAppointments = [
-  // Sessões do Dr. João Silva (ID: 1) - Maria Santos
-  { 
-    id: 1, 
-    patientId: 1, 
-    psychologistId: 1, 
-    date: generateFutureDate(3), 
-    time: '14:00', 
-    status: 'agendado',
-    description: 'Sessão de acompanhamento - Avaliação do progresso',
-    duration: 50,
-    notes: '',
-    fullReport: ''
-  },
-  { 
-    id: 2, 
-    patientId: 1, 
-    psychologistId: 1, 
-    date: generateFutureDate(-7), 
-    time: '14:00', 
-    status: 'concluido',
-    description: 'Sessão inicial - Anamnese',
-    duration: 60,
-    notes: 'Primeira consulta realizada com sucesso.',
-    fullReport: 'Sessão inicial completa com estabelecimento de rapport.'
-  },
-  { 
-    id: 3, 
-    patientId: 1, 
-    psychologistId: 1, 
-    date: generateFutureDate(-14), 
-    time: '15:00', 
-    status: 'concluido',
-    description: 'Continuidade do tratamento',
-    duration: 50,
-    notes: 'Paciente demonstrou boa evolução.',
-    fullReport: 'Progresso significativo observado.'
-  },
-  // Pedro Oliveira
-  { 
-    id: 4, 
-    patientId: 2, 
-    psychologistId: 1, 
-    date: generateFutureDate(-3), 
-    time: '10:00', 
-    status: 'concluido',
-    description: 'Sessão de terapia cognitiva',
-    duration: 50,
-    notes: 'Trabalhamos técnicas de reestruturação cognitiva.',
-    fullReport: 'Sessão focada em pensamentos disfuncionais.'
-  },
-  { 
-    id: 5, 
-    patientId: 2, 
-    psychologistId: 1, 
-    date: generateFutureDate(5), 
-    time: '10:00', 
-    status: 'agendado',
-    description: 'Continuidade do tratamento',
-    duration: 50,
-    notes: '',
-    fullReport: ''
-  },
-  // Julia Costa
-  { 
-    id: 6, 
-    patientId: 3, 
-    psychologistId: 1, 
-    date: generateFutureDate(-10), 
-    time: '16:00', 
-    status: 'concluido',
-    description: 'Avaliação psicológica',
-    duration: 60,
-    notes: 'Avaliação inicial completa.',
-    fullReport: 'Paciente apresenta bom prognóstico.'
-  },
-  // Roberto Silva
-  { 
-    id: 7, 
-    patientId: 4, 
-    psychologistId: 1, 
-    date: generateFutureDate(-5), 
-    time: '09:00', 
-    status: 'cancelado',
-    description: 'Sessão de acompanhamento',
-    duration: 50,
-    notes: 'Paciente cancelou por motivos pessoais.',
-    fullReport: ''
-  },
   
   // Sessões da Dra. Ana Costa (ID: 2)
   { 

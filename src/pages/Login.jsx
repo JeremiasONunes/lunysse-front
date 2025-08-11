@@ -35,14 +35,6 @@ export const Login = () => {
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-dark mb-2">Entrar</h1>
           <p className="text-dark/70">Acesse sua conta no Lunysse</p>
-          
-          {/* Informações de teste */}
-          <div className="mt-4 p-3 bg-accent/10 rounded-lg text-sm">
-            <p className="font-medium text-dark mb-2">Contas de teste:</p>
-            <p className="text-dark/70">Psicólogo: psicologo@test.com</p>
-            <p className="text-dark/70">Paciente: paciente@test.com</p>
-            <p className="text-dark/70">Senha: 123456</p>
-          </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
