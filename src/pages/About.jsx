@@ -69,7 +69,7 @@ export const About = () => {
       {/* Hero Section */}
       <section className="text-center py-12">
         <div className="max-w-4xl mx-auto">
-          <div className="w-24 h-24 bg-gradient-to-br from-light to-accent rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-xl">
+          <div className="w-24 h-24 bg-white rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-xl">
             <img src="/logo.png" alt="Lunysse" className="w-16 h-16 rounded-2xl" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-dark mb-6">

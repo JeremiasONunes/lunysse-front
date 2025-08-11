@@ -53,21 +53,6 @@ const initialPatients = [
   { id: 16, name: 'André Moreira', email: 'andre.moreira@email.com', phone: '(11) 88888-6666', birthDate: '1983-11-09', age: 41, status: 'Ativo', psychologistId: 4 }
 ];
 
-// Inicializar dados se não existirem
-if (!localStorage.getItem(STORAGE_KEYS.USERS)) {
-  setStorageData(STORAGE_KEYS.USERS, initialUsers);
-}
-if (!localStorage.getItem(STORAGE_KEYS.PATIENTS)) {
-  setStorageData(STORAGE_KEYS.PATIENTS, initialPatients);
-}
-if (!localStorage.getItem(STORAGE_KEYS.APPOINTMENTS)) {
-  setStorageData(STORAGE_KEYS.APPOINTMENTS, appointments);
-}
-
-// Obter dados atuais
-const users = getStorageData(STORAGE_KEYS.USERS, initialUsers);
-const patients = getStorageData(STORAGE_KEYS.PATIENTS, initialPatients);
-
 // Gerar datas futuras dinamicamente
 const generateFutureDate = (daysFromNow) => {
   const date = new Date();
@@ -75,7 +60,8 @@ const generateFutureDate = (daysFromNow) => {
   return date.toISOString().split('T')[0];
 };
 
-const appointments = [
+// Dados iniciais dos agendamentos
+const initialAppointments = [
   // Sessões do Dr. João Silva (ID: 1) - Maria Santos
   { 
     id: 1, 
@@ -283,6 +269,22 @@ const appointments = [
 
 ];
 
+// Inicializar dados se não existirem
+if (!localStorage.getItem(STORAGE_KEYS.USERS)) {
+  setStorageData(STORAGE_KEYS.USERS, initialUsers);
+}
+if (!localStorage.getItem(STORAGE_KEYS.PATIENTS)) {
+  setStorageData(STORAGE_KEYS.PATIENTS, initialPatients);
+}
+if (!localStorage.getItem(STORAGE_KEYS.APPOINTMENTS)) {
+  setStorageData(STORAGE_KEYS.APPOINTMENTS, initialAppointments);
+}
+
+// Obter dados atuais
+const users = getStorageData(STORAGE_KEYS.USERS, initialUsers);
+const patients = getStorageData(STORAGE_KEYS.PATIENTS, initialPatients);
+const appointments = getStorageData(STORAGE_KEYS.APPOINTMENTS, initialAppointments);
+
 export const mockApi = {
   async login(email, password) {
     await delay(1000);
@@ -311,7 +313,7 @@ export const mockApi = {
 
   async getAppointments(userId, userType) {
     await delay(500);
-    const currentAppointments = getStorageData(STORAGE_KEYS.APPOINTMENTS, appointments);
+    const currentAppointments = getStorageData(STORAGE_KEYS.APPOINTMENTS, initialAppointments);
     return currentAppointments.filter(apt => 
       userType === 'psicologo' ? apt.psychologistId === userId : apt.patientId === userId
     );
@@ -319,7 +321,7 @@ export const mockApi = {
 
   async createAppointment(appointmentData) {
     await delay(1000);
-    const currentAppointments = getStorageData(STORAGE_KEYS.APPOINTMENTS, appointments);
+    const currentAppointments = getStorageData(STORAGE_KEYS.APPOINTMENTS, initialAppointments);
     const newAppointment = { id: Date.now(), ...appointmentData, status: 'agendado' };
     currentAppointments.push(newAppointment);
     setStorageData(STORAGE_KEYS.APPOINTMENTS, currentAppointments);
@@ -339,7 +341,7 @@ export const mockApi = {
 
   async getAvailableSlots(date, psychologistId) {
     await delay(500);
-    const currentAppointments = getStorageData(STORAGE_KEYS.APPOINTMENTS, appointments);
+    const currentAppointments = getStorageData(STORAGE_KEYS.APPOINTMENTS, initialAppointments);
     const allSlots = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00'];
     const occupiedSlots = currentAppointments
       .filter(apt => apt.date === date && apt.psychologistId === psychologistId && apt.status === 'agendado')
@@ -371,7 +373,7 @@ export const mockApi = {
   async getPatients(psychologistId) {
     await delay(500);
     const currentPatients = getStorageData(STORAGE_KEYS.PATIENTS, initialPatients);
-    const currentAppointments = getStorageData(STORAGE_KEYS.APPOINTMENTS, appointments);
+    const currentAppointments = getStorageData(STORAGE_KEYS.APPOINTMENTS, initialAppointments);
     
     // Filtrar pacientes do psicólogo logado
     const psychologistPatients = currentPatients.filter(patient => patient.psychologistId === psychologistId);
@@ -418,7 +420,7 @@ export const mockApi = {
 
   async getSessionDetails(sessionId) {
     await delay(500);
-    const currentAppointments = getStorageData(STORAGE_KEYS.APPOINTMENTS, appointments);
+    const currentAppointments = getStorageData(STORAGE_KEYS.APPOINTMENTS, initialAppointments);
     const session = currentAppointments.find(apt => apt.id === sessionId);
     if (!session) throw new Error('Sessão não encontrada');
     return session;
@@ -426,7 +428,7 @@ export const mockApi = {
 
   async getReportsData(psychologistId) {
     await delay(500);
-    const currentAppointments = getStorageData(STORAGE_KEYS.APPOINTMENTS, appointments);
+    const currentAppointments = getStorageData(STORAGE_KEYS.APPOINTMENTS, initialAppointments);
     const currentPatients = getStorageData(STORAGE_KEYS.PATIENTS, initialPatients);
     
     const psychologistAppointments = currentAppointments.filter(apt => apt.psychologistId === psychologistId);
