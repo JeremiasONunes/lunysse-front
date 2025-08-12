@@ -1,8 +1,13 @@
 # 🧠 Lunysse - Sistema de Agendamento Psicológico
 
-Sistema web moderno para gestão de consultas psicológicas, desenvolvido com React + Vite, focado em atendimentos voluntários em universidades, ONGs e projetos sociais.
+Sistema web moderno para gestão de consultas psicológicas, desenvolvido com React 19 + Vite, focado em atendimentos voluntários em universidades, ONGs e projetos sociais.
 
 ![Lunysse Logo](public/logo.png)
+
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](CHANGELOG.md)
+[![React](https://img.shields.io/badge/React-19.1.1-61dafb.svg)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-7.1.0-646cff.svg)](https://vitejs.dev/)
+[![Tailwind](https://img.shields.io/badge/Tailwind-4.1.11-38bdf8.svg)](https://tailwindcss.com/)
 
 ## 📋 Índice
 
@@ -56,21 +61,24 @@ O **Lunysse** é uma plataforma web desenvolvida para facilitar o agendamento e 
 
 - Login seguro com validação
 - Diferenciação automática de perfis (psicólogo/paciente)
-- Tela de login moderna com glassmorphism
-- Registro de novos usuários
+- Duas interfaces de login (padrão e moderna com glassmorphism)
+- Registro de novos usuários com validação
+- Contexto global de autenticação
+- Proteção de rotas por perfil
 
 ## 🛠 Tecnologias
 
 ### Frontend
-- **React 18** - Biblioteca principal
-- **Vite** - Build tool e dev server
-- **React Router DOM** - Roteamento
-- **Tailwind CSS v4** - Framework CSS
-- **Framer Motion** - Animações
-- **Lucide React** - Ícones
-- **Recharts** - Gráficos e visualizações
-- **React Hot Toast** - Notificações
-- **@huggingface/inference** - Integração com IA
+- **React 19.1.1** - Biblioteca principal
+- **Vite 7.1.0** - Build tool e dev server
+- **React Router DOM 7.8.0** - Roteamento
+- **Tailwind CSS 4.1.11** - Framework CSS moderno
+- **Framer Motion 12.23.12** - Animações fluidas
+- **Lucide React 0.539.0** - Ícones modernos
+- **Recharts 3.1.2** - Gráficos e visualizações
+- **Chart.js 4.5.0** - Gráficos alternativos
+- **React Hot Toast 2.5.2** - Notificações
+- **@huggingface/inference 4.6.1** - Integração com IA
 
 ### Persistência
 - **LocalStorage** - Armazenamento local dos dados
@@ -147,30 +155,30 @@ http://localhost:5173
 ```
 src/
 ├── components/          # Componentes reutilizáveis
-│   ├── Button.jsx      # Botão customizado
+│   ├── Button.jsx      # Botão customizado com variantes
 │   ├── Card.jsx        # Container com glassmorphism
-│   ├── LoadingSpinner.jsx
-│   ├── MarkdownRenderer.jsx # Renderizador de markdown
-│   ├── Modal.jsx       # Modal responsivo
+│   ├── Input.jsx       # Input com validação e show/hide password
+│   ├── LoadingSpinner.jsx # Spinner de carregamento
+│   ├── MarkdownRenderer.jsx # Renderizador de markdown para IA
+│   ├── Modal.jsx       # Modal responsivo com overlay
 │   ├── PublicNavbar.jsx # Navbar para páginas públicas
-│   └── Sidebar.jsx     # Sidebar para usuários autenticados
+│   └── Sidebar.jsx     # Sidebar adaptativa para usuários autenticados
 ├── context/            # Contextos React
 │   └── AuthContext.jsx # Contexto de autenticação
 ├── pages/              # Páginas da aplicação
-│   ├── About.jsx       # Página sobre
-│   ├── Agendamento.jsx # Agendamento de consultas
-│   ├── ChatIA.jsx      # Chat com IA especializada
-│   ├── DashboardPaciente.jsx
-│   ├── DashboardPsicologo.jsx
-│   ├── Home.jsx        # Página inicial
+│   ├── About.jsx       # Página sobre o projeto
+│   ├── Agendamento.jsx # Sistema de agendamento (pacientes)
+│   ├── ChatIA.jsx      # Chat com IA especializada (psicólogos)
+│   ├── DashboardPaciente.jsx # Dashboard para pacientes
+│   ├── DashboardPsicologo.jsx # Dashboard para psicólogos
+│   ├── Home.jsx        # Página inicial pública
 │   ├── Login.jsx       # Login padrão
-│   ├── LunysseLogin.jsx # Login moderno
-│   ├── NotFound.jsx    # Página 404
-│   ├── PacienteDetalhes.jsx
-│   ├── Pacientes.jsx   # Lista de pacientes
-│   ├── Register.jsx    # Cadastro
-│   ├── Relatorios.jsx  # Relatórios e analytics
-│   └── SessaoDetalhes.jsx
+│   ├── NotFound.jsx    # Página 404 personalizada
+│   ├── PacienteDetalhes.jsx # Detalhes e histórico do paciente
+│   ├── Pacientes.jsx   # Lista de pacientes (psicólogos)
+│   ├── Register.jsx    # Cadastro de usuários
+│   ├── Relatorios.jsx  # Relatórios e analytics (psicólogos)
+│   └── SessaoDetalhes.jsx # Detalhes e gestão de sessões
 ├── routes/             # Configuração de rotas
 │   └── AppRoutes.jsx   # Rotas principais
 ├── services/           # Serviços e APIs
@@ -332,19 +340,21 @@ Os dados são armazenados no `localStorage` do navegador:
 
 ### Configuração
 
-1. **Obtenha um token do Hugging Face**:
-   - Acesse [huggingface.co](https://huggingface.co)
-   - Crie uma conta e gere um token de API
+1. **Token do Hugging Face já configurado**:
+   - O projeto já possui um token configurado no arquivo `.env`
+   - Para usar seu próprio token, substitua o valor em `VITE_HF_TOKEN`
 
-2. **Configure o arquivo .env**:
-   ```bash
-   VITE_HF_TOKEN=seu_token_aqui
-   ```
-
-3. **Modelo Utilizado**:
+2. **Modelo Utilizado**:
    - **Provider**: Novita
    - **Modelo**: zai-org/GLM-4.5
    - **Especialização**: Psicologia clínica
+   - **Parâmetros**: max_tokens: 1500, temperature: 0.7
+
+3. **Funcionalidades da IA**:
+   - Respostas formatadas em markdown
+   - Contexto de conversa mantido (últimas 10 mensagens)
+   - Orientações baseadas em evidências científicas
+   - Tratamento de erros específicos (token inválido, rate limit, conexão)
 
 ### Exemplos de Uso
 
@@ -551,14 +561,11 @@ npm run build
 # Preview da build
 npm run preview
 
-# Lint do código
+# Lint do código (ESLint 9.32.0)
 npm run lint
 
 # Instalar dependências
 npm install
-
-# Instalar dependência da IA
-npm install @huggingface/inference
 ```
 
 ## 🤝 Contribuição
@@ -587,15 +594,29 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 - **Design**: [Nome do Designer]
 - **Consultoria Psicológica**: [Nome do Consultor]
 
+## 📚 Documentação Adicional
+
+- **[CHANGELOG.md](CHANGELOG.md)** - Histórico de versões e mudanças
+- **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** - Arquitetura do sistema
+- **[docs/DATABASE.md](docs/DATABASE.md)** - Modelo de dados e ER
+- **[docs/API.md](docs/API.md)** - Documentação da API
+- **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)** - Guia de deploy
+
+## 🔄 Versão Atual
+
+**v1.0.0** - Sistema completo com todas as funcionalidades principais implementadas.
+
+Veja o [CHANGELOG.md](CHANGELOG.md) para detalhes completos das funcionalidades e melhorias.
+
 ## 📞 Contato
 
-- **Email**: contato@lunysse.com
-- **Website**: https://lunysse.com
-- **GitHub**: https://github.com/seu-usuario/sistema-agendamento-psicologico
+- **GitHub**: https://github.com/JeremiasONunes/sistema-agendamento-psicologico
+- **Desenvolvedor**: Jeremias Nunes
 
 ---
 
 <div align="center">
   <p>Desenvolvido com ❤️ para facilitar o acesso à saúde mental</p>
-  <p><strong>Lunysse - Sistema de Agendamento Psicológico</strong></p>
+  <p><strong>Lunysse v1.0.0 - Sistema de Agendamento Psicológico</strong></p>
+  <p>React 19 • Vite 7 • Tailwind CSS 4 • Hugging Face AI</p>
 </div>
