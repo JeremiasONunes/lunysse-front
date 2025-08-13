@@ -68,10 +68,9 @@ Desenvolver competências em comunicação visual aplicando framework de design 
 
 **Atividades:**  
 • Definição da paleta de cores do Lunysse com base em teoria das cores  
-• Configuração do sistema tipográfico usando Inter e Nunito  
-• Criação de grid system de 12 colunas para layouts responsivos  
+• Configuração do sistema tipográfico usando Inter e Nunito    
 • Aplicação prática dos princípios Gestalt em wireframes  
-• Workshop de hierarquia visual para dashboards médicos
+• definição de hierarquia visual para dashboards
 
 **Indicador trabalhado:**  
 ✔️ Indicador 1 - Cria imagens, layouts e animações otimizadas para website
@@ -82,14 +81,14 @@ A aula desenvolve o framework visual do projeto, estabelecendo padrões de comun
 ### 🎓 Aula 3 – Componentes Visuais: Ícones, Menus e Cards
 
 **Objetivo:**  
-Projetar e especificar componentes visuais reutilizáveis seguindo padrões modernos de interface para sistemas de saúde.
+Projetar e especificar componentes visuais reutilizáveis seguindo padrões modernos de interface para o sistemas.
 
 **Atividades:**  
 • Mapeamento e design de ícones SVG para sidebar do Lunysse  
 • Criação de sistema de navegação (menus e barra de navegação)  
-• Design de cards com efeito glassmorphism para dados de pacientes  
+• Design de cards.  
 • Prototipagem de formulários de agendamento e tabelas de sessões  
-• Workshop colaborativo de design system
+• aplicação de design system
 
 **Indicador trabalhado:**  
 ✔️ Indicador 1 - Cria imagens, layouts e animações otimizadas para website
@@ -100,40 +99,38 @@ Esta aula foca na criação de componentes visuais que seguem padrões e tendên
 ### 🎓 Aula 4 – Tratamento de Imagem Avançado
 
 **Objetivo:**  
-Dominar técnicas avançadas de tratamento e otimização de imagens para aplicações web profissionais.
+Aperfeiçoar o uso de princípios de design e técnicas avançadas de edição para criar imagens visualmente atrativas, coerentes com a identidade visual do projeto e otimizadas para web.
 
 **Atividades:**  
-• Laboratório de seleção e recorte avançado usando máscaras  
-• Workshop de retoque e ajustes para imagens de perfil de usuários  
-• Criação de sprites otimizados para ícones do sistema  
-• Aplicação de filtros e efeitos para elementos visuais  
-• Automação de exportação com ações personalizadas  
-• Otimização para diferentes densidades de tela
+• Análise de referências visuais e definição de paleta de cores coerente com o projeto
+• Laboratório de composição e enquadramento para imagens de destaque e banners
+• Aplicação de princípios de Gestalt e tipografia em elementos visuais
+• Workshop de retoque estético e padronização para imagens de perfil
+• Criação de ícones e sprites respeitando a hierarquia visual e legibilidade
+• Otimização de imagens mantendo a integridade estética em diferentes densidades de tela
 
 **Indicador trabalhado:**  
 ✔️ Indicador 1 - Cria imagens, layouts e animações otimizadas para website
 
 **Descrição alinhada ao indicador:**  
-A aula aprofunda técnicas de tratamento de imagem que resultam em assets otimizados e profissionais, alinhados com padrões de qualidade do mercado.
+A aula combina fundamentos de design com técnicas avançadas de edição, garantindo que os elementos visuais sejam esteticamente harmoniosos, funcionais e otimizados para uso profissional em interfaces web.
 
-### 🎓 Aula 5 – Design Responsivo e Animações Web
+### 🎓 Aula 5 –finalização do prptótipo
 
 **Objetivo:**  
-Implementar conceitos de design responsivo e criar animações web otimizadas seguindo tendências atuais de mercado.
+finalizar o protótipo de alta fidelidade do projeto lunysse seguindo toda a orientação.
 
 **Atividades:**  
-• Criação de protótipos responsivos do Lunysse em 3 breakpoints  
-• Design de animações CSS para transições e micro-interações  
-• Workshop de mobile-first design para dashboards médicos  
+• Criação de protótipos de alta fidelidade do Lunysse no canva    
 • Implementação de animações de loading e feedback visual  
-• Testes de usabilidade em dispositivos móveis  
-• Análise de tendências de animação em aplicações de saúde
+• Testes de usabilidade  
+• refinamento do protótipo de acordo com feedback levantados em sala de aula.
 
 **Indicador trabalhado:**  
 ✔️ Indicador 1 - Cria imagens, layouts e animações otimizadas para website
 
 **Descrição alinhada ao indicador:**  
-Esta aula integra design responsivo e animações, completando o ciclo de criação de layouts otimizados que seguem as mais recentes tendências de mercado em UX/UI.
+Esta aula finaliza a primeira parte da uc 01, completando o ciclo de criação de layouts prototipados que seguem as mais recentes tendências de mercado em UX/UI.
 
 ---
 
