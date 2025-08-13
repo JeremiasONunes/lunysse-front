@@ -1,248 +1,164 @@
-# PLANO DE TRABALHO DOCENTE 
+# PLANO DE TRABALHO DOCENTE  
 
-## MODELO PEDAGÓGICO SENAC 
+## MODELO PEDAGÓGICO SENAC  
 
 **Curso:** Desenvolvedor Full Stack  
 **Carga Horária Total:** 108h  
 **Carga Horária da UC:** 108h  
 
-**Docente:** Jeremias O Nunes 
+**Docente:** Jeremias O Nunes  
 
 ---
 
-## PLANO DE AULA – Imagem Digital: Conceitos Básicos e Formatos
+## PLANO DE AULA – Imagem Digital: Conceitos Básicos e Formatos  
 
 📌 **Disciplina:** Construir aplicações front-end  
 👨🏫 **Mentor(a):** Jeremias O Nunes  
-📆 **Data:** Aula 1 - Parte 1  
-⏰ **Duração:** 4 horas  
+📆 **Data:** Aula 01  
+⏰ **Duração:** 4h  
 
 ---
 
-## 📖 Planejamento
+## 📖 Planejamento  
 
-### 📌 Conteúdo Formativo
+### 📌 Conteúdo Formativo  
+- Conceitos de imagem digital (vetor vs bitmap)  
+- Formatos de imagem para web (PNG, JPEG, SVG, GIF, WebP)  
+- Unidades de medida (px, em, rem, %)  
+- Densidade de pixels (PPI/DPI) e taxa de bits  
+- Conceitos de favicon e imagens responsivas  
 
-- Conceitos fundamentais de imagem digital: vetor vs bitmap
-- Formatos de imagem para web: PNG, JPEG, SVG, GIF
-- Unidades de medida: pixels, DPI, densidade de pixels
-- Taxa de bits e impacto na performance web
-- Otimização de assets para o Sistema Lunysse
-- Preparação de ícones e elementos visuais
+### 🎯 Objetivo Geral  
+Capacitar o aluno a compreender e aplicar conceitos fundamentais de imagem digital, diferenciando formatos e otimizando assets para projetos web, com foco no projeto Lunysse.  
 
-### 🎯 Objetivo Geral
+### 💡 Habilidades e Competências  
+✅ Interpretar requisitos visuais do projeto  
+✅ Selecionar formatos adequados para diferentes contextos  
+✅ Otimizar imagens para web mantendo qualidade visual  
+✅ Criar assets visuais consistentes com identidade do projeto  
 
-Capacitar o aluno a compreender e aplicar conceitos fundamentais de imagem digital, diferenciando formatos apropriados para web e otimizando assets visuais para o projeto Sistema Lunysse, estabelecendo as bases técnicas para criação de interfaces modernas e performáticas.
-
-### 💡 Habilidades e Competências
-
-✅ **Interpretar requisitos de projetos** - Analisar necessidades visuais do Sistema Lunysse  
-✅ **Manipular imagens no padrão RGB** - Trabalhar com cores digitais para web  
-✅ **Organizar conteúdo visual para web** - Estruturar assets de forma eficiente  
-✅ **Utilizar editor de código** - Integrar assets otimizados no projeto  
-
-### 📌 Materiais Necessários
-
+### 📌 Materiais Necessários  
 📌 Computadores com acesso à internet  
-📌 Software de design (Figma, GIMP ou Photoshop)  
-📌 Editor de código (VS Code)  
-📌 Navegadores web (Chrome, Firefox, Safari)  
-📌 Assets do Sistema Lunysse (logo, ícones base)  
-📌 Ferramentas online: TinyPNG, SVGOMG, Favicon Generator  
-📌 Projetor para demonstrações  
+📌 Figma ou Adobe Photoshop (ou GIMP/Krita como alternativas)  
+📌 Arquivos de logo e ícones do Sistema Lunysse  
+📌 Ferramentas de compressão de imagens (TinyPNG, Squoosh)  
 
 ---
 
-## 🎓 Estratégias de Ensino e Aprendizagem
+## 🎓 Estratégias de Ensino e Aprendizagem  
 
-### Introdução e Contextualização (30 min)
-
-**Metodologia Ativa - Problematização:**
-Iniciaremos com uma análise crítica de websites de saúde digital existentes, identificando problemas visuais comuns:
-- "Por que alguns sites carregam lentamente?"
-- "Como a qualidade visual impacta a confiança em sistemas de saúde?"
-- "Qual a diferença entre o logo do Google (SVG) e uma foto de perfil (JPEG)?"
-
-**Contextualização do Sistema Lunysse:**
-Apresentação do desafio real: criar uma plataforma visual moderna para agendamento psicológico que seja rápida, acessível e profissional.
+### Introdução e Contextualização (30 min)  
+**Metodologia Ativa – Aprendizagem Baseada em Projetos (ABP):**  
+Exibição de dois exemplos de sistemas web: um com imagens otimizadas e outro com assets mal configurados. Discussão em grupo sobre impacto visual e tempo de carregamento. Conexão com a necessidade do Lunysse ser rápido, acessível e profissional.  
 
 ---
 
-### **Tópico 1: Conceitos de Vetor vs Bitmap (45 min)**
+### **Tópico 1: Conceitos de Imagem Digital (40 min)**  
+#### 📌 Demonstração Prática:  
+**Metodologia Ativa – Sala de Aula Invertida:**  
+Comparação prática entre vetor e bitmap usando o logo do Lunysse. Mostrar a diferença de escalabilidade e nitidez.  
 
-#### 📌 Demonstração Prática:
-**Metodologia Ativa - Demonstração Interativa:**
-- Abrir ferramenta e mostrar ao vivo a diferença entre:
-  - Desenhar um ícone vetorial (círculo, quadrado)
-  - Importar uma foto bitmap
-  - Fazer zoom extremo em ambos para mostrar a diferença
-- Demonstrar como o logo do Lunysse deve ser vetorial para diferentes tamanhos
+#### 📌 Atividade Prática 1:  
+🎯 **Objetivo:** Identificar e classificar imagens como vetor ou bitmap.  
+📝 **Tarefa:**  
+- **Metodologia Ativa – Mão na Massa:**  
+Abrir diferentes imagens do Lunysse no editor e inspecionar propriedades (formato, tamanho, resolução).  
 
-#### 📌 Atividade Prática 1:
-🎯 **Objetivo:** Identificar e classificar diferentes tipos de imagem  
-📝 **Tarefa:** 
-- **Metodologia Ativa - Aprendizagem Baseada em Problemas:**
-- Em duplas, analisar 10 elementos visuais do Sistema Lunysse:
-  - Logo principal
-  - Ícones da sidebar (Dashboard, Pacientes, Agendamento, etc.)
-  - Gráficos de relatórios
-  - Botões e elementos de interface
-- Classificar cada elemento como "Vetor" ou "Bitmap" e justificar
-- Apresentar conclusões para a turma (5 min por dupla)
-
-**Parte do Projeto Construída:** Análise e catalogação de todos os assets visuais necessários para o Sistema Lunysse
+**Parte do Projeto Construída:** Classificação e organização dos assets originais do Lunysse por tipo e formato.  
 
 ---
 
-### **Tópico 2: Formatos de Imagem para Web (60 min)**
+### **Tópico 2: Formatos e Otimização (50 min)**  
+#### 📌 Demonstração Prática:  
+**Metodologia Ativa – Demonstração Guiada:**  
+Mostrar compressão de imagens no TinyPNG e conversão para WebP, destacando diferenças de tamanho e qualidade.  
 
-#### 📌 Demonstração Prática:
-**Metodologia Ativa - Experimentação Guiada:**
-- Pegar o logo do Lunysse e salvar em 3 formatos diferentes
-- Comparar tamanhos de arquivo e qualidade visual
-- Mostrar quando usar cada formato:
-  - **PNG:** Logo com transparência, ícones com poucos cores
-  - **SVG:** Ícones da interface, logo responsivo
-  - **GIF:** Animações de loading (se necessário)
+#### 📌 Atividade Prática 2:  
+🎯 **Objetivo:** Converter imagens do Lunysse para formatos mais adequados.  
+📝 **Tarefa:**  
+- **Metodologia Ativa – Aprendizagem Colaborativa:**  
+Em duplas, converter PNGs para WebP, ajustar JPEGs para web e exportar ícones em SVG.  
 
-#### 📌 Atividade Prática 2:
-🎯 **Objetivo:** Otimizar assets reais do Sistema Lunysse  
-📝 **Tarefa:**
-- **Metodologia Ativa - Projeto Hands-on:**
-- Cada aluno recebe um conjunto de assets "problemáticos":
-  - Logo em JPEG (deveria ser SVG)
-  - Ícone em PNG grande (deveria ser SVG otimizado)
-  - Foto de perfil em PNG (deveria ser JPEG)
-- Converter para formatos apropriados usando ferramentas online
-- Comparar tamanhos antes/depois
-- Documentar economia de bytes obtida
-
-**Parte do Projeto Construída:** Biblioteca de assets otimizados do Sistema Lunysse com formatos corretos
+**Parte do Projeto Construída:** Assets otimizados prontos para uso no front-end do Lunysse.  
 
 ---
 
-### **Tópico 3: Densidade de Pixels e Responsividade (45 min)**
+### **Tópico 3: Densidade de Pixels e Favicons (30 min)**  
+#### 📌 Demonstração Prática:  
+**Metodologia Ativa – Resolução de Problemas:**  
+Criar favicons em múltiplas resoluções e testar no navegador.  
 
-#### 📌 Demonstração Prática:
-**Metodologia Ativa - Investigação Prática:**
-- Mostrar o mesmo ícone em diferentes densidades:
-  - Tela normal (1x)
-  - Tela Retina (2x)
-  - Tela 4K (3x)
-- Demonstrar como criar favicons em múltiplas resoluções
-- Explicar viewport units vs pixels absolutos
+#### 📌 Atividade Prática 3:  
+🎯 **Objetivo:** Criar favicon do Lunysse em resoluções para desktop e mobile.  
+📝 **Tarefa:**  
+- **Metodologia Ativa – Projeto Real:**  
+Produzir favicons (.ico e .png) em tamanhos 16x16, 32x32, 48x48, 64x64 e 180x180 (Apple Touch Icon).  
 
-#### 📌 Atividade Prática 3:
-🎯 **Objetivo:** Criar sistema de ícones responsivo  
-📝 **Tarefa:**
-- **Metodologia Ativa - Design Thinking:**
-- Grupos de 3-4 alunos criam conjunto completo de favicons para o Lunysse:
-  - 16x16, 32x32, 48x48, 180x180, 192x192, 512x512
-- Testar em diferentes dispositivos (celular, tablet, desktop)
-- Usar Favicon Generator para automatizar processo
-- Implementar no código HTML básico
-
-**Parte do Projeto Construída:** Sistema completo de favicons e ícones responsivos implementados
+**Parte do Projeto Construída:** Favicons padronizados para o projeto.  
 
 ---
 
-### **Tópico 4: Taxa de Bits e Performance (30 min)**
+### Encerramento e Reflexão (30 min)  
+#### 📌 Discussão em grupo:  
+**Metodologia Ativa – Debate Dirigido:**  
+Reflexão sobre como a otimização de imagens afeta desempenho, SEO e experiência do usuário.  
 
-#### 📌 Demonstração Prática:
-**Metodologia Ativa - Análise de Performance:**
-- Usar Chrome DevTools para medir tempo de carregamento
-- Comparar página com imagens otimizadas vs não otimizadas
-- Mostrar impacto real na experiência do usuário
-
-#### 📌 Atividade Prática 4:
-🎯 **Objetivo:** Otimizar performance de carregamento  
-📝 **Tarefa:**
-- **Metodologia Ativa - Gamificação:**
-- "Desafio da Otimização": cada aluno recebe uma página HTML com imagens pesadas
-- Meta: reduzir tempo de carregamento em 50%
-- Usar TinyPNG, compressão JPEG, conversão para WebP
-- Ranking dos melhores resultados
-
-**Parte do Projeto Construída:** Página de login do Sistema Lunysse otimizada para carregamento rápido
+#### 📌 Desafio para a próxima aula:  
+**Metodologia Ativa – Aprendizagem Baseada em Problemas:**  
+Criar uma proposta de paleta de cores para o Lunysse usando teoria das cores e preparar um moodboard para apresentação.  
 
 ---
 
-### Encerramento e Reflexão (30 min)
-
-#### 📌 Discussão em grupo:
-**Metodologia Ativa - Círculo de Aprendizagem:**
-- "Como a otimização de imagens impacta a experiência do usuário em sistemas de saúde?"
-- "Quais critérios usar para escolher formatos de imagem em projetos reais?"
-- "Como explicar para um cliente a importância da otimização visual?"
-
-#### 📌 Desafio para a próxima aula:
-**Metodologia Ativa - Aprendizagem Baseada em Projetos:**
-- Pesquisar 3 aplicações de saúde digital (Telemedicina, prontuário eletrônico, etc.)
-- Analisar suas escolhas visuais: paleta de cores, tipografia, ícones
-- Preparar apresentação de 2 minutos sobre insights encontrados
-- Trazer ideias para aplicar no Sistema Lunysse
+### 📌 Objetos de Aprendizagem  
+📝 **Materiais Didáticos Utilizados:**  
+- Slides com conceitos e exemplos  
+- Banco de imagens do projeto Lunysse  
+- Ferramentas de compressão de imagens online  
+- Documentação de boas práticas de performance web  
 
 ---
 
-### 📌 Objetos de Aprendizagem
+## 🎯 Avaliação  
 
-📝 **Materiais Didáticos Utilizados:**
-- Apresentação interativa sobre formatos de imagem
-- Assets originais do Sistema Lunysse para prática
-- Ferramentas online de otimização (TinyPNG, SVGOMG)
-- Templates HTML para testes de performance
-- Checklist de otimização de imagens para web
-- Biblioteca de ícones médicos para referência
+### **Avaliação Formativa (Durante a aula):**  
+✅ Participação nas discussões  
+✅ Organização dos arquivos do projeto  
+✅ Conversão correta para formatos adequados  
+✅ Aplicação das resoluções corretas nos favicons  
 
----
+### **Avaliação Somativa (Entregáveis):**  
+✅ Conjunto de assets otimizados  
+✅ Favicons em múltiplas resoluções  
+✅ Relatório breve sobre escolhas de formato e compressão  
 
-## 🎯 Avaliação
-
-### **Avaliação Formativa (Durante a aula):**
-✅ **Participação ativa nas discussões** - Contribuições relevantes sobre otimização  
-✅ **Qualidade das otimizações realizadas** - Redução efetiva de tamanho mantendo qualidade  
-✅ **Colaboração em atividades em grupo** - Trabalho efetivo em equipe  
-✅ **Aplicação prática dos conceitos** - Uso correto de formatos apropriados  
-
-### **Avaliação Somativa (Entregáveis):**
-✅ **Portfolio de assets otimizados** - Biblioteca completa para o Sistema Lunysse  
-✅ **Documentação de otimizações** - Relatório com antes/depois e justificativas  
-✅ **Implementação técnica** - Favicons funcionando corretamente no HTML  
-
-### **Critérios de Qualidade:**
-- **Excelente (9-10):** Assets otimizados com redução >70% mantendo qualidade visual
-- **Bom (7-8):** Assets otimizados com redução >50% e qualidade adequada
-- **Satisfatório (6-7):** Assets otimizados com redução >30% e qualidade aceitável
-- **Insatisfatório (<6):** Otimizações inadequadas ou qualidade comprometida
+### **Critérios de Qualidade:**  
+- **Excelente (9-10):** Assets otimizados sem perda perceptível de qualidade, formatos corretos, documentação completa  
+- **Bom (7-8):** Assets otimizados com mínima perda visual, formatos corretos  
+- **Satisfatório (6-7):** Assets parcialmente otimizados ou com formatos não ideais  
+- **Insatisfatório (<6):** Não entrega ou não aplica conceitos ensinados  
 
 ---
 
-## 🎓 Conclusão
+## 🎓 Conclusão  
 
-### **Aprendizado Esperado:**
+### **Aprendizado Esperado:**  
+🎯 **Conhecimento Técnico:**  
+- Diferença entre vetor e bitmap  
+- Formatos de imagem e seus usos  
+- Conceito de PPI/DPI e taxa de bits  
 
-Ao final desta aula, os alunos serão capazes de:
+🎯 **Aplicação Prática:**  
+- Otimizar assets para web  
+- Criar favicons padronizados  
+- Organizar biblioteca de imagens do projeto  
 
-🎯 **Conhecimento Técnico:**
-- Distinguir claramente entre imagens vetoriais e bitmap
-- Escolher formatos apropriados para diferentes tipos de conteúdo visual
-- Calcular e otimizar taxa de bits para performance web
-- Implementar sistemas de ícones responsivos
+🎯 **Competências Profissionais:**  
+- Atenção a detalhes técnicos  
+- Compromisso com performance web  
+- Capacidade de trabalhar com padrões de mercado  
 
-🎯 **Aplicação Prática:**
-- Otimizar assets visuais do Sistema Lunysse com critérios técnicos
-- Implementar favicons funcionais em projetos web
-- Medir e melhorar performance de carregamento de imagens
-- Documentar decisões técnicas de otimização
+### **Conexão com o Projeto:**  
+Todos os assets produzidos nesta aula serão usados no desenvolvimento do front-end do Sistema Lunysse.  
 
-🎯 **Competências Profissionais:**
-- Tomar decisões informadas sobre assets visuais em projetos reais
-- Comunicar benefícios da otimização para clientes e equipes
-- Estabelecer workflows eficientes de preparação de assets
-- Aplicar boas práticas de performance desde o início do projeto
-
-### **Conexão com o Projeto:**
-Esta aula estabelece as fundações visuais do Sistema Lunysse, criando uma biblioteca de assets otimizados que será utilizada em todas as aulas subsequentes. Os alunos saem com componentes visuais reais e funcionais que darão vida ao projeto.
-
-### **Preparação para Próxima Aula:**
-Os assets otimizados criados hoje serão integrados ao framework de comunicação visual na Aula 2, onde trabalharemos com paleta de cores, tipografia e grid system do Sistema Lunysse.
+### **Preparação para Próxima Aula:**  
+Moodboard e proposta de paleta de cores para definir a identidade visual.  

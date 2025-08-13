@@ -1,312 +1,181 @@
-# PLANO DE TRABALHO DOCENTE 
+# PLANO DE TRABALHO DOCENTE  
 
-## MODELO PEDAGÓGICO SENAC 
+## MODELO PEDAGÓGICO SENAC  
 
 **Curso:** Desenvolvedor Full Stack  
-**Carga Horária Total:** 108h  
-**Carga Horária da UC:** 108h  
+**Carga Horária Total:** 108 horas  
+**Carga Horária da UC:** 108 horas  
 
-**Docente:** Jeremias O Nunes 
+**Docente:** Jeremias O Nunes  
 
 ---
 
-## PLANO DE AULA – Componentes Visuais: Ícones, Menus e Cards
+## PLANO DE AULA – Componentes Visuais: Ícones, Menus e Cards (Protótipo no Canva)  
 
 📌 **Disciplina:** Construir aplicações front-end  
 👨🏫 **Mentor(a):** Jeremias O Nunes  
-📆 **Data:** Aula 3 - Parte 1  
-⏰ **Duração:** 4 horas  
+📆 **Data:** Aula 03  
+⏰ **Duração:** 4h  
 
 ---
 
-## 📖 Planejamento
+## 📖 Planejamento  
 
-### 📌 Conteúdo Formativo
+### 📌 Contextualização e Conexão com Aula Anterior  
+Nesta aula, os alunos **dão continuidade ao protótipo do Sistema Lunysse iniciado na Aula 2**, que abordou **paleta de cores, tipografia, princípios de Gestalt e hierarquia visual**.  
+Agora, o foco é **desenvolver componentes visuais reutilizáveis** como ícones, menus, cards, formulários e tabelas, garantindo **consistência e identidade visual** em todas as telas do protótipo no Canva.  
 
-- Design de ícones SVG para sistemas de saúde digital
-- Criação de sistemas de navegação: menus e barras de navegação
-- Design de cards com glassmorphism para dados médicos
-- Prototipagem de formulários de agendamento e cadastro
-- Criação de tabelas para visualização de sessões e relatórios
-- Estabelecimento de design system com componentes reutilizáveis
+### 📌 Conteúdo Formativo  
+- Design e padronização de ícones  
+- Criação de menus e barra de navegação  
+- Design de cards e componentes reutilizáveis  
+- Prototipagem de formulários e tabelas  
+- Aplicação do design system do Lunysse  
 
-### 🎯 Objetivo Geral
+### 🎯 Objetivo Geral  
+Projetar e especificar componentes visuais reutilizáveis seguindo padrões modernos de interface para o Sistema Lunysse, garantindo consistência e usabilidade em todas as telas do protótipo iniciado na Aula 2.  
 
-Projetar e especificar componentes visuais reutilizáveis seguindo padrões modernos de interface para sistemas de saúde, criando uma biblioteca de componentes do Sistema Lunysse que seja consistente, acessível e alinhada com as melhores práticas de UX/UI.
+### 💡 Habilidades e Competências  
+✅ Criar ícones, menus e cards coerentes com identidade visual  
+✅ Aplicar princípios de Gestalt e hierarquia visual em componentes  
+✅ Continuar o protótipo do Lunysse no Canva de forma estruturada  
+✅ Documentar componentes dentro do design system  
 
-### 💡 Habilidades e Competências
-
-✅ **Organizar conteúdo visual e textual para web** - Estruturar componentes de forma lógica  
-✅ **Manipular framework** - Criar sistema de componentes reutilizáveis  
-✅ **Utilizar editor de código** - Preparar especificações técnicas para implementação  
-✅ **Colaboração em equipe** - Trabalhar em grupos para criar soluções integradas  
-
-### 📌 Materiais Necessários
-
-📌 Computadores com Figma ou Adobe XD  
-📌 Biblioteca de ícones médicos (Feather, Lucide, Medical Icons)  
-📌 Framework visual criado na Aula 2 (cores, tipografia, grid)  
-📌 Exemplos de componentes de sistemas de saúde  
-📌 Templates de wireframes para diferentes componentes  
-📌 Ferramentas de prototipagem interativa  
-📌 Checklist de acessibilidade para componentes  
+### 📌 Materiais Necessários  
+📌 Computadores ou notebooks com acesso à internet  
+📌 Conta no Canva  
+📌 Protótipo base do Lunysse (criado na Aula 2)  
+📌 Biblioteca de ícones e templates  
+📌 Guia de cores e tipografia do projeto  
 
 ---
 
-## 🎓 Estratégias de Ensino e Aprendizagem
+## 🎓 Estratégias de Ensino e Aprendizagem  
 
-### Introdução e Contextualização (25 min)
-
-**Metodologia Ativa - Análise Comparativa:**
-Apresentação de componentes de 3 sistemas diferentes:
-- **Sistema A:** Componentes inconsistentes, sem padrão
-- **Sistema B:** Design system bem estruturado (ex: Material Design)
-- **Sistema C:** Componentes específicos para saúde (ex: Epic MyChart)
-
-**Questões Problematizadoras:**
-- "Por que um botão 'Agendar Consulta' deve ser diferente de um botão 'Cancelar'?"
-- "Como um ícone pode comunicar função sem texto?"
-- "Qual a diferença entre um card de paciente e um card de sessão?"
-
-**Contextualização do Lunysse:**
-Apresentar o desafio: criar componentes que funcionem tanto para psicólogos (profissionais) quanto para pacientes (leigos), mantendo consistência visual.
+### Introdução e Contextualização (20 min)  
+**Metodologia Ativa – Observação e Discussão:**  
+- Revisão do protótipo criado na Aula 2.  
+- Explicação da importância de **componentes visuais consistentes** para UX/UI.  
+- Apresentação de exemplos de dashboards e sistemas de saúde digital com componentes bem estruturados.  
 
 ---
 
-### **Tópico 1: Sistema de Ícones SVG (55 min)**
+### **Tópico 1: Design de Ícones (40 min)**  
+#### 📌 Demonstração Prática  
+**Metodologia Ativa – Aprendizagem Guiada:**  
+- Mostrar como selecionar ícones coerentes com o tema do Lunysse.  
+- Apresentar princípios de legibilidade e consistência em ícones.  
 
-#### 📌 Demonstração Prática:
-**Metodologia Ativa - Design Thinking:**
-- Mapear todas as funcionalidades do Sistema Lunysse que precisam de ícones:
-  - **Navegação:** Dashboard, Pacientes, Agendamento, Relatórios, Chat IA
-  - **Ações:** Adicionar, Editar, Excluir, Visualizar, Filtrar
-  - **Status:** Agendado, Concluído, Cancelado, Em andamento
-  - **Comunicação:** Notificações, Mensagens, Alertas
-- Demonstrar criação de ícone SVG do zero no Figma
-- Mostrar otimização e exportação para web
+#### 📌 Atividade Prática 1  
+🎯 **Objetivo:** Criar e padronizar ícones para sidebar do Lunysse.  
+📝 **Tarefa:**  
+- Selecionar ícones do Canva ou criar personalizados.  
+- Aplicar cores e estilo do design system.  
+- Inserir no protótipo nas posições corretas da sidebar.  
 
-#### 📌 Atividade Prática 1:
-🎯 **Objetivo:** Criar biblioteca completa de ícones para o Sistema Lunysse  
-📝 **Tarefa:**
-- **Metodologia Ativa - Workshop Colaborativo:**
-- **Fase 1 - Mapeamento (15 min):**
-  - Grupos de 3-4 alunos mapeiam ícones necessários por categoria
-  - **Grupo 1:** Navegação e menu principal
-  - **Grupo 2:** Ações de usuário (CRUD)
-  - **Grupo 3:** Status e estados do sistema
-  - **Grupo 4:** Comunicação e notificações
-- **Fase 2 - Criação (25 min):**
-  - Cada grupo cria seus ícones seguindo guidelines:
-    - Tamanho: 24x24px base
-    - Estilo: outline, 2px stroke
-    - Cores: usar paleta Lunysse
-- **Fase 3 - Validação (15 min):**
-  - Testar ícones com usuários de outros grupos
-  - Verificar se comunicam função sem texto
-  - Ajustar baseado no feedback
-
-**Parte do Projeto Construída:** Biblioteca completa de ícones SVG otimizados para o Sistema Lunysse
+**Parte do Projeto Construída:** Biblioteca de ícones padronizados para o Lunysse.  
 
 ---
 
-### **Tópico 2: Navegação e Menus (50 min)**
+### **Tópico 2: Criação de Menus e Barra de Navegação (50 min)**  
+#### 📌 Demonstração Prática  
+**Metodologia Ativa – Learning by Doing:**  
+- Mostrar exemplos de menus horizontais e verticais.  
+- Explicar alinhamento, agrupamento e hierarquia dos itens de navegação.  
 
-#### 📌 Demonstração Prática:
-**Metodologia Ativa - Prototipagem ao Vivo:**
-- Criar sidebar do Sistema Lunysse ao vivo no Figma:
-  - Logo no topo
-  - Menu principal com ícones criados
-  - Seção de usuário logado
-  - Estados: ativo, hover, disabled
-- Demonstrar versão mobile (menu hambúrguer)
-- Mostrar navbar para páginas públicas (Home, Sobre, Login)
+#### 📌 Atividade Prática 2  
+🎯 **Objetivo:** Criar o sistema de navegação do Lunysse.  
+📝 **Tarefa:**  
+- Projetar a barra de navegação principal e menus laterais.  
+- Inserir ícones e textos seguindo o design system.  
+- Testar a legibilidade e hierarquia visual.  
 
-#### 📌 Atividade Prática 2:
-🎯 **Objetivo:** Criar sistema de navegação completo e responsivo  
-📝 **Tarefa:**
-- **Metodologia Ativa - Responsive Design Sprint:**
-- **Duplas trabalham em diferentes contextos:**
-  - **Dupla 1-2:** Sidebar para psicólogos (dashboard, pacientes, relatórios)
-  - **Dupla 3-4:** Sidebar para pacientes (dashboard, agendamento, histórico)
-  - **Dupla 5-6:** Navbar pública (home, sobre, login, registro)
-  - **Dupla 7-8:** Menu mobile responsivo (hambúrguer)
-- **Requisitos técnicos:**
-  - Usar ícones criados na atividade anterior
-  - Aplicar estados visuais (normal, hover, active)
-  - Criar versões para 3 breakpoints
-  - Considerar acessibilidade (contraste, tamanho de toque)
-
-**Parte do Projeto Construída:** Sistema de navegação completo e responsivo implementado
+**Parte do Projeto Construída:** Sistema de navegação funcional no protótipo.  
 
 ---
 
-### **Tópico 3: Cards com Glassmorphism (45 min)**
+### **Tópico 3: Design de Cards e Componentes Reutilizáveis (50 min)**  
+#### 📌 Demonstração Prática  
+**Metodologia Ativa – Estudo de Caso:**  
+- Apresentar exemplos de cards de agendamento, indicadores e notificações.  
+- Explicar como padronizar tamanho, borda, sombra e tipografia.  
 
-#### 📌 Demonstração Prática:
-**Metodologia Ativa - Experimentação Visual:**
-- Demonstrar criação de card com efeito glassmorphism:
-  - Background: rgba(255, 255, 255, 0.1)
-  - Backdrop-filter: blur(10px)
-  - Border: 1px solid rgba(255, 255, 255, 0.2)
-  - Box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1)
-- Mostrar diferentes tipos de cards necessários:
-  - Card de paciente (foto, nome, próxima sessão)
-  - Card de sessão (data, status, duração)
-  - Card de KPI (número, descrição, tendência)
+#### 📌 Atividade Prática 3  
+🎯 **Objetivo:** Criar cards reutilizáveis para dashboards e telas do Lunysse.  
+📝 **Tarefa:**  
+- Criar ao menos 3 tipos de cards: métrica, agendamento e alerta.  
+- Aplicar cores, tipografia e ícones do design system.  
+- Inserir no protótipo em posições estratégicas.  
 
-#### 📌 Atividade Prática 3:
-🎯 **Objetivo:** Criar biblioteca de cards para diferentes contextos  
-📝 **Tarefa:**
-- **Metodologia Ativa - Component Library Building:**
-- **Grupos especializados por tipo de card:**
-  - **Grupo 1:** Cards de pacientes (lista, detalhes, resumo)
-  - **Grupo 2:** Cards de sessões (agendadas, concluídas, canceladas)
-  - **Grupo 3:** Cards de KPIs e métricas (dashboard)
-  - **Grupo 4:** Cards de notificações e alertas
-- **Especificações técnicas:**
-  - Aplicar glassmorphism consistente
-  - Usar tipografia e cores do framework
-  - Incluir estados (normal, hover, selected)
-  - Considerar diferentes tamanhos de conteúdo
-- **Validação:**
-  - Testar legibilidade em diferentes backgrounds
-  - Verificar acessibilidade de contraste
-  - Simular com conteúdo real
-
-**Parte do Projeto Construída:** Biblioteca de cards com glassmorphism para todos os contextos do sistema
+**Parte do Projeto Construída:** Cards consistentes e reutilizáveis no protótipo.  
 
 ---
 
-### **Tópico 4: Formulários e Tabelas (40 min)**
+### **Tópico 4: Prototipagem de Formulários e Tabelas (40 min)**  
+#### 📌 Demonstração Prática  
+**Metodologia Ativa – Demonstração Guiada:**  
+- Explicar layout de formulários de agendamento, campos obrigatórios e botões.  
+- Mostrar tabelas de sessões e indicadores de usuário.  
 
-#### 📌 Demonstração Prática:
-**Metodologia Ativa - UX Research Aplicado:**
-- Analisar formulários problemáticos vs bem projetados
-- Demonstrar criação de formulário de agendamento:
-  - Campos obrigatórios vs opcionais
-  - Validação visual em tempo real
-  - Estados de erro e sucesso
-  - Acessibilidade (labels, placeholders, ARIA)
-- Mostrar tabela de sessões com:
-  - Cabeçalhos claros
-  - Ordenação visual
-  - Ações por linha
-  - Responsividade (stack em mobile)
+#### 📌 Atividade Prática 4  
+🎯 **Objetivo:** Prototipar formulários e tabelas do Lunysse.  
+📝 **Tarefa:**  
+- Criar formulário de agendamento com campos e botões.  
+- Criar tabela de sessões com cabeçalho e linhas padronizadas.  
+- Garantir legibilidade e hierarquia visual.  
 
-#### 📌 Atividade Prática 4:
-🎯 **Objetivo:** Criar formulários e tabelas otimizados para UX  
-📝 **Tarefa:**
-- **Metodologia Ativa - User Journey Mapping:**
-- **Cenários específicos por grupo:**
-  - **Grupo 1:** Formulário de cadastro de paciente
-  - **Grupo 2:** Formulário de agendamento de consulta
-  - **Grupo 3:** Tabela de histórico de sessões
-  - **Grupo 4:** Formulário de login e recuperação de senha
-- **Processo de design:**
-  1. Mapear jornada do usuário (5 min)
-  2. Identificar pontos de fricção (5 min)
-  3. Projetar solução otimizada (20 min)
-  4. Testar com outros grupos (10 min)
-- **Critérios de qualidade:**
-  - Mínimo de campos necessários
-  - Feedback visual claro
-  - Acessibilidade completa
-  - Responsividade mobile
-
-**Parte do Projeto Construída:** Formulários e tabelas otimizados para principais fluxos do sistema
+**Parte do Projeto Construída:** Formulários e tabelas integrados ao protótipo.  
 
 ---
 
-### Encerramento e Reflexão (25 min)
+### Encerramento e Reflexão (20 min)  
+#### 📌 Discussão em grupo  
+**Metodologia Ativa – Feedback Coletivo:**  
+- Alunos apresentam seus componentes visuais criados.  
+- Feedback sobre consistência visual, aplicação da Gestalt e usabilidade.  
 
-#### 📌 Apresentação dos Componentes:
-**Metodologia Ativa - Component Showcase:**
-- Cada grupo apresenta seus componentes em 3 minutos
-- Demonstrar funcionamento e justificar decisões de design
-- Outros grupos avaliam usando critérios:
-  - **Consistência:** Segue o framework visual?
-  - **Usabilidade:** É intuitivo de usar?
-  - **Acessibilidade:** Atende padrões WCAG?
-  - **Escalabilidade:** Funciona em diferentes contextos?
-
-#### 📌 Discussão em grupo:
-**Metodologia Ativa - Design Critique:**
-- "Quais componentes são mais críticos para a experiência do usuário?"
-- "Como garantir consistência quando diferentes pessoas implementam os componentes?"
-- "Que ajustes são necessários para melhorar a acessibilidade?"
-
-#### 📌 Desafio para a próxima aula:
-**Metodologia Ativa - Benchmark Research:**
-- Pesquisar técnicas avançadas de tratamento de imagem em sistemas web
-- Encontrar 3 exemplos de otimização de imagens em aplicações de saúde
-- Preparar lista de imagens que o Sistema Lunysse precisará:
-  - Fotos de perfil de usuários
-  - Ícones de status e notificações
-  - Imagens para estados vazios (empty states)
-  - Ilustrações para onboarding
+#### 📌 Desafio para próxima aula  
+- Refinar componentes com base no feedback.  
+- Preparar para integração de imagens e tratamento visual avançado na Aula 4.  
 
 ---
 
-### 📌 Objetos de Aprendizagem
-
-📝 **Materiais Didáticos Utilizados:**
-- Biblioteca de ícones médicos para referência
-- Templates de componentes em diferentes estados
-- Checklist de acessibilidade para componentes web
-- Exemplos de design systems consolidados (Material, Ant Design)
-- Wireframes interativos para teste de usabilidade
-- Guia de glassmorphism com especificações CSS
-- Framework visual completo das aulas anteriores
+### 📌 Objetos de Aprendizagem  
+📝 **Materiais Didáticos Utilizados:**  
+- Protótipo base do Lunysse no Canva  
+- Biblioteca de ícones  
+- Guia de cores e tipografia  
+- Exemplos de dashboards de saúde digital  
+- Templates de cards e formulários  
 
 ---
 
-## 🎯 Avaliação
+## 🎯 Avaliação  
 
-### **Avaliação Formativa (Durante a aula):**
-✅ **Qualidade dos ícones criados** - Clareza comunicativa e otimização técnica  
-✅ **Consistência do sistema de navegação** - Coerência visual e funcional  
-✅ **Aplicação correta do glassmorphism** - Técnica e estética adequadas  
-✅ **Usabilidade dos formulários** - Facilidade de uso e acessibilidade  
+### **Avaliação Formativa (Durante a aula):**  
+✅ Ícones aplicados corretamente e padronizados  
+✅ Menus e barra de navegação consistentes  
+✅ Cards visualmente coerentes e reutilizáveis  
+✅ Formulários e tabelas legíveis e bem organizados  
 
-### **Avaliação Somativa (Entregáveis):**
-✅ **Component Library completa** - Todos os componentes especificados e documentados  
-✅ **Protótipos interativos** - Demonstração de funcionamento dos componentes  
-✅ **Documentação técnica** - Especificações para implementação  
+### **Avaliação Somativa (Entregáveis):**  
+✅ Protótipo do Lunysse atualizado com todos os componentes visuais da aula  
 
-### **Critérios de Qualidade:**
-- **Excelente (9-10):** Componentes consistentes, acessíveis e tecnicamente viáveis
-- **Bom (7-8):** Boa qualidade com pequenos ajustes de consistência necessários
-- **Satisfatório (6-7):** Componentes funcionais mas com oportunidades de melhoria
-- **Insatisfatório (<6):** Componentes inconsistentes ou com problemas de usabilidade
+### **Critérios de Qualidade:**  
+- **Excelente (9-10):** Todos os componentes visuais integrados, consistentes e aplicando Gestalt corretamente  
+- **Bom (7-8):** Componentes consistentes com pequenos ajustes necessários  
+- **Satisfatório (6-7):** Componentes funcionais, mas falta padronização ou hierarquia visual  
+- **Insatisfatório (<6):** Protótipo incompleto ou desorganizado visualmente  
 
 ---
 
-## 🎓 Conclusão
+## 🎓 Conclusão  
 
-### **Aprendizado Esperado:**
+### **Aprendizado Esperado:**  
+- Criar componentes visuais reutilizáveis sem usar código  
+- Aplicar design system de forma consistente no protótipo  
+- Garantir hierarquia visual e legibilidade em dashboards  
+- Continuar o protótipo iniciado na Aula 2, pronto para integração de imagens na próxima aula  
 
-Ao final desta aula, os alunos serão capazes de:
-
-🎯 **Conhecimento Técnico:**
-- Criar ícones SVG otimizados e semanticamente corretos
-- Projetar sistemas de navegação responsivos e acessíveis
-- Aplicar técnicas modernas como glassmorphism de forma apropriada
-- Desenvolver formulários e tabelas com foco em usabilidade
-
-🎯 **Aplicação Prática:**
-- Construir component library completa para o Sistema Lunysse
-- Especificar componentes com detalhes técnicos para implementação
-- Criar protótipos interativos que demonstrem funcionamento
-- Documentar decisões de design com justificativas técnicas
-
-🎯 **Competências Profissionais:**
-- Trabalhar com metodologias de design system
-- Colaborar efetivamente em equipes de design
-- Considerar acessibilidade desde o início do processo
-- Criar soluções escaláveis e reutilizáveis
-
-### **Conexão com o Projeto:**
-Esta aula cria a biblioteca de componentes que será a base de toda a interface do Sistema Lunysse. Os componentes desenvolvidos hoje serão refinados e implementados nas próximas aulas, garantindo consistência visual em todo o projeto.
-
-### **Preparação para Próxima Aula:**
-Os componentes criados hoje serão otimizados na Aula 4 através de técnicas avançadas de tratamento de imagem, preparando todos os assets visuais para implementação técnica nas aulas subsequentes.
+### **Conexão com o Projeto:**  
+Esta aula consolida a identidade visual do Lunysse, garantindo que todos os componentes sejam consistentes, intuitivos e alinhados às boas práticas de UX/UI.  

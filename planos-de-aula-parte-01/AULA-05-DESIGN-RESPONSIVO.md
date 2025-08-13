@@ -1,355 +1,177 @@
-# PLANO DE TRABALHO DOCENTE 
+# PLANO DE TRABALHO DOCENTE  
 
-## MODELO PEDAGÓGICO SENAC 
+## MODELO PEDAGÓGICO SENAC  
 
 **Curso:** Desenvolvedor Full Stack  
-**Carga Horária Total:** 108h  
-**Carga Horária da UC:** 108h  
+**Carga Horária Total:** 108 horas  
+**Carga Horária da UC:** 108 horas  
 
-**Docente:** Jeremias O Nunes 
+**Docente:** Jeremias O Nunes  
 
 ---
 
-## PLANO DE AULA – Design Responsivo e Animações Web
+## PLANO DE AULA – Finalização do Protótipo (Alta Fidelidade no Canva)  
 
 📌 **Disciplina:** Construir aplicações front-end  
 👨🏫 **Mentor(a):** Jeremias O Nunes  
-📆 **Data:** Aula 5 - Parte 1  
-⏰ **Duração:** 4 horas  
+📆 **Data:** Aula 05  
+⏰ **Duração:** 4h  
 
 ---
 
-## 📖 Planejamento
+## 📖 Planejamento  
 
-### 📌 Conteúdo Formativo
+### 📌 Contextualização e Conexão com Aula Anterior  
+Nesta aula, os alunos **finalizam o protótipo do Sistema Lunysse**, consolidando todos os elementos criados nas aulas anteriores: **paleta de cores, tipografia, princípios de Gestalt, hierarquia visual, componentes visuais, imagens, banners e ícones otimizados**.  
+O foco é criar um **protótipo de alta fidelidade**, aplicando **animações de loading, feedback visual e testes de usabilidade**, garantindo que o projeto esteja pronto para apresentação e avaliação.  
 
-- Conceitos fundamentais de design responsivo e mobile-first
-- Aplicações práticas de breakpoints estratégicos
-- Criação de animações CSS para transições e micro-interações
-- Desenvolvimento de animações web otimizadas para performance
-- Implementação de layouts adaptativos para o Sistema Lunysse
-- Testes de usabilidade em múltiplos dispositivos
-- Análise de tendências de animação em aplicações de saúde
-- Otimização de performance para animações web
+### 📌 Conteúdo Formativo  
+- Criação de protótipos de alta fidelidade no Canva  
+- Implementação de animações de loading e feedback visual  
+- Testes de usabilidade com base em heurísticas de UX  
+- Refinamento do protótipo segundo feedback do grupo  
 
-### 🎯 Objetivo Geral
+### 🎯 Objetivo Geral  
+Finalizar o protótipo do Lunysse, consolidando todos os elementos visuais e interativos, garantindo alta fidelidade, consistência de design e experiência de usuário otimizada.  
 
-Implementar conceitos de design responsivo e criar animações web otimizadas seguindo tendências atuais de mercado, finalizando o sistema visual completo do Sistema Lunysse que funcione perfeitamente em todos os dispositivos e ofereça uma experiência de usuário fluida e moderna.
+### 💡 Habilidades e Competências  
+✅ Consolidar protótipo visual completo no Canva  
+✅ Aplicar animações e feedback visual em telas do protótipo  
+✅ Testar e refinar usabilidade com base em feedbacks  
+✅ Garantir consistência visual e identidade do projeto  
 
-### 💡 Habilidades e Competências
-
-✅ **Organizar conteúdo visual e textual para web** - Adaptar layouts para diferentes contextos  
-✅ **Manipular framework** - Implementar sistemas responsivos consistentes  
-✅ **Utilizar ferramentas modernas** - Dominar técnicas de animação e responsividade  
-✅ **Testar em múltiplos dispositivos** - Validar soluções em contextos reais  
-
-### 📌 Materiais Necessários
-
-📌 Computadores com Figma e navegadores múltiplos  
-📌 Dispositivos móveis (smartphones e tablets) para testes  
-📌 Todos os assets criados nas aulas anteriores  
-📌 Ferramentas de teste responsivo (Responsively App, BrowserStack)  
-📌 Biblioteca de animações para referência (Lottie, CSS Animation examples)  
-📌 Templates de breakpoints e grid systems  
-📌 Ferramentas de performance (Lighthouse, PageSpeed)  
+### 📌 Materiais Necessários  
+📌 Computadores ou notebooks com acesso à internet  
+📌 Conta no Canva  
+📌 Protótipo base do Lunysse (Aulas 2, 3 e 4)  
+📌 Guia de cores, tipografia e design system  
+📌 Ferramentas para testes de usabilidade (checklists, observação em grupo)  
 
 ---
 
-## 🎓 Estratégias de Ensino e Aprendizagem
+## 🎓 Estratégias de Ensino e Aprendizagem  
 
-### Introdução e Contextualização (25 min)
-
-**Metodologia Ativa - Experiência Imersiva:**
-Demonstração prática com dispositivos reais:
-- Mostrar o mesmo sistema de saúde em 4 dispositivos diferentes
-- Identificar problemas comuns: texto ilegível, botões pequenos, layout quebrado
-- Apresentar estatísticas: 60% dos acessos a sistemas de saúde são mobile
-
-**Questões Problematizadoras:**
-- "Como um paciente idoso interage com um sistema em smartphone?"
-- "Por que animações podem melhorar ou prejudicar a experiência médica?"
-- "Qual o impacto de um sistema não responsivo na adesão ao tratamento?"
-
-**Contextualização do Lunysse:**
-Apresentar o desafio final: criar um sistema que funcione perfeitamente para:
-- **Pacientes:** Principalmente mobile, diferentes idades e habilidades técnicas
-- **Psicólogos:** Desktop durante trabalho, mobile para verificações rápidas
-- **Administradores:** Principalmente desktop para relatórios e gestão
+### Introdução e Contextualização (20 min)  
+**Metodologia Ativa – Discussão e Revisão:**  
+- Revisão de todo o protótipo desenvolvido até a Aula 4.  
+- Apresentação de boas práticas para **alta fidelidade em protótipos**.  
+- Discussão sobre **animações de feedback e interações visuais**.  
 
 ---
 
-### **Tópico 1: Fundamentos do Design Responsivo (55 min)**
+### **Tópico 1: Criação do Protótipo de Alta Fidelidade (60 min)**  
+#### 📌 Demonstração Prática  
+**Metodologia Ativa – Aprendizagem Guiada:**  
+- Mostrar como transformar protótipos low-fidelity em alta fidelidade no Canva.  
+- Explicar integração de cores, tipografia, imagens e componentes visuais.  
 
-#### 📌 Demonstração Prática:
-**Metodologia Ativa - Construção ao Vivo:**
-- Criar layout responsivo do dashboard Lunysse ao vivo:
-  - **Desktop (1200px+):** 3 colunas, sidebar fixa, cards grandes
-  - **Tablet (768px-1199px):** 2 colunas, sidebar colapsável
-  - **Mobile (320px-767px):** 1 coluna, menu hambúrguer
-- Demonstrar mobile-first approach:
-  - Começar pelo mobile
-  - Adicionar complexidade conforme tela cresce
-- Mostrar breakpoints estratégicos baseados em conteúdo, não dispositivos
+#### 📌 Atividade Prática 1  
+🎯 **Objetivo:** Criar protótipo de alta fidelidade do Lunysse.  
+📝 **Tarefa:**  
+- Consolidar todas as telas criadas anteriormente.  
+- Garantir consistência visual entre páginas e componentes.  
+- Aplicar hierarquia visual e princípios de Gestalt em toda a interface.  
 
-#### 📌 Atividade Prática 1:
-🎯 **Objetivo:** Criar layouts responsivos completos para principais telas do Lunysse  
-📝 **Tarefa:**
-- **Metodologia Ativa - Responsive Design Sprint:**
-- **Fase 1 - Mapeamento (15 min):**
-  - Grupos analisam diferentes telas:
-    - **Grupo 1:** Dashboard do Psicólogo
-    - **Grupo 2:** Lista de Pacientes
-    - **Grupo 3:** Formulário de Agendamento
-    - **Grupo 4:** Chat com IA
-  - Identificar elementos críticos para cada breakpoint
-- **Fase 2 - Design Mobile-First (25 min):**
-  - Começar pela versão mobile (320px)
-  - Priorizar conteúdo essencial
-  - Otimizar para toque e legibilidade
-- **Fase 3 - Expansão para Tablet e Desktop (15 min):**
-  - Adicionar elementos secundários
-  - Aproveitar espaço extra inteligentemente
-  - Manter hierarquia visual
-
-**Parte do Projeto Construída:** Layouts responsivos completos das principais telas do Sistema Lunysse
+**Parte do Projeto Construída:** Protótipo completo e visualmente consistente.  
 
 ---
 
-### **Tópico 2: Animações e Micro-interações (60 min)**
+### **Tópico 2: Animações de Loading e Feedback Visual (40 min)**  
+#### 📌 Demonstração Prática  
+**Metodologia Ativa – Demonstração Guiada:**  
+- Explicar como aplicar animações simples no Canva, como loading e transições.  
+- Mostrar exemplos de feedback visual para ações do usuário (botões, formulários, alerts).  
 
-#### 📌 Demonstração Prática:
-**Metodologia Ativa - Animação Progressiva:**
-- Demonstrar criação de animações CSS passo a passo:
-  - **Nível 1:** Transições simples (hover, focus)
-  - **Nível 2:** Animações de entrada (fade in, slide up)
-  - **Nível 3:** Micro-interações (botão loading, toggle states)
-  - **Nível 4:** Animações complexas (modal open/close)
-- Mostrar princípios de animação para saúde:
-  - **Suavidade:** Evitar movimentos bruscos (ansiedade)
-  - **Propósito:** Cada animação deve ter função clara
-  - **Performance:** 60fps, sem causar lentidão
-  - **Acessibilidade:** Respeitar prefers-reduced-motion
+#### 📌 Atividade Prática 2  
+🎯 **Objetivo:** Implementar animações e feedback visual.  
+📝 **Tarefa:**  
+- Criar animações de carregamento para telas principais.  
+- Adicionar feedback visual em formulários, botões e interações importantes.  
 
-#### 📌 Atividade Prática 2:
-🎯 **Objetivo:** Criar biblioteca de animações para o Sistema Lunysse  
-📝 **Tarefa:**
-- **Metodologia Ativa - Animation Workshop:**
-- **Duplas especializadas por tipo de animação:**
-  - **Dupla 1-2:** Transições de navegação (sidebar, modais)
-  - **Dupla 3-4:** Feedback de ações (botões, formulários)
-  - **Dupla 5-6:** Loading states (carregamento, processamento)
-  - **Dupla 7-8:** Animações de dados (gráficos, contadores)
-- **Processo criativo:**
-  1. Pesquisar referências em sistemas de saúde (10 min)
-  2. Criar protótipo no Figma com Smart Animate (20 min)
-  3. Especificar timing e easing functions (10 min)
-  4. Testar em dispositivo real (10 min)
-  5. Documentar para implementação (10 min)
-- **Critérios de qualidade:**
-  - Duração apropriada (200-500ms para micro-interações)
-  - Easing natural (ease-out para entrada, ease-in para saída)
-  - Propósito claro e funcional
-  - Acessibilidade considerada
-
-**Parte do Projeto Construída:** Biblioteca completa de animações especificadas e prototipadas
+**Parte do Projeto Construída:** Protótipo interativo com feedback visual funcional.  
 
 ---
 
-### **Tópico 3: Testes Multi-dispositivo (45 min)**
+### **Tópico 3: Testes de Usabilidade (50 min)**  
+#### 📌 Demonstração Prática  
+**Metodologia Ativa – Learning by Doing:**  
+- Apresentar técnicas de teste de usabilidade simples e heurísticas de UX.  
+- Explicar observação e coleta de feedback durante o teste do protótipo.  
 
-#### 📌 Demonstração Prática:
-**Metodologia Ativa - Laboratório de Testes:**
-- Demonstrar processo sistemático de testes:
-  - **Teste 1:** Navegação com dedos (touch targets mínimos)
-  - **Teste 2:** Legibilidade em diferentes iluminações
-  - **Teste 3:** Performance em dispositivos mais lentos
-  - **Teste 4:** Orientação portrait/landscape
-- Usar ferramentas profissionais:
-  - Chrome DevTools para simulação
-  - Responsively App para múltiplas telas
-  - Dispositivos reais para validação final
+#### 📌 Atividade Prática 3  
+🎯 **Objetivo:** Avaliar a experiência de uso do protótipo.  
+📝 **Tarefa:**  
+- Realizar testes em dupla ou grupo com base em tarefas predefinidas.  
+- Registrar problemas de legibilidade, navegação e interação.  
+- Identificar melhorias a serem implementadas.  
 
-#### 📌 Atividade Prática 3:
-🎯 **Objetivo:** Validar e otimizar layouts em dispositivos reais  
-📝 **Tarefa:**
-- **Metodologia Ativa - User Testing Lab:**
-- **Rotação de estações de teste:**
-  - **Estação 1:** iPhone (iOS Safari)
-  - **Estação 2:** Android (Chrome Mobile)
-  - **Estação 3:** iPad (Safari)
-  - **Estação 4:** Desktop (múltiplos navegadores)
-- **Protocolo de teste (por estação - 10 min):**
-  1. Testar fluxo principal (login → dashboard → ação)
-  2. Verificar legibilidade de textos
-  3. Testar tamanho de botões e links
-  4. Avaliar velocidade de carregamento
-  5. Documentar problemas encontrados
-- **Consolidação (5 min final):**
-  - Compilar lista de problemas por dispositivo
-  - Priorizar correções por impacto
-  - Definir plano de otimização
-
-**Parte do Projeto Construída:** Relatório completo de testes com plano de otimizações
+**Parte do Projeto Construída:** Relatório de usabilidade com pontos de melhoria.  
 
 ---
 
-### **Tópico 4: Otimização e Performance (40 min)**
+### **Tópico 4: Refinamento do Protótipo (50 min)**  
+#### 📌 Demonstração Prática  
+**Metodologia Ativa – Workshop Colaborativo:**  
+- Mostrar como aplicar feedbacks coletados nos testes de usabilidade.  
+- Explicar ajustes finos em cores, tipografia, alinhamento e hierarquia visual.  
 
-#### 📌 Demonstração Prática:
-**Metodologia Ativa - Performance Audit:**
-- Usar Lighthouse para auditar performance:
-  - Métricas importantes: LCP, FID, CLS
-  - Impacto das animações na performance
-  - Otimização de imagens para diferentes densidades
-- Demonstrar técnicas de otimização:
-  - Lazy loading para imagens
-  - Prefers-reduced-motion para acessibilidade
-  - Hardware acceleration para animações
-  - Debouncing para interações
+#### 📌 Atividade Prática 4  
+🎯 **Objetivo:** Refinar protótipo com base nos feedbacks.  
+📝 **Tarefa:**  
+- Ajustar telas, componentes e imagens conforme observações dos testes.  
+- Garantir consistência de design e alta fidelidade final.  
 
-#### 📌 Atividade Prática 4:
-🎯 **Objetivo:** Otimizar performance do Sistema Lunysse para todos os dispositivos  
-📝 **Tarefa:**
-- **Metodologia Ativa - Performance Challenge:**
-- **Competição por grupos:**
-  - Meta: Alcançar score Lighthouse > 90 em todas as categorias
-  - Cada grupo otimiza uma tela diferente
-  - **Grupo 1:** Dashboard (muitos dados e gráficos)
-  - **Grupo 2:** Lista de pacientes (muitas imagens)
-  - **Grupo 3:** Formulários (muitas validações)
-  - **Grupo 4:** Chat IA (animações e interações)
-- **Técnicas permitidas:**
-  - Otimização de imagens
-  - Lazy loading
-  - Animações eficientes
-  - Código CSS otimizado
-- **Avaliação:**
-  - Score Lighthouse (40%)
-  - Experiência do usuário (30%)
-  - Criatividade das soluções (20%)
-  - Documentação das otimizações (10%)
-
-**Parte do Projeto Construída:** Sistema Lunysse otimizado para máxima performance
+**Parte do Projeto Construída:** Protótipo final do Lunysse, pronto para apresentação.  
 
 ---
 
-### Encerramento e Reflexão (35 min)
+### Encerramento e Reflexão (20 min)  
+#### 📌 Discussão em grupo  
+**Metodologia Ativa – Feedback Coletivo:**  
+- Apresentação do protótipo finalizado.  
+- Discussão sobre soluções de design, feedback recebido e melhorias implementadas.  
 
-#### 📌 Apresentação Final dos Projetos:
-**Metodologia Ativa - Demo Day:**
-- Cada grupo apresenta sua tela otimizada em 5 minutos:
-  - Demonstração em dispositivo real
-  - Métricas de performance alcançadas
-  - Principais desafios e soluções
-  - Lições aprendidas
-- Audiência avalia usando critérios:
-  - **Usabilidade:** Fácil de usar em todos os dispositivos?
-  - **Performance:** Carrega rapidamente?
-  - **Acessibilidade:** Funciona para diferentes usuários?
-  - **Estética:** Mantém qualidade visual?
-
-#### 📌 Discussão em grupo:
-**Metodologia Ativa - Retrospectiva da Parte 1:**
-- "Qual foi a evolução do projeto desde a primeira aula?"
-- "Quais conceitos foram mais desafiadores de aplicar?"
-- "Como o Sistema Lunysse se compara a outros sistemas de saúde?"
-- "Que aspectos são mais importantes para o sucesso do projeto?"
-
-#### 📌 Preparação para Parte 2:
-**Metodologia Ativa - Bridge Building:**
-- Apresentar preview da Parte 2: transformar designs em código
-- Cada grupo escolhe uma tela para ser a primeira a ser implementada
-- Criar checklist de especificações técnicas necessárias
-- Definir prioridades de desenvolvimento
+#### 📌 Desafio para consolidação  
+- Documentar o protótipo final no Canva com todas as telas, componentes, imagens e animações aplicadas.  
+- Preparar apresentação para avaliação formativa e somativa da UC.  
 
 ---
 
-### 📌 Objetos de Aprendizagem
-
-📝 **Materiais Didáticos Utilizados:**
-- Biblioteca completa de layouts responsivos
-- Especificações de animações com timing e easing
-- Relatórios de testes multi-dispositivo
-- Métricas de performance e otimizações
-- Guia de boas práticas para design responsivo
-- Checklist de acessibilidade para animações
-- Templates de breakpoints e media queries
+### 📌 Objetos de Aprendizagem  
+📝 **Materiais Didáticos Utilizados:**  
+- Protótipo final do Lunysse no Canva  
+- Banco de imagens, ícones e banners  
+- Guia de cores, tipografia e design system  
+- Checklists e materiais para testes de usabilidade  
 
 ---
 
-## 🎯 Avaliação
+## 🎯 Avaliação  
 
-### **Avaliação Formativa (Durante a aula):**
-✅ **Qualidade dos layouts responsivos** - Adaptação eficiente para diferentes telas  
-✅ **Adequação das animações** - Propósito claro e performance otimizada  
-✅ **Rigor nos testes** - Processo sistemático e documentação completa  
-✅ **Eficácia das otimizações** - Melhoria mensurável de performance  
+### **Avaliação Formativa (Durante a aula):**  
+✅ Protótipo de alta fidelidade consolidado  
+✅ Animações e feedback visual aplicados corretamente  
+✅ Testes de usabilidade realizados com coleta de feedback  
+✅ Refinamento do protótipo baseado em observações  
 
-### **Avaliação Somativa (Entregáveis):**
-✅ **Sistema visual completo** - Todos os componentes responsivos e animados  
-✅ **Documentação técnica** - Especificações para implementação  
-✅ **Relatório de testes** - Validação em múltiplos dispositivos  
+### **Avaliação Somativa (Entregáveis):**  
+✅ Protótipo final do Lunysse completo e funcional no Canva  
 
-### **Critérios de Qualidade:**
-- **Excelente (9-10):** Sistema completamente responsivo, animações fluidas, performance otimizada
-- **Bom (7-8):** Boa responsividade com pequenos ajustes, animações adequadas
-- **Satisfatório (6-7):** Funciona na maioria dos dispositivos, animações básicas
-- **Insatisfatório (<6):** Problemas significativos de responsividade ou performance
+### **Critérios de Qualidade:**  
+- **Excelente (9-10):** Protótipo completo, interativo, consistente, com animações e feedback visual aplicados corretamente  
+- **Bom (7-8):** Protótipo consistente, pequenas melhorias necessárias  
+- **Satisfatório (6-7):** Protótipo funcional, mas ajustes visuais ou interativos ainda necessários  
+- **Insatisfatório (<6):** Protótipo incompleto ou desorganizado visualmente  
 
 ---
 
-## 🎓 Conclusão
+## 🎓 Conclusão  
 
-### **Aprendizado Esperado:**
+### **Aprendizado Esperado:**  
+- Finalizar protótipo de alta fidelidade do Lunysse no Canva  
+- Aplicar animações e feedback visual para melhorar a experiência do usuário  
+- Realizar testes de usabilidade e aplicar melhorias no protótipo  
+- Consolidar todos os elementos visuais e interativos de forma profissional  
 
-Ao final desta aula, os alunos serão capazes de:
-
-🎯 **Conhecimento Técnico:**
-- Implementar design responsivo seguindo abordagem mobile-first
-- Criar animações web otimizadas para performance e acessibilidade
-- Testar sistematicamente em múltiplos dispositivos e navegadores
-- Otimizar performance considerando diferentes contextos de uso
-
-🎯 **Aplicação Prática:**
-- Entregar Sistema Lunysse completamente responsivo e animado
-- Documentar especificações técnicas para implementação
-- Criar workflows de teste e otimização replicáveis
-- Produzir sistema visual pronto para desenvolvimento
-
-🎯 **Competências Profissionais:**
-- Trabalhar com metodologias de design responsivo da indústria
-- Considerar performance e acessibilidade desde o início
-- Testar e validar soluções com rigor profissional
-- Comunicar decisões técnicas com base em dados
-
-### **Conexão com o Projeto:**
-Esta aula finaliza a Parte 1 do curso, entregando o Sistema Lunysse com design visual completo, responsivo e otimizado. Todos os assets, layouts, animações e especificações estão prontos para a implementação técnica que começará na Parte 2.
-
-### **Transição para Parte 2:**
-O sistema visual criado nas 5 aulas da Parte 1 será transformado em código HTML, CSS e JavaScript na Parte 2. Os alunos começarão com estruturação semântica, aplicarão os estilos criados e implementarão as animações especificadas, dando vida ao Sistema Lunysse.
-
-### **Impacto no Aprendizado:**
-Os alunos completam a Parte 1 com:
-- **Portfolio visual completo** do Sistema Lunysse
-- **Competências profissionais** em design para web
-- **Metodologias ativas** internalizadas
-- **Visão sistêmica** de projetos digitais
-- **Preparação sólida** para desenvolvimento técnico
-
----
-
-## 🎉 Celebração da Conclusão da Parte 1
-
-### **Marcos Alcançados:**
-✅ **Design System completo** criado colaborativamente  
-✅ **Assets profissionais** otimizados e organizados  
-✅ **Layouts responsivos** validados em dispositivos reais  
-✅ **Animações especificadas** com foco em UX  
-✅ **Performance otimizada** seguindo padrões da indústria  
-
-### **Próximos Passos:**
-🚀 **Parte 2** - Transformar todo o trabalho visual em código funcional  
-🚀 **Implementação técnica** com HTML semântico, CSS moderno e JavaScript  
-🚀 **Sistema real** que poderá ser usado por psicólogos e pacientes  
-
-**Parabéns pela conclusão da Parte 1! O Sistema Lunysse está visualmente pronto para ganhar vida através do código! 🎊**
+### **Conexão com o Projeto:**  
+Esta aula finaliza a primeira parte da UC 01, entregando um **protótipo completo, funcional e visualmente harmonioso**, pronto para avaliação, apresentação e uso como referência para futuras implementações.
