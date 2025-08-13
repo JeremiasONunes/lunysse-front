@@ -1,313 +1,153 @@
-# PLANO DE TRABALHO DOCENTE
+### 🎓 Aula 22 – Colaboração e Versionamento (Git)
 
-## MODELO PEDAGÓGICO SENAC
-
-**Curso:** Desenvolvedor Full Stack  
-**Carga Horária Total:** 108h  
-**Carga Horária da UC:** 108h  
-**Docente:** Jeremias O Nunes
-
----
-
-# PLANO DE AULA – Colaboração e Versionamento (Git)
-
-📌 **Disciplina:** Desenvolvimento Full Stack  
+📌 **Disciplina:** Programação Avançada e Colaboração Web  
 👨🏫 **Mentor(a):** Jeremias O Nunes  
-📆 **Data:** Aula 22 - Parte 3  
-⏰ **Duração:** 4 horas
+📆 **Data:** Aula 22  
+⏰ **Duração:** 4h  
 
 ---
 
-## 📖 Planejamento
+## 📖 Planejamento  
+
+### 📌 Contextualização e Conexão com a Aula Anterior
+Após garantir que o Sistema Lunysse esteja auditado e conforme os padrões W3C na Aula 21, os alunos avançam para **trabalhar colaborativamente utilizando Git**, aplicando controle de versão, workflows profissionais e integração contínua, preparando o projeto para desenvolvimento final em equipe.
 
 ### 📌 Conteúdo Formativo
-
-• Workshop intensivo de Git workflows e branching strategies profissionais para projetos médicos  
-• Implementação de conventional commits e semantic versioning com foco em rastreabilidade  
-• Laboratório avançado de code review e pull requests com critérios de qualidade médica  
-• Criação de documentação colaborativa e padrões de desenvolvimento para equipes de saúde  
-• Desenvolvimento de pipeline básico de CI/CD com validação automática de compliance  
-• Organização final do repositório do Sistema Lunysse seguindo padrões enterprise  
-• Implementação de hooks Git para automação de qualidade e proteção de dados sensíveis  
-• Desenvolvimento de estratégias de release management para sistemas críticos
+- Fundamentos de Git e versionamento  
+- Workflows colaborativos (Gitflow, feature branches)  
+- Conventional commits e semantic versioning  
+- Pull requests e code review  
+- Pipeline básico de CI/CD  
+- Organização e padronização de repositório  
 
 ### 🎯 Objetivo Geral
-
-Implementar fluxos de trabalho colaborativo profissional utilizando Git e metodologias de desenvolvimento em equipe, estabelecendo processos robustos de versionamento, code review e integração contínua que garantam qualidade, rastreabilidade e colaboração eficiente no desenvolvimento de sistemas de saúde críticos.
+Capacitar os alunos a **trabalhar em equipe com Git**, garantindo versionamento profissional, organização de código e integração de práticas colaborativas em projetos web complexos.
 
 ### 💡 Habilidades e Competências
-
-✅ **Git Workflows Avançados:** Dominar estratégias profissionais de branching e merging para projetos complexos  
-✅ **Code Review Sistemático:** Implementar processos rigorosos de revisão focados em qualidade e compliance  
-✅ **Conventional Commits:** Aplicar padrões de commit que garantem rastreabilidade e auditoria  
-✅ **CI/CD Implementation:** Configurar pipelines básicos de integração e deployment contínuo  
-✅ **Collaborative Documentation:** Criar documentação técnica colaborativa e acessível  
-✅ **Quality Automation:** Implementar automações que garantem qualidade e segurança  
-✅ **Release Management:** Gerenciar releases seguindo padrões de versionamento semântico
+✅ Utilizar Git para versionamento de código e gerenciamento de branches  
+✅ Implementar workflows colaborativos eficientes  
+✅ Aplicar convenções de commits e semantic versioning  
+✅ Conduzir code review e pull requests de forma profissional  
+✅ Integrar práticas de CI/CD básicas  
+✅ Organizar repositório do projeto mantendo padrões de código  
 
 ### 📌 Materiais Necessários
-
-📌 Sistema Lunysse completo com todas as funcionalidades implementadas  
-📌 Git configurado em ambiente colaborativo  
-📌 Plataforma de repositório remoto (GitHub/GitLab)  
-📌 Ferramentas de CI/CD (GitHub Actions, GitLab CI)  
-📌 Editores com integração Git avançada  
-📌 Ferramentas de análise de código e linting  
-📌 Templates de documentação técnica  
-📌 Ferramentas de comunicação da equipe (Slack, Discord)
+📌 Repositório inicial do Sistema Lunysse (pré-auditado e corrigido)  
+📌 Git e GitHub/GitLab  
+📌 Editor de código com integração Git  
+📌 Ferramentas de CI/CD (GitHub Actions, Vercel ou Netlify)  
 
 ---
 
-## 🎓 Estratégias de Ensino e Aprendizagem
+## 🎓 Estratégias de Ensino e Aprendizagem  
 
-### Introdução e Contextualização (60 min)
-
-**Reflexão inicial:** "Por que o versionamento colaborativo é fundamental em sistemas de saúde onde múltiplas equipes trabalham simultaneamente e a rastreabilidade de mudanças pode ser questão de vida ou morte?"
-
-**Contextualização profissional aprofundada:**
-Discussão sobre casos reais em sistemas hospitalares onde falhas na colaboração e versionamento causaram problemas críticos. Análise de como empresas líderes em healthtech (Epic Systems, Cerner, Allscripts) implementam workflows Git enterprise para garantir qualidade, auditoria e compliance regulatório.
-
-**Metodologia Ativa - Cenário Problemático:**
-Apresentação de situação real: "Uma equipe de 8 desenvolvedores precisa implementar simultaneamente funcionalidades críticas no Sistema Lunysse - dashboard de emergência, integração com equipamentos médicos, sistema de alertas críticos e módulo de auditoria. Como garantir que o trabalho seja coordenado, que não haja conflitos destrutivos e que todas as mudanças sejam rastreáveis para auditoria médica?"
-
-**Análise colaborativa:**
-- Identificação de desafios de colaboração em projetos médicos
-- Discussão sobre requisitos de rastreabilidade em sistemas de saúde
-- Análise de impacto de conflitos de código em funcionalidades críticas
-- Estabelecimento de critérios de qualidade para trabalho colaborativo
+### Introdução e Contextualização (20 min)  
+**Metodologia Ativa – Demonstração:**  
+- Apresentação de fluxos de trabalho profissionais  
+- Importância do versionamento em projetos colaborativos  
+- Revisão rápida do estado atual do projeto Lunysse após auditoria W3C  
 
 ---
 
-### Tópico 1: Git Workflows e Branching Strategies Profissionais (90 min)
+### **Tópico 1: Fundamentos e Workflows Git (60 min)**  
+#### 📌 Demonstração Prática
+**Metodologia Ativa – Workshop Guiado:**  
+- Configuração de repositórios locais e remotos  
+- Criação de branches para features, hotfixes e releases  
+- Implementação de Gitflow ou estratégias alternativas  
 
-#### 📌 Demonstração Prática:
-**Metodologia Ativa - Workflow Design Workshop:**
+#### 📌 Atividade Prática 1
+🎯 **Objetivo:** Estruturar o projeto para colaboração  
+📝 **Tarefa:**  
+- Criar branches de feature e organizar commits  
+- Aplicar conventional commits em alterações do Sistema Lunysse  
+- Documentar workflow utilizado  
 
-O mentor demonstrará diferentes estratégias de branching aplicadas ao contexto médico:
-- **Git Flow Médico:** Adaptação do Git Flow para sistemas de saúde com branches de compliance
-- **Feature Branch Strategy:** Desenvolvimento isolado de funcionalidades críticas
-- **Hotfix Emergency Protocol:** Procedimentos para correções urgentes em produção
-- **Release Management:** Estratégias de release para sistemas que não podem parar
-
-**Aplicação no Sistema Lunysse:**
-- Estruturação do repositório com branches específicas (main, develop, staging, compliance)
-- Configuração de proteções de branch para código crítico
-- Implementação de conventional commits para rastreabilidade médica
-- Criação de templates de commit específicos para contexto de saúde
-
-#### 📌 Atividade Prática 1:
-🎯 **Objetivo:** Implementar workflow Git completo para desenvolvimento colaborativo do Sistema Lunysse  
-📝 **Tarefa:**
-
-**Metodologia Ativa - Collaborative Git Lab:**
-- **Equipes de 4 pessoas:** Cada equipe simula um time de desenvolvimento real
-- **Cenário realístico:** Desenvolvimento simultâneo de 4 funcionalidades críticas:
-  - **Equipe A:** Sistema de alertas médicos críticos
-  - **Equipe B:** Dashboard de monitoramento em tempo real
-  - **Equipe C:** Módulo de integração com equipamentos
-  - **Equipe D:** Sistema de auditoria e compliance
-
-**Implementação prática:**
-1. **Configuração colaborativa (20 min):** Cada equipe configura seu ambiente Git com padrões profissionais
-2. **Desenvolvimento paralelo (40 min):** Trabalho simultâneo em branches isoladas
-3. **Integração controlada (20 min):** Merge requests com code review obrigatório
-4. **Resolução de conflitos (10 min):** Simulação e resolução de conflitos reais
-
-**Parte do Sistema Lunysse:** Implementação de workflow Git profissional com todas as funcionalidades organizadas em branches específicas, conventional commits implementados e processo de code review estabelecido.
+**Parte do Projeto Construída:** Repositório estruturado com branches e commits padronizados.
 
 ---
 
-### Tópico 2: Code Review e Pull Requests com Foco em Qualidade Médica (85 min)
+### **Tópico 2: Code Review e Pull Requests (60 min)**  
+#### 📌 Demonstração Prática
+**Metodologia Ativa – Laboratório Guiado:**  
+- Criação de pull requests para revisão de código  
+- Checklist de revisão para código JavaScript, CSS e HTML  
+- Discussão de boas práticas em code review  
 
-#### 📌 Demonstração Prática:
-**Metodologia Ativa - Medical Code Review Masterclass:**
+#### 📌 Atividade Prática 2
+🎯 **Objetivo:** Integrar mudanças com qualidade  
+📝 **Tarefa:**  
+- Revisar pull requests de colegas de equipe  
+- Fornecer feedback construtivo sobre código e padrões  
+- Mesclar alterações aprovadas no branch principal  
 
-O mentor demonstrará processo sistemático de code review específico para aplicações médicas:
-- **Security Review Protocol:** Verificação rigorosa de segurança para dados de saúde
-- **Compliance Checklist:** Validação de conformidade com regulamentações médicas
-- **Performance Impact Analysis:** Análise de impacto na performance de sistemas críticos
-- **Medical Logic Validation:** Verificação de lógica médica e regras de negócio
-
-**Critérios específicos para Sistema Lunysse:**
-- Validação de proteção de dados de pacientes (LGPD/HIPAA)
-- Verificação de acessibilidade para usuários com necessidades especiais
-- Análise de performance para uso em equipamentos médicos antigos
-- Validação de logs de auditoria para rastreabilidade médica
-
-#### 📌 Atividade Prática 2:
-🎯 **Objetivo:** Estabelecer processo rigoroso de code review para o Sistema Lunysse  
-📝 **Tarefa:**
-
-**Metodologia Ativa - Code Review Simulation:**
-- **Rotação de papéis:** Cada aluno atua como reviewer e reviewee
-- **Cenários reais:** Review de código com problemas intencionais de segurança, performance e compliance
-- **Critérios médicos:** Aplicação de checklist específico para aplicações de saúde
-
-**Processo estruturado:**
-1. **Criação de guidelines (15 min):** Desenvolvimento de critérios de review específicos
-2. **Review prático (45 min):** Execução de reviews reais com feedback estruturado
-3. **Discussão de melhorias (15 min):** Análise de pontos de melhoria identificados
-4. **Documentação (10 min):** Registro de padrões estabelecidos
-
-**Parte do Sistema Lunysse:** Estabelecimento de processo de code review com guidelines específicas, templates de pull request e critérios de aprovação baseados em qualidade médica.
+**Parte do Projeto Construída:** Sistema Lunysse com integração colaborativa controlada via Git.
 
 ---
 
-### Pausa (15 min)
+### **Tópico 3: Pipeline de CI/CD e Documentação (60 min)**  
+#### 📌 Demonstração Prática
+**Metodologia Ativa – Workshop Guiado:**  
+- Configuração de pipeline básico de CI/CD  
+- Automação de testes e build do projeto  
+- Documentação colaborativa do repositório  
+
+#### 📌 Atividade Prática 3
+🎯 **Objetivo:** Garantir entrega contínua e documentação  
+📝 **Tarefa:**  
+- Implementar build automatizado ao realizar merge  
+- Documentar processo de CI/CD e estrutura do projeto  
+- Validar integração contínua e deploy básico  
+
+**Parte do Projeto Construída:** Sistema Lunysse pronto para entrega contínua com documentação de processos colaborativos.
 
 ---
 
-### Tópico 3: CI/CD Básico e Automação de Qualidade (95 min)
+### Encerramento e Reflexão (20 min)  
+#### 📌 Discussão em grupo  
+**Metodologia Ativa – Feedback Coletivo:**  
+- Avaliação do workflow adotado  
+- Reflexão sobre comunicação e colaboração na equipe  
+- Preparação para desenvolvimento final do front-end e integração completa  
 
-#### 📌 Demonstração Prática:
-**Metodologia Ativa - DevOps for Healthcare:**
-
-O mentor demonstrará implementação de pipeline CI/CD específico para aplicações médicas:
-- **Quality Gates Médicos:** Validações automáticas específicas para saúde
-- **Security Scanning:** Análise automatizada de vulnerabilidades
-- **Compliance Validation:** Verificação automática de conformidade regulatória
-- **Performance Monitoring:** Monitoramento contínuo de performance crítica
-
-**Pipeline específico para Sistema Lunysse:**
-- Validação automática de dados sensíveis
-- Testes de acessibilidade obrigatórios
-- Verificação de performance em dispositivos limitados
-- Análise de compliance com regulamentações de saúde
-
-#### 📌 Atividade Prática 3:
-🎯 **Objetivo:** Implementar pipeline CI/CD básico para o Sistema Lunysse  
-📝 **Tarefa:**
-
-**Metodologia Ativa - Pipeline Construction Lab:**
-- **Trabalho em duplas:** Cada dupla implementa uma parte específica do pipeline
-- **Integração progressiva:** Construção incremental do pipeline completo
-- **Validação contínua:** Testes constantes de cada etapa implementada
-
-**Implementação estruturada:**
-1. **Design do pipeline (20 min):** Planejamento colaborativo da estrutura
-2. **Implementação básica (40 min):** Configuração de jobs essenciais
-3. **Testes e validação (25 min):** Execução e refinamento do pipeline
-4. **Documentação (10 min):** Registro do processo implementado
-
-**Parte do Sistema Lunysse:** Pipeline CI/CD funcional com validações automáticas de qualidade, security scanning e deployment automatizado para ambientes de staging.
+#### 📌 Desafio para próxima aula  
+- Iniciar implementação completa das dashboards e funcionalidades core do Sistema Lunysse (Aula 23).
 
 ---
 
-### Tópico 4: Documentação Colaborativa e Organização Final (75 min)
-
-#### 📌 Demonstração Prática:
-**Metodologia Ativa - Documentation Excellence:**
-
-O mentor demonstrará criação de documentação técnica colaborativa de nível enterprise:
-- **README Profissional:** Documentação completa para desenvolvedores e stakeholders
-- **Contributing Guidelines:** Guias detalhados para novos colaboradores
-- **Architecture Documentation:** Documentação de arquitetura com diagramas técnicos
-- **API Documentation:** Documentação de APIs com exemplos práticos
-
-**Padrões específicos para Sistema Lunysse:**
-- Documentação de compliance e regulamentações
-- Guias de segurança para dados médicos
-- Procedimentos de emergência e troubleshooting
-- Documentação de integração com sistemas hospitalares
-
-#### 📌 Atividade Prática 4:
-🎯 **Objetivo:** Criar documentação colaborativa completa do Sistema Lunysse  
-📝 **Tarefa:**
-
-**Metodologia Ativa - Documentation Sprint:**
-- **Especialização por área:** Cada grupo foca em um tipo específico de documentação
-- **Revisão cruzada:** Grupos revisam documentação de outros grupos
-- **Integração final:** Consolidação de toda documentação em estrutura coesa
-
-**Áreas de documentação:**
-1. **Grupo 1:** README principal e guias de instalação
-2. **Grupo 2:** Documentação de arquitetura e APIs
-3. **Grupo 3:** Guias de contribuição e padrões de código
-4. **Grupo 4:** Documentação de segurança e compliance
-
-**Parte do Sistema Lunysse:** Documentação técnica completa, organizada e acessível, incluindo todos os aspectos necessários para manutenção e evolução colaborativa do sistema.
+### 📌 Objetos de Aprendizagem  
+📝 **Materiais Didáticos Utilizados:**  
+- Repositório Lunysse atualizado  
+- Git e GitHub/GitLab  
+- Ferramentas CI/CD para build e deploy  
+- Checklist de code review e documentação colaborativa  
 
 ---
 
-### Encerramento e Reflexão (60 min)
+## 🎯 Avaliação  
 
-#### 📌 Discussão em grupo:
-**Tema:** "Como a colaboração eficiente e versionamento adequado impactam a sustentabilidade e evolução de sistemas de saúde críticos?"
+### **Avaliação Formativa (Durante a aula):**  
+✅ Estruturação correta do repositório e branches  
+✅ Pull requests e code reviews realizados adequadamente  
+✅ Pipeline de CI/CD configurado e funcional  
+✅ Documentação colaborativa criada  
 
-**Metodologia Ativa - Reflective Analysis:**
+### **Avaliação Somativa (Entregáveis):**  
+✅ Repositório do Sistema Lunysse organizado, documentado e com workflow completo implementado  
 
-**Reflexão estruturada sobre:**
-- **Impacto na qualidade:** Como processos colaborativos elevam a qualidade do código
-- **Sustentabilidade técnica:** Importância da documentação para manutenção a longo prazo
-- **Compliance e auditoria:** Papel do versionamento na rastreabilidade regulatória
-- **Evolução contínua:** Como colaboração facilita adaptação a novas necessidades médicas
-- **Cultura de equipe:** Estabelecimento de mentalidade colaborativa e de qualidade
-
-**Discussão de casos práticos:**
-- Análise de situações onde colaboração inadequada causou problemas
-- Identificação de benefícios observados durante as atividades práticas
-- Planejamento de implementação em projetos reais futuros
-
-#### 📌 Desafio para a próxima aula:
-**Preparação para desenvolvimento final:**
-- Repositório completamente organizado com todos os padrões implementados
-- Equipe sincronizada nos processos colaborativos estabelecidos
-- Pipeline CI/CD funcionando e validado
-- Documentação técnica completa e atualizada
-- Ambiente preparado para desenvolvimento intensivo das funcionalidades finais
+### **Critérios de Qualidade:**  
+- **Excelente (9-10):** Repositório estruturado, CI/CD funcional, code reviews realizados, documentação completa  
+- **Bom (7-8):** Pequenas inconsistências na documentação ou workflow, mas colaboração efetiva  
+- **Satisfatório (6-7):** Workflow implementado, mas revisões ou CI/CD incompletos  
+- **Insatisfatório (<6):** Falhas na estruturação do repositório ou colaboração inadequada  
 
 ---
 
-## 📌 Objetos de Aprendizagem
+## 🎓 Conclusão  
 
-📝 **Git Workflow Framework:** Sistema completo de workflows colaborativos para projetos médicos  
-📝 **Code Review Guidelines:** Processo sistemático de revisão com critérios específicos para saúde  
-📝 **CI/CD Pipeline Template:** Pipeline básico configurado para aplicações médicas  
-📝 **Documentation Standards:** Padrões de documentação técnica colaborativa  
-📝 **Quality Automation Tools:** Ferramentas configuradas para automação de qualidade  
-📝 **Collaboration Protocols:** Protocolos estabelecidos para trabalho em equipe eficiente
-
----
-
-## 🎯 Avaliação
-
-### Critérios de Avaliação:
-
-✅ **Implementação de Workflows (25%):** Qualidade e adequação dos workflows Git implementados  
-✅ **Processo de Code Review (25%):** Eficácia do processo de revisão estabelecido  
-✅ **Pipeline CI/CD (25%):** Funcionalidade e completude do pipeline automatizado  
-✅ **Documentação Colaborativa (25%):** Qualidade e acessibilidade da documentação criada
-
-### Instrumentos de Avaliação:
-
-- **Projeto colaborativo:** Avaliação do repositório Git completamente configurado
-- **Simulação de processos:** Demonstração prática dos workflows implementados
-- **Peer review:** Avaliação cruzada dos processos de code review
-- **Pipeline demonstration:** Teste completo do pipeline CI/CD em funcionamento
-
----
-
-## 🎓 Conclusão
-
-Ao final desta aula, os alunos serão capazes de:
-
-- **Implementar workflows Git profissionais** adequados para desenvolvimento colaborativo de sistemas críticos
-- **Estabelecer processos de code review** rigorosos com foco em qualidade e compliance médico
-- **Configurar pipelines CI/CD básicos** com validações automáticas específicas para saúde
-- **Criar documentação técnica colaborativa** completa e acessível para equipes
-- **Trabalhar eficientemente em equipe** usando metodologias e ferramentas modernas
-- **Gerenciar qualidade de forma colaborativa** através de processos automatizados
-
-Esta competência é fundamental para desenvolvedores que trabalham em equipes de desenvolvimento de sistemas críticos, estabelecendo bases sólidas para colaboração profissional, qualidade sistemática e sustentabilidade técnica a longo prazo.
-
----
-
-**Indicador de Competência Trabalhado:**  
-✔️ **Indicador 6** - Utiliza linguagem de programação com foco em desenvolvimento orientado a objetos (colaboração)  
-✔️ **Indicador 3** - Utiliza linguagem de programação de script, de acordo com os padrões do ECMAScript (organização)
-
-**Metodologia Ativa Aplicada:**  
-- **Collaborative Learning:** Aprendizado através de trabalho colaborativo real e estruturado
-- **Process-Based Learning:** Foco em processos e metodologias profissionais  
-- **Simulation-Based Training:** Treinamento através de simulação de cenários reais  
-- **Peer Learning:** Aprendizado mútuo através de revisão e feedback entre pares
+### **Aprendizado Esperado:**  
+- Aplicar Git profissionalmente em equipe  
+- Gerenciar branches, commits e pull requests de forma estruturada  
+- Implementar pipeline básico de CI/CD  
+- Documentar e padronizar workflow colaborativo para projetos complexos  
+- Preparar projeto Lunysse para desenvolvimento final integrado

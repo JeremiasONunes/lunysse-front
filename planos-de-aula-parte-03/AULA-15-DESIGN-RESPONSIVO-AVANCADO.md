@@ -1,231 +1,151 @@
-# PLANO DE TRABALHO DOCENTE
+### 🎓 Aula 15 – Design Responsivo Avançado e Frameworks
 
-## MODELO PEDAGÓGICO SENAC
-
-**Curso:** Desenvolvedor Full Stack  
-**Carga Horária Total:** 108h  
-**Carga Horária da UC:** 108h  
-**Docente:** Jeremias O Nunes
-
----
-
-# PLANO DE AULA – Design Responsivo Avançado e Frameworks
-
-📌 **Disciplina:** Desenvolvimento Front-end Avançado  
+📌 **Disciplina:** Programação Avançada e Integração Visual  
 👨🏫 **Mentor(a):** Jeremias O Nunes  
-📆 **Data:** Aula 15 - Parte 3  
-⏰ **Duração:** 4 horas
+📆 **Data:** Aula 15  
+⏰ **Duração:** 4h  
 
 ---
 
-## 📖 Planejamento
+## 📖 Planejamento  
+
+### 📌 Contextualização e Conexão com a Aula Anterior
+Na Aula 14, os alunos implementaram tratamento visual avançado, efeitos dinâmicos e animações integradas. Nesta aula, o foco é **design responsivo avançado e uso de frameworks modernos**, garantindo que o Sistema Lunysse se adapte a diferentes dispositivos e resoluções sem perder performance ou consistência visual.
 
 ### 📌 Conteúdo Formativo
-
-• Implementação de Container Queries e técnicas CSS avançadas  
-• Workshop de otimização de performance em layouts responsivos  
-• Criação de componentes adaptativos inteligentes com React  
-• Laboratório de testes em dispositivos variados e diferentes resoluções  
-• Implementação de Progressive Web App (PWA) básico para o Sistema Lunysse  
-• Otimização final de todos os layouts seguindo padrões W3C rigorosos
+- Container Queries e técnicas avançadas de CSS responsivo  
+- Otimização de performance em layouts responsivos  
+- Criação de componentes adaptativos inteligentes em React + Tailwind  
+- Testes em múltiplos dispositivos e navegadores  
+- Implementação básica de Progressive Web App (PWA)  
+- Otimização final de todos os layouts do Sistema Lunysse  
 
 ### 🎯 Objetivo Geral
-
-Dominar técnicas avançadas de responsividade e frameworks modernos para criar layouts robustos e adaptáveis, implementando soluções que funcionam perfeitamente em qualquer dispositivo e seguem rigorosamente os padrões W3C para máxima compatibilidade e acessibilidade.
+Capacitar os alunos a **dominar técnicas avançadas de responsividade e frameworks modernos**, criando layouts robustos, adaptáveis e otimizados para múltiplos dispositivos.
 
 ### 💡 Habilidades e Competências
-
-✅ **Container Queries:** Implementar layouts que se adaptam ao contexto do container  
-✅ **Performance Responsiva:** Otimizar carregamento e renderização para diferentes dispositivos  
-✅ **Componentes Adaptativos:** Criar componentes que se ajustam inteligentemente  
-✅ **PWA Development:** Implementar funcionalidades de Progressive Web App  
-✅ **Padrões W3C:** Garantir conformidade total com especificações web modernas
+✅ Aplicar Container Queries para layouts adaptativos  
+✅ Criar componentes inteligentes e responsivos em React + Tailwind  
+✅ Otimizar performance de layouts em dispositivos variados  
+✅ Implementar PWA básico com offline e caching  
+✅ Garantir compatibilidade e padrões W3C em toda a interface  
 
 ### 📌 Materiais Necessários
-
-📌 Sistema Lunysse com layouts base implementados  
-📌 Dispositivos variados para teste (smartphones, tablets, desktops)  
-📌 Ferramentas de desenvolvimento responsivo (Chrome DevTools, Firefox DevTools)  
-📌 Lighthouse para auditoria PWA  
-📌 Validadores W3C (HTML, CSS, Accessibility)  
-📌 Ferramentas de teste de performance (PageSpeed Insights, WebPageTest)
+📌 Projeto Lunysse refinado da Aula 14  
+📌 Computadores com ambiente React + Vite + Tailwind  
+📌 Ferramentas de teste cross-browser (BrowserStack ou similares)  
+📌 Documentação de padrões W3C e PWA  
 
 ---
 
-## 🎓 Estratégias de Ensino e Aprendizagem
+## 🎓 Estratégias de Ensino e Aprendizagem  
 
-### Introdução e Contextualização (30 min)
-
-**Reflexão inicial:** "Como garantir que uma aplicação de saúde funcione perfeitamente em qualquer dispositivo?"
-
-Discussão sobre a importância crítica da responsividade em aplicações médicas, onde usuários podem acessar o sistema em emergências usando diferentes dispositivos, e como a falha na adaptação pode impactar o atendimento.
-
-**Contextualização profissional:** Análise de estatísticas de uso de dispositivos em aplicações de saúde e como empresas líderes garantem experiência consistente across-platform.
+### Introdução e Contextualização (20 min)  
+**Metodologia Ativa – Demonstração:**  
+- Revisão dos efeitos visuais e componentes da Aula 14  
+- Apresentação de técnicas avançadas de CSS responsivo e Container Queries  
+- Introdução ao conceito de Progressive Web App  
 
 ---
 
-### Tópico 1: Container Queries e Técnicas CSS Avançadas (70 min)
+### **Tópico 1: Container Queries e Layouts Avançados (60 min)**  
+#### 📌 Demonstração Prática
+**Metodologia Ativa – Workshop Guiado:**  
+- Aplicação de Container Queries em componentes React  
+- Ajustes de breakpoints avançados e variáveis CSS  
+- Criação de grids adaptativos e responsivos com Tailwind  
 
-#### 📌 Demonstração Prática:
-O mentor demonstrará implementação de Container Queries:
-- **@container rules:** Sintaxe e aplicação prática
-- **Container types:** Size, inline-size, e style queries
-- **Responsive components:** Componentes que se adaptam ao container pai
-- **Fallback strategies:** Compatibilidade com navegadores mais antigos
-- **Performance implications:** Impacto na renderização
+#### 📌 Atividade Prática 1
+🎯 **Objetivo:** Criar layouts inteligentes e responsivos  
+📝 **Tarefa:**  
+- Implementar Container Queries em cards, dashboards e modais  
+- Testar responsividade em desktop, tablet e mobile  
+- Documentar padrões de responsividade no Design System  
 
-#### 📌 Atividade Prática 1:
-🎯 **Objetivo:** Implementar Container Queries no Sistema Lunysse  
-📝 **Tarefa:**
-- Refatorar componentes Card para usar Container Queries
-- Implementar layout adaptativo no dashboard baseado no tamanho do container
-- Criar componente de lista de pacientes que se adapta ao espaço disponível
-- Desenvolver sistema de grid inteligente usando Container Queries
-- Implementar fallbacks para navegadores sem suporte
-- Testar comportamento em diferentes tamanhos de container
-- Documentar casos de uso e benefícios obtidos
+**Parte do Projeto Construída:** Layouts adaptativos consistentes em todos os componentes.
 
 ---
 
-### Tópico 2: Otimização de Performance em Layouts Responsivos (60 min)
+### **Tópico 2: Componentes Adaptativos e Otimização (60 min)**  
+#### 📌 Demonstração Prática
+**Metodologia Ativa – Laboratório Guiado:**  
+- Criação de componentes React que adaptam tamanho, posição e comportamento  
+- Otimização de performance com Tailwind e lazy loading de imagens  
+- Aplicação de classes dinâmicas condicionais  
 
-#### 📌 Demonstração Prática:
-Técnicas avançadas de otimização responsiva:
-- **Critical CSS:** Extração e inlining de CSS crítico
-- **Media query optimization:** Organização eficiente de breakpoints
-- **Image optimization:** Responsive images com art direction
-- **Font loading:** Estratégias para carregamento otimizado de fontes
-- **Layout shift prevention:** Técnicas para evitar CLS
+#### 📌 Atividade Prática 2
+🎯 **Objetivo:** Desenvolver componentes adaptativos e performáticos  
+📝 **Tarefa:**  
+- Criar botões, cards e menus responsivos  
+- Integrar efeitos da Aula 14 mantendo performance  
+- Validar compatibilidade cross-browser  
 
-#### 📌 Atividade Prática 2:
-🎯 **Objetivo:** Otimizar performance responsiva do Sistema Lunysse  
-📝 **Tarefa:**
-- Implementar critical CSS para above-the-fold content
-- Otimizar media queries para reduzir redundância
-- Configurar responsive images com srcset e sizes
-- Implementar font-display: swap para melhor performance
-- Eliminar layout shifts em componentes responsivos
-- Medir Core Web Vitals em diferentes dispositivos
-- Criar relatório de melhorias de performance obtidas
+**Parte do Projeto Construída:** Componentes adaptativos inteligentes integrados ao Sistema Lunysse.
 
 ---
 
-### Pausa (15 min)
+### **Tópico 3: Progressive Web App (PWA) Básico (60 min)**  
+#### 📌 Demonstração Prática
+**Metodologia Ativa – Laboratório Guiado:**  
+- Configuração de service workers e cache de recursos  
+- Criação de manifest.json e ícones para PWA  
+- Teste de funcionalidades offline e carregamento rápido  
+
+#### 📌 Atividade Prática 3
+🎯 **Objetivo:** Implementar PWA básico para Lunysse  
+📝 **Tarefa:**  
+- Configurar service worker para caching de assets essenciais  
+- Testar instalação da aplicação em dispositivos mobile  
+- Garantir fallback funcional para offline  
+
+**Parte do Projeto Construída:** Sistema Lunysse PWA básico com offline funcional.
 
 ---
 
-### Tópico 3: Componentes Adaptativos Inteligentes (65 min)
+### Encerramento e Reflexão (20 min)  
+#### 📌 Discussão em grupo  
+**Metodologia Ativa – Feedback Coletivo:**  
+- Revisão dos layouts e responsividade implementados  
+- Avaliação da performance e compatibilidade cross-browser  
+- Reflexão sobre integração com aulas anteriores e próximos passos  
 
-#### 📌 Demonstração Prática:
-Desenvolvimento de componentes que se adaptam inteligentemente:
-- **Adaptive components:** Componentes que mudam comportamento baseado no contexto
-- **Breakpoint hooks:** Custom hooks para detecção de breakpoints
-- **Orientation handling:** Adaptação para mudanças de orientação
-- **Touch vs mouse:** Interfaces adaptadas para diferentes tipos de input
-- **Accessibility responsive:** Acessibilidade que se adapta ao dispositivo
-
-#### 📌 Atividade Prática 3:
-🎯 **Objetivo:** Criar componentes adaptativos inteligentes para o Sistema Lunysse  
-📝 **Tarefa:**
-- Desenvolver hook useBreakpoint para detecção de tamanho de tela
-- Criar componente Navigation que se adapta automaticamente (sidebar/bottom nav)
-- Implementar DataTable que se transforma em cards em mobile
-- Desenvolver Modal que se adapta para fullscreen em mobile
-- Criar sistema de formulários que se reorganiza baseado no espaço
-- Implementar detecção de touch para otimizar interações
-- Testar componentes em diferentes dispositivos e orientações
+#### 📌 Desafio para próxima aula  
+- Preparar estruturas semânticas avançadas e otimizações SEO na Aula 16, mantendo responsividade e consistência visual.
 
 ---
 
-### Tópico 4: Progressive Web App (PWA) e Otimização Final (50 min)
-
-#### 📌 Demonstração Prática:
-Implementação de PWA básico:
-- **Service Worker:** Cache strategies e offline functionality
-- **Web App Manifest:** Configuração para instalação
-- **Push notifications:** Notificações nativas
-- **Background sync:** Sincronização em background
-- **App-like experience:** Navegação e comportamento nativo
-
-#### 📌 Atividade Prática 4:
-🎯 **Objetivo:** Transformar o Sistema Lunysse em PWA funcional  
-📝 **Tarefa:**
-- Criar e configurar Web App Manifest
-- Implementar Service Worker com cache strategy
-- Configurar offline fallbacks para páginas críticas
-- Implementar funcionalidade de instalação
-- Configurar push notifications básicas
-- Otimizar ícones e splash screens para diferentes dispositivos
-- Testar instalação e funcionamento offline
-- Auditar PWA com Lighthouse e corrigir issues
+### 📌 Objetos de Aprendizagem  
+📝 **Materiais Didáticos Utilizados:**  
+- Projeto Lunysse da Aula 14  
+- Tailwind CSS, React, Vite  
+- Ferramentas de teste responsivo e PWA  
+- Documentação de padrões W3C  
 
 ---
 
-### Encerramento e Reflexão (30 min)
+## 🎯 Avaliação  
 
-#### 📌 Discussão em grupo:
-**Tema:** "Como a responsividade avançada impacta a acessibilidade e inclusão digital em aplicações de saúde?"
+### **Avaliação Formativa (Durante a aula):**  
+✅ Layouts adaptativos implementados  
+✅ Componentes responsivos inteligentes  
+✅ Otimização de performance em múltiplos dispositivos  
+✅ PWA básico funcional e testado  
 
-Reflexão sobre:
-- Importância da responsividade para acessibilidade
-- Impacto de PWAs na adoção de aplicações médicas
-- Tendências futuras em design responsivo
-- Metodologias para teste cross-device
+### **Avaliação Somativa (Entregáveis):**  
+✅ Sistema Lunysse com layouts avançados, responsivos e PWA básico implementado  
 
-#### 📌 Desafio para a próxima aula:
-Criar um guia completo de responsividade para o Sistema Lunysse:
-- Documentação de todos os breakpoints e comportamentos
-- Guia de testes para diferentes dispositivos
-- Checklist de conformidade W3C implementado
-
----
-
-## 📌 Objetos de Aprendizagem
-
-📝 **Guia de Container Queries:** Manual técnico com exemplos práticos  
-📝 **Performance Report:** Relatório detalhado de otimizações implementadas  
-📝 **Biblioteca de Componentes Adaptativos:** Coleção de componentes inteligentes  
-📝 **PWA Configuration:** Documentação completa da implementação PWA  
-📝 **Responsive Testing Guide:** Metodologia para testes cross-device
+### **Critérios de Qualidade:**  
+- **Excelente (9-10):** Layouts robustos, responsivos, PWA funcional e performance otimizada  
+- **Bom (7-8):** Pequenas melhorias necessárias, mas com boa experiência visual  
+- **Satisfatório (6-7):** Layouts funcionais, mas PWA limitado ou responsividade parcial  
+- **Insatisfatório (<6):** Falta de responsividade, componentes não adaptativos ou PWA não funcional  
 
 ---
 
-## 🎯 Avaliação
+## 🎓 Conclusão  
 
-### Critérios de Avaliação:
-
-✅ **Implementação Técnica (30%):** Qualidade da implementação de Container Queries e PWA  
-✅ **Performance (25%):** Otimizações e melhorias mensuráveis de velocidade  
-✅ **Adaptabilidade (25%):** Funcionamento em diferentes dispositivos e contextos  
-✅ **Conformidade W3C (20%):** Aderência rigorosa aos padrões web
-
-### Instrumentos de Avaliação:
-
-- **Teste multi-device:** Avaliação em diferentes dispositivos reais
-- **Auditoria técnica:** Verificação com ferramentas automatizadas
-- **Performance metrics:** Análise de Core Web Vitals
-- **Code review:** Avaliação da qualidade e organização do código
-
----
-
-## 🎓 Conclusão
-
-Ao final desta aula, os alunos serão capazes de:
-
-- **Implementar Container Queries** para layouts verdadeiramente adaptativos
-- **Otimizar performance responsiva** usando técnicas avançadas de CSS e JavaScript
-- **Criar componentes inteligentes** que se adaptam automaticamente ao contexto
-- **Desenvolver PWAs funcionais** com cache, offline e instalação
-- **Garantir conformidade W3C** em todos os aspectos da responsividade
-
-Esta competência é essencial para desenvolvedores que trabalham com aplicações modernas, estabelecendo um padrão profissional de qualidade que garante funcionamento perfeito em qualquer dispositivo.
-
----
-
-**Indicador de Competência Trabalhado:**  
-✔️ **Indicador 2** - Utiliza linguagem de marcação e estilo, de acordo com os padrões do W3C
-
-**Metodologia Ativa Aplicada:**  
-- **Aprendizagem Baseada em Projetos:** Implementação prática de PWA completo
-- **Teste Iterativo:** Ciclos de teste e refinamento em dispositivos reais  
-- **Problem-Based Learning:** Solução de problemas reais de responsividade
+### **Aprendizado Esperado:**  
+- Dominar técnicas avançadas de responsividade e Container Queries  
+- Criar componentes adaptativos inteligentes em React + Tailwind  
+- Implementar PWA básico com caching e offline funcional  
+- Garantir compatibilidade cross-browser e padrões W3C

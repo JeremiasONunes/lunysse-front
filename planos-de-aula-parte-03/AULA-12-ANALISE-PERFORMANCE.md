@@ -1,219 +1,153 @@
-# PLANO DE TRABALHO DOCENTE
+### 🎓 Aula 12 – Análise de Desempenho e Ferramentas
 
-## MODELO PEDAGÓGICO SENAC
-
-**Curso:** Desenvolvedor Full Stack  
-**Carga Horária Total:** 108h  
-**Carga Horária da UC:** 108h  
-**Docente:** Jeremias O Nunes
-
----
-
-# PLANO DE AULA – Análise de Desempenho e Ferramentas
-
-📌 **Disciplina:** Desenvolvimento Front-end Avançado  
+📌 **Disciplina:** Programação Avançada e Integração Visual  
 👨🏫 **Mentor(a):** Jeremias O Nunes  
-📆 **Data:** Aula 12 - Parte 3  
-⏰ **Duração:** 4 horas
+📆 **Data:** Aula 12  
+⏰ **Duração:** 4h  
 
 ---
 
-## 📖 Planejamento
+## 📖 Planejamento  
+
+### 📌 Contextualização e Conexão com a Aula Anterior
+Na Aula 11, os alunos implementaram **manipulação DOM avançada e estilos dinâmicos em React**. Nesta aula, conectamos essas interações com **análise de performance**, utilizando ferramentas profissionais para identificar gargalos, otimizar renderizações e garantir conformidade com padrões W3C, mantendo alta performance e experiência do usuário.
 
 ### 📌 Conteúdo Formativo
-
-• Chrome DevTools para profiling e debugging avançado  
-• Métricas Web Vitals (LCP, FID, CLS) e análise Lighthouse  
-• Identificação de gargalos de performance no Sistema Lunysse  
-• Técnicas de otimização de carregamento e renderização  
-• Ferramentas de monitoramento e análise contínua  
-• Metodologia sistemática para correção de inconsistências
+- Ferramentas de análise de performance: Chrome DevTools, Lighthouse e Web Vitals  
+- Identificação de gargalos de renderização em React  
+- Profiling de componentes e monitoramento de estado  
+- Otimizações de carregamento e lazy loading  
+- Implementação de relatórios de performance e métricas  
+- Correção de inconsistências visuais e funcionais  
 
 ### 🎯 Objetivo Geral
-
-Desenvolver competências profissionais em análise de performance web, capacitando os alunos a identificar, diagnosticar e corrigir problemas de desempenho utilizando ferramentas especializadas e seguindo padrões W3C, aplicando essas técnicas no Sistema Lunysse.
+Capacitar os alunos a **analisar, diagnosticar e otimizar a performance de aplicações React + Vite + Tailwind**, garantindo experiência de usuário fluida e aderência aos padrões W3C.
 
 ### 💡 Habilidades e Competências
-
-✅ **Análise técnica:** Utilizar Chrome DevTools para profiling detalhado de aplicações  
-✅ **Diagnóstico:** Identificar gargalos de performance e inconsistências funcionais  
-✅ **Otimização:** Implementar correções seguindo padrões W3C e melhores práticas  
-✅ **Monitoramento:** Estabelecer métricas e processos de análise contínua  
-✅ **Documentação:** Criar relatórios técnicos com recomendações profissionais
+✅ Utilizar ferramentas DevTools e Lighthouse para análise detalhada  
+✅ Identificar gargalos de renderização e atualizações desnecessárias de componentes  
+✅ Aplicar técnicas de lazy loading e otimização de assets  
+✅ Elaborar relatórios de performance com recomendações de melhoria  
+✅ Garantir compatibilidade cross-browser e acessibilidade  
 
 ### 📌 Materiais Necessários
-
-📌 Computadores com Chrome/Edge DevTools  
-📌 Sistema Lunysse desenvolvido nas aulas anteriores  
-📌 Extensões Lighthouse e Web Vitals  
-📌 Ferramentas online: PageSpeed Insights, GTmetrix  
-📌 Template de relatório de performance  
-📌 Checklist de padrões W3C
+📌 Projeto Lunysse atualizado da Aula 11  
+📌 Computadores com Chrome/Edge e DevTools ativos  
+📌 Lighthouse e extensões de análise de performance  
+📌 Templates para relatório de performance  
+📌 Documentação React Performance e Tailwind CSS  
 
 ---
 
-## 🎓 Estratégias de Ensino e Aprendizagem
+## 🎓 Estratégias de Ensino e Aprendizagem  
 
-### Introdução e Contextualização (30 min)
-
-**Reflexão inicial:** "Por que aplicações lentas perdem usuários e negócios?"
-
-Discussão sobre a importância da performance em aplicações de saúde, onde cada segundo pode impactar a experiência do usuário. Apresentação de casos reais de aplicações que melhoraram conversão através de otimizações de performance.
-
-**Contextualização profissional:** No mercado atual, desenvolvedores que dominam análise de performance são altamente valorizados, especialmente em aplicações críticas como sistemas de saúde onde a confiabilidade é essencial.
+### Introdução e Contextualização (20 min)  
+**Metodologia Ativa – Demonstração:**  
+- Revisão das interações DOM e estados implementados na Aula 11  
+- Demonstração de Chrome DevTools: Performance, Timeline, Memory  
+- Introdução às métricas Web Vitals e Lighthouse  
 
 ---
 
-### Tópico 1: Chrome DevTools - Profiling Avançado (60 min)
+### **Tópico 1: Profiling de Componentes React (60 min)**  
+#### 📌 Demonstração Prática
+**Metodologia Ativa – Laboratório Guiado:**  
+- Analisar renderizações de componentes e identificar re-renderizações desnecessárias  
+- Ferramentas de profiling: React DevTools e Performance Tab  
+- Medição de tempo de renderização e identificação de bottlenecks  
 
-#### 📌 Demonstração Prática:
-O mentor demonstrará o uso completo do Chrome DevTools:
-- **Performance Tab:** Gravação e análise de sessões de profiling
-- **Memory Tab:** Detecção de vazamentos de memória
-- **Network Tab:** Análise de requisições e otimização de recursos
-- **Lighthouse Tab:** Auditoria automática de qualidade
+#### 📌 Atividade Prática 1
+🎯 **Objetivo:** Diagnosticar performance de componentes React  
+📝 **Tarefa:**  
+- Medir tempo de renderização de dashboards e listas do Lunysse  
+- Identificar componentes que impactam performance  
+- Documentar gargalos e propor otimizações  
 
-#### 📌 Atividade Prática 1:
-🎯 **Objetivo:** Dominar ferramentas de profiling no Sistema Lunysse  
-📝 **Tarefa:** 
-- Abrir o Sistema Lunysse no Chrome DevTools
-- Realizar profiling completo da página de dashboard
-- Identificar os 3 maiores gargalos de performance
-- Documentar findings com screenshots e métricas
-- Propor soluções específicas para cada problema identificado
+**Parte do Projeto Construída:** Relatórios iniciais de performance por componente.
 
 ---
 
-### Tópico 2: Web Vitals e Métricas Essenciais (50 min)
+### **Tópico 2: Web Vitals e Lighthouse (60 min)**  
+#### 📌 Demonstração Prática
+**Metodologia Ativa – Workshop:**  
+- Avaliação de métricas Core Web Vitals: LCP, FID, CLS  
+- Auditoria completa com Lighthouse e geração de relatórios  
+- Identificação de problemas de carregamento, interatividade e estabilidade visual  
 
-#### 📌 Demonstração Prática:
-Análise detalhada das Core Web Vitals:
-- **LCP (Largest Contentful Paint):** Otimização de carregamento
-- **FID (First Input Delay):** Responsividade de interação
-- **CLS (Cumulative Layout Shift):** Estabilidade visual
-- **TTFB (Time to First Byte):** Performance do servidor
+#### 📌 Atividade Prática 2
+🎯 **Objetivo:** Medir e interpretar métricas de performance  
+📝 **Tarefa:**  
+- Executar Lighthouse para páginas críticas (home, login, dashboards)  
+- Analisar e priorizar problemas de performance  
+- Implementar pequenas otimizações: compressão de imagens, lazy loading, código split  
 
-#### 📌 Atividade Prática 2:
-🎯 **Objetivo:** Medir e otimizar Web Vitals do Sistema Lunysse  
-📝 **Tarefa:**
-- Executar auditoria Lighthouse em todas as páginas principais
-- Registrar métricas atuais de Web Vitals
-- Implementar 2 otimizações específicas (ex: lazy loading, compressão de imagens)
-- Medir novamente e comparar resultados
-- Criar gráfico de before/after das melhorias
+**Parte do Projeto Construída:** Métricas detalhadas com recomendações de melhoria.
 
 ---
 
-### Pausa (15 min)
+### **Tópico 3: Otimizações de Renderização e Relatórios (60 min)**  
+#### 📌 Demonstração Prática
+**Metodologia Ativa – Laboratório Guiado:**  
+- Implementação de técnicas de lazy loading de componentes e imagens  
+- Memoização de componentes (`React.memo`) e hooks (`useMemo`, `useCallback`)  
+- Geração de relatório completo de performance e métricas  
+
+#### 📌 Atividade Prática 3
+🎯 **Objetivo:** Corrigir gargalos e otimizar performance  
+📝 **Tarefa:**  
+- Aplicar memoização em componentes com renderizações pesadas  
+- Implementar lazy loading em dashboards e listas  
+- Criar relatório de performance consolidado com recomendações  
+
+**Parte do Projeto Construída:** Sistema Lunysse otimizado com relatório profissional de performance.
 
 ---
 
-### Tópico 3: Otimização de Carregamento e Renderização (70 min)
+### Encerramento e Reflexão (20 min)  
+#### 📌 Discussão em grupo  
+**Metodologia Ativa – Feedback Coletivo:**  
+- Apresentação dos relatórios de performance  
+- Discussão sobre impactos das otimizações no usuário final  
+- Reflexão sobre padrões W3C e melhores práticas de desenvolvimento  
 
-#### 📌 Demonstração Prática:
-Técnicas avançadas de otimização:
-- **Code Splitting:** Divisão inteligente de bundles
-- **Lazy Loading:** Carregamento sob demanda
-- **Resource Hints:** Preload, prefetch, preconnect
-- **Critical CSS:** Priorização de estilos críticos
-- **Image Optimization:** Formatos modernos e responsivos
-
-#### 📌 Atividade Prática 3:
-🎯 **Objetivo:** Implementar otimizações avançadas no Sistema Lunysse  
-📝 **Tarefa:**
-- Implementar lazy loading nas imagens do sistema
-- Configurar code splitting para rotas principais
-- Otimizar carregamento de fontes e ícones
-- Implementar service worker básico para cache
-- Testar melhorias em diferentes dispositivos e conexões
+#### 📌 Desafio para próxima aula  
+- Preparar refinamentos visuais avançados e micro-interações na Aula 13, utilizando os insights de performance para otimização proativa.  
 
 ---
 
-### Tópico 4: Análise de Inconsistências e Padrões W3C (45 min)
-
-#### 📌 Demonstração Prática:
-Metodologia sistemática para identificação de problemas:
-- **W3C Validator:** Validação de HTML e CSS
-- **WAVE:** Análise de acessibilidade
-- **Cross-browser Testing:** Compatibilidade entre navegadores
-- **Mobile Testing:** Responsividade e performance mobile
-
-#### 📌 Atividade Prática 4:
-🎯 **Objetivo:** Auditar e corrigir inconsistências do Sistema Lunysse  
-📝 **Tarefa:**
-- Executar validação W3C completa do sistema
-- Identificar e corrigir erros de HTML/CSS
-- Testar compatibilidade em Chrome, Firefox, Safari, Edge
-- Verificar responsividade em diferentes dispositivos
-- Documentar todas as correções realizadas
+### 📌 Objetos de Aprendizagem  
+📝 **Materiais Didáticos Utilizados:**  
+- Projeto Lunysse atualizado da Aula 11  
+- Ferramentas Chrome DevTools, Lighthouse e Web Vitals  
+- Templates de relatório de performance  
+- Documentação React Performance e Tailwind CSS  
 
 ---
 
-### Encerramento e Reflexão (30 min)
+## 🎯 Avaliação  
 
-#### 📌 Discussão em grupo:
-**Tema:** "Como a análise de performance impacta a experiência do usuário em aplicações de saúde?"
+### **Avaliação Formativa (Durante a aula):**  
+✅ Identificação correta de gargalos de renderização  
+✅ Aplicação de técnicas de lazy loading e memoização  
+✅ Relatórios de performance claros e detalhados  
+✅ Correções implementadas seguindo boas práticas W3C  
 
-Reflexão sobre:
-- Importância da performance em sistemas críticos
-- Impacto da velocidade na confiança do usuário
-- Relação entre performance e acessibilidade
-- Metodologias para monitoramento contínuo
+### **Avaliação Somativa (Entregáveis):**  
+✅ Projeto Lunysse otimizado com relatório de performance completo  
 
-#### 📌 Desafio para a próxima aula:
-Criar um dashboard de monitoramento de performance para o Sistema Lunysse, incluindo:
-- Métricas automatizadas de Web Vitals
-- Alertas para degradação de performance
-- Relatório semanal de saúde da aplicação
-
----
-
-## 📌 Objetos de Aprendizagem
-
-📝 **Template de Relatório de Performance:** Documento estruturado para documentação de análises  
-📝 **Checklist W3C:** Lista de verificação para conformidade com padrões  
-📝 **Dashboard de Métricas:** Interface para monitoramento contínuo  
-📝 **Guia de Otimização:** Manual com técnicas e melhores práticas  
-📝 **Scripts de Automação:** Ferramentas para análise automatizada
+### **Critérios de Qualidade:**  
+- **Excelente (9-10):** Todos os gargalos identificados e corrigidos, métricas Web Vitals dentro do recomendado  
+- **Bom (7-8):** Pequenos gargalos persistem, mas melhorias significativas implementadas  
+- **Satisfatório (6-7):** Algumas otimizações implementadas, relatório parcial  
+- **Insatisfatório (<6):** Otimizações não implementadas ou métricas críticas não corrigidas  
 
 ---
 
-## 🎯 Avaliação
+## 🎓 Conclusão  
 
-### Critérios de Avaliação:
-
-✅ **Proficiência Técnica (30%):** Domínio das ferramentas de análise e profiling  
-✅ **Identificação de Problemas (25%):** Capacidade de diagnosticar gargalos e inconsistências  
-✅ **Implementação de Soluções (25%):** Qualidade das otimizações implementadas  
-✅ **Documentação (20%):** Clareza e completude dos relatórios técnicos
-
-### Instrumentos de Avaliação:
-
-- **Observação direta:** Durante atividades práticas com ferramentas
-- **Análise de entregáveis:** Relatórios de performance e implementações
-- **Apresentação técnica:** Explicação das otimizações realizadas
-- **Peer review:** Avaliação cruzada dos relatórios entre alunos
-
----
-
-## 🎓 Conclusão
-
-Ao final desta aula, os alunos serão capazes de:
-
-- **Dominar ferramentas profissionais** de análise de performance web
-- **Identificar sistematicamente** gargalos e problemas de desempenho
-- **Implementar otimizações efetivas** seguindo padrões W3C
-- **Criar metodologias** de monitoramento contínuo de qualidade
-- **Documentar profissionalmente** análises e recomendações técnicas
-
-Esta competência é fundamental para desenvolvedores que trabalham com aplicações críticas, estabelecendo uma base sólida para análise de qualidade e performance que será aplicada ao longo de toda a carreira profissional.
-
----
-
-**Indicador de Competência Trabalhado:**  
-✔️ **Indicador 5** - Analisa desempenho e inconsistências no funcionamento do website, de acordo com os padrões W3C
-
-**Metodologia Ativa Aplicada:**  
-- **Aprendizagem Baseada em Problemas:** Identificação e solução de gargalos reais
-- **Learning by Doing:** Prática intensiva com ferramentas profissionais  
-- **Peer Learning:** Colaboração na análise e solução de problemas
+### **Aprendizado Esperado:**  
+- Identificar e analisar gargalos de performance em React + Tailwind  
+- Medir métricas Web Vitals e interpretar Lighthouse Reports  
+- Implementar otimizações de renderização e lazy loading  
+- Elaborar relatórios profissionais de performance  
+- Garantir conformidade com padrões W3C e experiência de usuário fluida

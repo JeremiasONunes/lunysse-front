@@ -1,227 +1,153 @@
-# PLANO DE TRABALHO DOCENTE
+### 🎓 Aula 13 – Comunicação Visual Avançada
 
-## MODELO PEDAGÓGICO SENAC
-
-**Curso:** Desenvolvedor Full Stack  
-**Carga Horária Total:** 108h  
-**Carga Horária da UC:** 108h  
-**Docente:** Jeremias O Nunes
-
----
-
-# PLANO DE AULA – Comunicação Visual Avançada
-
-📌 **Disciplina:** Desenvolvimento Front-end Avançado  
+📌 **Disciplina:** Programação Avançada e Integração Visual  
 👨🏫 **Mentor(a):** Jeremias O Nunes  
-📆 **Data:** Aula 13 - Parte 3  
-⏰ **Duração:** 4 horas
+📆 **Data:** Aula 13  
+⏰ **Duração:** 4h  
 
 ---
 
-## 📖 Planejamento
+## 📖 Planejamento  
+
+### 📌 Contextualização e Conexão com a Aula Anterior
+Na Aula 12, os alunos focaram em **análise de performance e otimização de aplicações React + Tailwind**, garantindo que o Sistema Lunysse funcione de forma eficiente. Nesta aula, utilizamos esses insights para **refinar a comunicação visual**, criando layouts modernos, micro-interações e componentes especializados para dados de saúde digital.
 
 ### 📌 Conteúdo Formativo
-
-• Refinamento de design system com base em feedback e testes de usabilidade  
-• Implementação de micro-interações e animações avançadas com Framer Motion  
-• Workshop de acessibilidade visual e contraste seguindo WCAG 2.1  
-• Criação de componentes visuais especializados para dados médicos  
-• Otimização visual para diferentes contextos de uso (desktop, mobile, tablet)  
-• Análise e aplicação de tendências em aplicações de saúde digital
+- Refinamento do Design System baseado em feedback e performance  
+- Micro-interações e animações avançadas com Tailwind e React  
+- Acessibilidade visual: contraste, cores e legibilidade (WCAG 2.1)  
+- Criação de componentes visuais especializados para dados médicos  
+- Otimização visual para diferentes dispositivos e contextos  
+- Análise de tendências em interfaces de saúde digital  
 
 ### 🎯 Objetivo Geral
-
-Refinar e aprimorar elementos visuais do Sistema Lunysse aplicando tendências avançadas de mercado, técnicas de acessibilidade e otimizações específicas para aplicações de saúde, criando uma experiência visual profissional e inclusiva.
+Capacitar os alunos a **criar interfaces visualmente avançadas, acessíveis e responsivas**, integrando otimizações de performance e tendências modernas de design para aplicações de saúde.
 
 ### 💡 Habilidades e Competências
-
-✅ **Design System:** Criar e refinar sistemas de design consistentes e escaláveis  
-✅ **Micro-interações:** Implementar animações que melhoram a experiência do usuário  
-✅ **Acessibilidade Visual:** Aplicar princípios WCAG para inclusão digital  
-✅ **Especialização Médica:** Desenvolver interfaces específicas para dados de saúde  
-✅ **Otimização Contextual:** Adaptar elementos visuais para diferentes cenários de uso
+✅ Refinar componentes React seguindo Design System e feedback de performance  
+✅ Criar micro-interações e animações eficientes  
+✅ Aplicar padrões de acessibilidade visual e contraste adequado  
+✅ Desenvolver componentes especializados para dados médicos  
+✅ Otimizar interfaces para diferentes dispositivos e contextos de uso  
 
 ### 📌 Materiais Necessários
-
-📌 Sistema Lunysse com design system base implementado  
-📌 Biblioteca Framer Motion configurada  
-📌 Ferramentas de teste de contraste (WebAIM, Colour Contrast Analyser)  
-📌 Figma ou Adobe XD para prototipagem  
-📌 Dispositivos variados para testes (mobile, tablet, desktop)  
-📌 Biblioteca de ícones médicos e de saúde  
-📌 Paleta de cores específica para aplicações de saúde
+📌 Projeto Lunysse otimizado da Aula 12  
+📌 Computadores com ambiente React + Vite + Tailwind configurado  
+📌 Ferramentas de animação CSS/JS (Framer Motion, Tailwind transitions)  
+📌 Templates de Design System e guidelines de acessibilidade  
+📌 Referências de tendências em saúde digital  
 
 ---
 
-## 🎓 Estratégias de Ensino e Aprendizagem
+## 🎓 Estratégias de Ensino e Aprendizagem  
 
-### Introdução e Contextualização (30 min)
-
-**Reflexão inicial:** "Como o design visual impacta a confiança do usuário em aplicações de saúde?"
-
-Discussão sobre a importância da comunicação visual em sistemas médicos, onde a clareza, acessibilidade e profissionalismo são fundamentais para transmitir confiança e facilitar o uso por diferentes perfis de usuários.
-
-**Contextualização profissional:** Análise de aplicações de saúde líderes de mercado (Teladoc, Amwell, Doctoralia) e identificação de padrões visuais que transmitem credibilidade e facilitam a navegação.
+### Introdução e Contextualização (20 min)  
+**Metodologia Ativa – Demonstração:**  
+- Revisão dos componentes otimizados na Aula 12  
+- Demonstração de micro-interações e animações avançadas  
+- Introdução a práticas de acessibilidade visual e contraste  
 
 ---
 
-### Tópico 1: Refinamento do Design System (70 min)
+### **Tópico 1: Refinamento do Design System (60 min)**  
+#### 📌 Demonstração Prática
+**Metodologia Ativa – Workshop Guiado:**  
+- Ajustes de cores, tipografia e espaçamento no Tailwind  
+- Padronização de componentes: Button, Card, Inputs  
+- Integração com estados e props de React para consistência visual  
 
-#### 📌 Demonstração Prática:
-O mentor demonstrará o processo de evolução do design system:
-- **Auditoria visual:** Análise crítica dos componentes existentes
-- **Feedback integration:** Incorporação de melhorias baseadas em testes
-- **Tokenização:** Criação de design tokens para cores, tipografia e espaçamentos
-- **Documentação:** Criação de guia de estilo profissional
+#### 📌 Atividade Prática 1
+🎯 **Objetivo:** Refinar e padronizar componentes visuais  
+📝 **Tarefa:**  
+- Revisar componentes existentes do Lunysse  
+- Ajustar cores, fontes e espaçamento seguindo guidelines  
+- Documentar alterações no Design System  
 
-#### 📌 Atividade Prática 1:
-🎯 **Objetivo:** Refinar o design system do Sistema Lunysse baseado em feedback  
-📝 **Tarefa:**
-- Realizar auditoria visual completa dos componentes existentes
-- Identificar inconsistências e oportunidades de melhoria
-- Implementar design tokens para cores, tipografia e espaçamentos
-- Criar variações de componentes para diferentes contextos (sucesso, erro, warning)
-- Documentar todas as mudanças em um style guide atualizado
-- Testar consistência visual em todas as páginas do sistema
+**Parte do Projeto Construída:** Componentes visuais consistentes e documentados.
 
 ---
 
-### Tópico 2: Micro-interações e Animações Avançadas (60 min)
+### **Tópico 2: Micro-interações e Animações (60 min)**  
+#### 📌 Demonstração Prática
+**Metodologia Ativa – Laboratório Guiado:**  
+- Implementação de animações com Tailwind transitions e keyframes  
+- Uso de Framer Motion para animações complexas  
+- Feedback visual em botões, cards e formulários  
 
-#### 📌 Demonstração Prática:
-Implementação de micro-interações com Framer Motion:
-- **Hover states:** Efeitos sutis em botões e cards
-- **Loading animations:** Indicadores de progresso elegantes
-- **Page transitions:** Transições suaves entre páginas
-- **Form feedback:** Animações de validação e confirmação
-- **Data visualization:** Animações em gráficos e métricas
+#### 📌 Atividade Prática 2
+🎯 **Objetivo:** Criar micro-interações para melhorar UX  
+📝 **Tarefa:**  
+- Animar transições de cards e modais  
+- Implementar hover effects e animações de loading  
+- Garantir performance e suavidade das animações  
 
-#### 📌 Atividade Prática 2:
-🎯 **Objetivo:** Implementar micro-interações que melhoram a UX do Sistema Lunysse  
-📝 **Tarefa:**
-- Implementar hover effects em todos os elementos interativos
-- Criar animações de loading para operações assíncronas
-- Desenvolver transições suaves entre páginas do sistema
-- Implementar feedback visual para ações do usuário (salvar, deletar, confirmar)
-- Criar animações para entrada de dados nos gráficos do dashboard
-- Testar performance das animações em dispositivos variados
+**Parte do Projeto Construída:** Interfaces interativas com animações suaves e eficientes.
 
 ---
 
-### Pausa (15 min)
+### **Tópico 3: Acessibilidade Visual e Componentes Médicos (60 min)**  
+#### 📌 Demonstração Prática
+**Metodologia Ativa – Laboratório Guiado:**  
+- Aplicação de cores e contraste seguindo WCAG 2.1  
+- Criação de componentes visuais para dados médicos: tabelas, dashboards, indicadores  
+- Otimização responsiva e contextual de cada componente  
+
+#### 📌 Atividade Prática 3
+🎯 **Objetivo:** Garantir acessibilidade e criar componentes especializados  
+📝 **Tarefa:**  
+- Implementar dashboards de pacientes e sessões com cores acessíveis  
+- Testar componentes em diferentes resoluções e dispositivos  
+- Documentar melhores práticas de acessibilidade  
+
+**Parte do Projeto Construída:** Componentes visuais acessíveis e adaptáveis para saúde digital.
 
 ---
 
-### Tópico 3: Acessibilidade Visual e Contraste (55 min)
+### Encerramento e Reflexão (20 min)  
+#### 📌 Discussão em grupo  
+**Metodologia Ativa – Feedback Coletivo:**  
+- Revisão das micro-interações e componentes acessíveis  
+- Discussão sobre impacto das animações e acessibilidade no usuário  
+- Reflexão sobre alinhamento com tendências de design digital para saúde  
 
-#### 📌 Demonstração Prática:
-Workshop de acessibilidade visual seguindo WCAG 2.1:
-- **Contraste de cores:** Verificação e correção de ratios de contraste
-- **Navegação por teclado:** Implementação de focus states visíveis
-- **Screen readers:** Otimização para leitores de tela
-- **Redução de movimento:** Respeito às preferências de acessibilidade
-- **Tamanhos de fonte:** Escalabilidade e legibilidade
-
-#### 📌 Atividade Prática 3:
-🎯 **Objetivo:** Tornar o Sistema Lunysse totalmente acessível visualmente  
-📝 **Tarefa:**
-- Auditar contraste de cores usando ferramentas especializadas
-- Corrigir todos os problemas de contraste identificados
-- Implementar navegação completa por teclado
-- Adicionar estados de foco visíveis em todos os elementos interativos
-- Testar compatibilidade com leitores de tela
-- Implementar preferência de movimento reduzido
-- Criar versão de alto contraste do sistema
+#### 📌 Desafio para próxima aula  
+- Aplicar técnicas avançadas de tratamento de imagens e efeitos visuais na Aula 14, mantendo performance e consistência visual.  
 
 ---
 
-### Tópico 4: Componentes Especializados para Dados Médicos (50 min)
-
-#### 📌 Demonstração Prática:
-Criação de componentes específicos para contexto médico:
-- **Status indicators:** Sinalizadores visuais para estados de saúde
-- **Progress trackers:** Acompanhamento de tratamentos
-- **Data cards:** Apresentação de informações médicas sensíveis
-- **Alert systems:** Notificações críticas e não-críticas
-- **Calendar medical:** Agenda especializada para consultas
-
-#### 📌 Atividade Prática 4:
-🎯 **Objetivo:** Desenvolver componentes visuais especializados para o Sistema Lunysse  
-📝 **Tarefa:**
-- Criar indicadores visuais para status de pacientes (ativo, em tratamento, risco)
-- Desenvolver cards especializados para exibição de dados médicos
-- Implementar sistema de alertas com diferentes níveis de criticidade
-- Criar componente de timeline para histórico de sessões
-- Desenvolver visualização especializada para relatórios médicos
-- Implementar componente de agenda médica com códigos de cores
+### 📌 Objetos de Aprendizagem  
+📝 **Materiais Didáticos Utilizados:**  
+- Projeto Lunysse otimizado da Aula 12  
+- Tailwind CSS, Framer Motion e React  
+- Guidelines de Design System e acessibilidade  
+- Referências visuais de tendências em saúde digital  
 
 ---
 
-### Encerramento e Reflexão (30 min)
+## 🎯 Avaliação  
 
-#### 📌 Discussão em grupo:
-**Tema:** "Como a comunicação visual pode melhorar a adesão ao tratamento em aplicações de saúde?"
+### **Avaliação Formativa (Durante a aula):**  
+✅ Componentes revisados e padronizados seguindo o Design System  
+✅ Implementação de micro-interações e animações suaves  
+✅ Aplicação correta de padrões de acessibilidade visual  
+✅ Documentação de alterações no Design System  
 
-Reflexão sobre:
-- Impacto do design na confiança do usuário
-- Importância da acessibilidade em sistemas de saúde
-- Tendências visuais em aplicações médicas
-- Equilíbrio entre estética e funcionalidade
+### **Avaliação Somativa (Entregáveis):**  
+✅ Projeto Lunysse com componentes refinados, interativos e acessíveis  
 
-#### 📌 Desafio para a próxima aula:
-Criar um protótipo de nova funcionalidade para o Sistema Lunysse focada em:
-- Gamificação sutil para adesão ao tratamento
-- Dashboard personalizado para diferentes perfis de usuário
-- Sistema de notificações visuais inteligentes
-
----
-
-## 📌 Objetos de Aprendizagem
-
-📝 **Design System Atualizado:** Documentação completa com todos os componentes refinados  
-📝 **Biblioteca de Animações:** Coleção de micro-interações reutilizáveis  
-📝 **Guia de Acessibilidade:** Manual específico para aplicações de saúde  
-📝 **Componentes Médicos:** Biblioteca especializada para dados de saúde  
-📝 **Style Guide Profissional:** Documentação visual completa do sistema
+### **Critérios de Qualidade:**  
+- **Excelente (9-10):** Interfaces visualmente consistentes, interativas e totalmente acessíveis  
+- **Bom (7-8):** Pequenas melhorias necessárias, mas com boa experiência de usuário  
+- **Satisfatório (6-7):** Componentes funcionais, mas acessibilidade parcial ou animações limitadas  
+- **Insatisfatório (<6):** Falta de padronização, animações ou acessibilidade comprometida  
 
 ---
 
-## 🎯 Avaliação
+## 🎓 Conclusão  
 
-### Critérios de Avaliação:
-
-✅ **Qualidade Visual (30%):** Refinamento e consistência do design system  
-✅ **Implementação Técnica (25%):** Qualidade das animações e micro-interações  
-✅ **Acessibilidade (25%):** Conformidade com padrões WCAG 2.1  
-✅ **Especialização (20%):** Adequação dos componentes ao contexto médico
-
-### Instrumentos de Avaliação:
-
-- **Portfolio visual:** Documentação completa das melhorias implementadas
-- **Teste de usabilidade:** Avaliação com usuários reais do sistema
-- **Auditoria de acessibilidade:** Verificação técnica de conformidade
-- **Apresentação técnica:** Demonstração das soluções desenvolvidas
-
----
-
-## 🎓 Conclusão
-
-Ao final desta aula, os alunos serão capazes de:
-
-- **Refinar sistemas de design** com base em feedback e testes reais
-- **Implementar micro-interações** que melhoram significativamente a experiência do usuário
-- **Aplicar princípios de acessibilidade** seguindo padrões internacionais WCAG 2.1
-- **Criar componentes especializados** para contextos específicos como aplicações de saúde
-- **Otimizar elementos visuais** para diferentes dispositivos e cenários de uso
-
-Esta competência é essencial para desenvolvedores front-end que trabalham com aplicações críticas, estabelecendo um padrão profissional de qualidade visual e acessibilidade que diferencia produtos no mercado.
-
----
-
-**Indicador de Competência Trabalhado:**  
-✔️ **Indicador 1** - Cria imagens, layouts e animações otimizadas para website
-
-**Metodologia Ativa Aplicada:**  
-- **Design Thinking:** Processo centrado no usuário para refinamento visual
-- **Prototipagem Rápida:** Iteração contínua baseada em feedback  
-- **Aprendizagem Colaborativa:** Trabalho em equipe para soluções visuais
+### **Aprendizado Esperado:**  
+- Refinar interfaces React + Tailwind seguindo Design System  
+- Criar micro-interações e animações otimizadas  
+- Implementar padrões de acessibilidade visual (WCAG 2.1)  
+- Desenvolver componentes especializados para dados médicos  
+- Garantir consistência, performance e adaptabilidade em múltiplos dispositivos

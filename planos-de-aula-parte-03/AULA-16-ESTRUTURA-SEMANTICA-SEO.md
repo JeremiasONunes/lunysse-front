@@ -1,234 +1,151 @@
-# PLANO DE TRABALHO DOCENTE
+### 🎓 Aula 16 – Estrutura Semântica Avançada e SEO
 
-## MODELO PEDAGÓGICO SENAC
-
-**Curso:** Desenvolvedor Full Stack  
-**Carga Horária Total:** 108h  
-**Carga Horária da UC:** 108h  
-**Docente:** Jeremias O Nunes
-
----
-
-# PLANO DE AULA – Estrutura Semântica Avançada e SEO
-
-📌 **Disciplina:** Desenvolvimento Front-end Avançado  
+📌 **Disciplina:** Programação Avançada e Integração Visual  
 👨🏫 **Mentor(a):** Jeremias O Nunes  
-📆 **Data:** Aula 16 - Parte 3  
-⏰ **Duração:** 4 horas
+📆 **Data:** Aula 16  
+⏰ **Duração:** 4h  
 
 ---
 
-## 📖 Planejamento
+## 📖 Planejamento  
+
+### 📌 Contextualização e Conexão com a Aula Anterior
+Na Aula 15, os alunos dominaram design responsivo e implementaram PWA básico. Nesta aula, o foco é **estruturação semântica avançada e SEO**, garantindo que o Sistema Lunysse não apenas seja visualmente adaptável, mas também acessível e indexável por motores de busca, mantendo conformidade com padrões W3C.
 
 ### 📌 Conteúdo Formativo
-
-• Implementação de Schema.org e dados estruturados para aplicações de saúde  
-• Workshop de SEO técnico para Single Page Applications (SPA)  
-• Criação de sitemap dinâmico e otimizações de indexação  
-• Laboratório de acessibilidade avançada seguindo WCAG 2.1 AA  
-• Implementação de meta tags dinâmicas e Open Graph  
-• Auditoria completa de semântica e acessibilidade do Sistema Lunysse
+- Estrutura semântica avançada em React (uso correto de `<header>`, `<main>`, `<footer>`, `<article>`, `<section>` etc.)  
+- Implementação de Schema.org e dados estruturados  
+- Revisão de sitemap e otimizações de indexação  
+- Laboratório de acessibilidade avançada (WCAG 2.1)  
+- Implementação de meta tags dinâmicas e SEO on-page  
+- Auditoria completa de semântica e acessibilidade  
 
 ### 🎯 Objetivo Geral
-
-Implementar estruturas semânticas avançadas e otimizações SEO específicas para aplicações web profissionais, seguindo rigorosamente padrões W3C para máxima acessibilidade, indexação e conformidade com especificações web modernas.
+Capacitar os alunos a **implementar estruturas semânticas avançadas e práticas de SEO**, garantindo máxima acessibilidade e indexação de aplicações web profissionais.
 
 ### 💡 Habilidades e Competências
-
-✅ **Semântica Avançada:** Implementar estruturas HTML5 semânticas complexas  
-✅ **Schema.org:** Aplicar dados estruturados para melhor indexação  
-✅ **SEO Técnico:** Otimizar SPAs para motores de busca  
-✅ **WCAG 2.1:** Implementar acessibilidade de nível AA  
-✅ **Meta Tags Dinâmicas:** Criar sistema de metadados adaptativos
+✅ Criar markup semântico avançado em React  
+✅ Implementar dados estruturados e Schema.org  
+✅ Otimizar sitemaps e meta tags para SEO  
+✅ Garantir acessibilidade conforme WCAG 2.1  
+✅ Auditar e corrigir problemas de semântica e acessibilidade  
 
 ### 📌 Materiais Necessários
-
-📌 Sistema Lunysse com estrutura base implementada  
-📌 Ferramentas de validação W3C (HTML, CSS, WCAG)  
-📌 Google Search Console e ferramentas de SEO  
-📌 Leitores de tela para teste de acessibilidade (NVDA, JAWS)  
-📌 Extensões de acessibilidade (axe, WAVE)  
-📌 Ferramentas de teste de Schema.org (Google Rich Results Test)
+📌 Projeto Lunysse responsivo da Aula 15  
+📌 Computadores com ambiente React + Vite + Tailwind  
+📌 Ferramentas de SEO e auditoria (Lighthouse, Screaming Frog, WAVE)  
+📌 Documentação WCAG 2.1 e padrões W3C  
 
 ---
 
-## 🎓 Estratégias de Ensino e Aprendizagem
+## 🎓 Estratégias de Ensino e Aprendizagem  
 
-### Introdução e Contextualização (30 min)
-
-**Reflexão inicial:** "Por que a semântica e acessibilidade são fundamentais em aplicações de saúde?"
-
-Discussão sobre a importância crítica da acessibilidade em sistemas médicos, onde usuários com diferentes necessidades devem ter acesso igual às informações de saúde, e como a semântica adequada facilita a indexação e descoberta de conteúdo médico.
-
-**Contextualização profissional:** Análise de regulamentações de acessibilidade em aplicações de saúde (ADA, Section 508) e como empresas líderes implementam conformidade total com padrões web.
+### Introdução e Contextualização (20 min)  
+**Metodologia Ativa – Demonstração:**  
+- Revisão dos layouts responsivos e PWA implementados  
+- Introdução aos conceitos de semântica avançada e SEO  
+- Apresentação de boas práticas de acessibilidade WCAG 2.1  
 
 ---
 
-### Tópico 1: Schema.org e Dados Estruturados (70 min)
+### **Tópico 1: Estrutura Semântica Avançada (60 min)**  
+#### 📌 Demonstração Prática
+**Metodologia Ativa – Workshop Guiado:**  
+- Criação de componentes React semanticamente corretos  
+- Uso de tags estruturais: `<header>`, `<nav>`, `<main>`, `<footer>`, `<section>`, `<article>`  
+- Revisão de hierarquia de headings e roles  
 
-#### 📌 Demonstração Prática:
-O mentor demonstrará implementação de Schema.org:
-- **Medical schemas:** Person, MedicalOrganization, MedicalCondition
-- **JSON-LD implementation:** Estruturação de dados médicos
-- **Rich snippets:** Otimização para resultados enriquecidos
-- **Local business:** Schema para clínicas e consultórios
-- **Review and rating:** Implementação de avaliações estruturadas
+#### 📌 Atividade Prática 1
+🎯 **Objetivo:** Implementar markup semântico consistente  
+📝 **Tarefa:**  
+- Refatorar páginas existentes do Sistema Lunysse com markup semântico  
+- Garantir consistência e hierarquia de headings  
+- Testar acessibilidade com ferramentas de auditoria  
 
-#### 📌 Atividade Prática 1:
-🎯 **Objetivo:** Implementar dados estruturados completos no Sistema Lunysse  
-📝 **Tarefa:**
-- Implementar schema Person para psicólogos com especialidades
-- Criar schema MedicalOrganization para a plataforma
-- Implementar schema Event para agendamentos de consultas
-- Desenvolver schema Review para avaliações de psicólogos
-- Criar schema FAQPage para seção de perguntas frequentes
-- Implementar breadcrumb schema para navegação
-- Validar todos os schemas com Google Rich Results Test
-- Documentar estrutura de dados implementada
+**Parte do Projeto Construída:** Estrutura semântica avançada e acessível para todas as páginas.
 
 ---
 
-### Tópico 2: SEO Técnico para Single Page Applications (60 min)
+### **Tópico 2: SEO e Dados Estruturados (60 min)**  
+#### 📌 Demonstração Prática
+**Metodologia Ativa – Laboratório Guiado:**  
+- Implementação de Schema.org em componentes React  
+- Criação de meta tags dinâmicas (`title`, `description`, `og:`)  
+- Revisão e otimização do sitemap.xml  
 
-#### 📌 Demonstração Prática:
-Otimização SEO específica para SPAs:
-- **Server-side rendering:** Implementação com React
-- **Meta tags dinâmicas:** Sistema de metadados por rota
-- **Sitemap generation:** Criação automática de sitemap
-- **Robot.txt optimization:** Configuração para crawlers
-- **Internal linking:** Estrutura de links internos otimizada
+#### 📌 Atividade Prática 2
+🎯 **Objetivo:** Melhorar indexação e SEO do Sistema Lunysse  
+📝 **Tarefa:**  
+- Adicionar Schema.org para entidades principais (paciente, psicólogo, agendamento)  
+- Configurar meta tags dinâmicas usando React Helmet ou biblioteca equivalente  
+- Validar resultados em Google Rich Results e Lighthouse  
 
-#### 📌 Atividade Prática 2:
-🎯 **Objetivo:** Otimizar SEO técnico do Sistema Lunysse  
-📝 **Tarefa:**
-- Implementar meta tags dinâmicas para todas as rotas
-- Criar sistema de títulos e descrições contextuais
-- Configurar Open Graph e Twitter Cards
-- Implementar canonical URLs para evitar conteúdo duplicado
-- Criar sitemap.xml dinâmico
-- Configurar robots.txt otimizado
-- Implementar structured data testing
-- Auditar SEO com ferramentas especializadas
+**Parte do Projeto Construída:** SEO avançado e dados estruturados integrados.
 
 ---
 
-### Pausa (15 min)
+### **Tópico 3: Auditoria e Acessibilidade (60 min)**  
+#### 📌 Demonstração Prática
+**Metodologia Ativa – Laboratório Guiado:**  
+- Auditoria completa com ferramentas WAVE e Lighthouse  
+- Implementação de correções de contraste, foco e navegação por teclado  
+- Testes de compatibilidade cross-browser  
+
+#### 📌 Atividade Prática 3
+🎯 **Objetivo:** Garantir acessibilidade e conformidade W3C  
+📝 **Tarefa:**  
+- Corrigir problemas de contraste e navegação  
+- Validar acessibilidade em múltiplos navegadores  
+- Documentar checklist de conformidade  
+
+**Parte do Projeto Construída:** Sistema Lunysse acessível e em conformidade com padrões W3C.
 
 ---
 
-### Tópico 3: Acessibilidade Avançada WCAG 2.1 AA (75 min)
+### Encerramento e Reflexão (20 min)  
+#### 📌 Discussão em grupo  
+**Metodologia Ativa – Feedback Coletivo:**  
+- Revisão das implementações de SEO e semântica  
+- Avaliação da acessibilidade e conformidade W3C  
+- Reflexão sobre integração com aulas anteriores (Layouts, PWA, Componentes)  
 
-#### 📌 Demonstração Prática:
-Implementação completa de acessibilidade WCAG 2.1:
-- **Keyboard navigation:** Navegação completa por teclado
-- **Screen reader optimization:** Otimização para leitores de tela
-- **ARIA implementation:** Uso avançado de ARIA labels e roles
-- **Color contrast:** Verificação e correção de contraste
-- **Focus management:** Gerenciamento inteligente de foco
-
-#### 📌 Atividade Prática 3:
-🎯 **Objetivo:** Implementar acessibilidade WCAG 2.1 AA completa no Sistema Lunysse  
-📝 **Tarefa:**
-- Auditar acessibilidade com ferramentas automatizadas (axe, WAVE)
-- Implementar navegação por teclado em todos os componentes
-- Adicionar ARIA labels, roles e properties apropriados
-- Corrigir todos os problemas de contraste identificados
-- Implementar skip links e landmarks semânticos
-- Testar com leitores de tela (NVDA, JAWS)
-- Criar documentação de acessibilidade
-- Implementar testes automatizados de acessibilidade
+#### 📌 Desafio para próxima aula  
+- Preparar a base de programação orientada a objetos em JavaScript na Aula 17, integrando estrutura semântica e componentes responsivos.
 
 ---
 
-### Tópico 4: Auditoria Completa e Otimização Final (40 min)
-
-#### 📌 Demonstração Prática:
-Processo de auditoria completa:
-- **W3C validation:** Validação HTML, CSS e acessibilidade
-- **Performance audit:** Lighthouse e Core Web Vitals
-- **SEO audit:** Análise completa de otimização
-- **Cross-browser testing:** Compatibilidade entre navegadores
-- **Mobile optimization:** Otimização para dispositivos móveis
-
-#### 📌 Atividade Prática 4:
-🎯 **Objetivo:** Realizar auditoria completa e correções finais do Sistema Lunysse  
-📝 **Tarefa:**
-- Executar validação W3C completa (HTML, CSS, WCAG)
-- Corrigir todos os erros e warnings identificados
-- Realizar auditoria Lighthouse e atingir scores altos
-- Testar compatibilidade em diferentes navegadores
-- Verificar responsividade em dispositivos variados
-- Implementar melhorias de performance identificadas
-- Criar relatório final de conformidade
-- Documentar todas as correções realizadas
+### 📌 Objetos de Aprendizagem  
+📝 **Materiais Didáticos Utilizados:**  
+- Projeto Lunysse da Aula 15  
+- React Helmet ou equivalente para meta tags  
+- Ferramentas de auditoria SEO e acessibilidade  
+- Documentação WCAG 2.1 e padrões W3C  
 
 ---
 
-### Encerramento e Reflexão (30 min)
+## 🎯 Avaliação  
 
-#### 📌 Discussão em grupo:
-**Tema:** "Como a conformidade com padrões W3C impacta a inclusão digital e a qualidade de aplicações de saúde?"
+### **Avaliação Formativa (Durante a aula):**  
+✅ Estrutura semântica implementada corretamente  
+✅ Dados estruturados e meta tags funcionando  
+✅ Checklist de acessibilidade completo  
+✅ Auditoria SEO e W3C validada  
 
-Reflexão sobre:
-- Importância da acessibilidade para inclusão digital
-- Impacto da semântica na descoberta de conteúdo médico
-- Responsabilidade social em aplicações de saúde
-- Tendências futuras em padrões web
+### **Avaliação Somativa (Entregáveis):**  
+✅ Sistema Lunysse com SEO avançado, acessibilidade e semântica completa  
 
-#### 📌 Desafio para a próxima aula:
-Criar um guia completo de conformidade W3C para o Sistema Lunysse:
-- Checklist de validação para novos desenvolvimentos
-- Processo de auditoria contínua
-- Documentação de padrões implementados
-
----
-
-## 📌 Objetos de Aprendizagem
-
-📝 **Guia de Schema.org:** Manual completo para implementação de dados estruturados  
-📝 **SEO Checklist:** Lista de verificação para otimização de SPAs  
-📝 **Accessibility Guide:** Guia completo de implementação WCAG 2.1 AA  
-📝 **Audit Report:** Relatório detalhado de conformidade W3C  
-📝 **Standards Documentation:** Documentação de todos os padrões implementados
+### **Critérios de Qualidade:**  
+- **Excelente (9-10):** Semântica perfeita, SEO e acessibilidade integrados, conformidade W3C total  
+- **Bom (7-8):** Pequenos ajustes necessários, mas semântica e SEO consistentes  
+- **Satisfatório (6-7):** Estrutura semântica básica, SEO parcial ou acessibilidade limitada  
+- **Insatisfatório (<6):** Falta de semântica, SEO ineficaz ou problemas de acessibilidade  
 
 ---
 
-## 🎯 Avaliação
+## 🎓 Conclusão  
 
-### Critérios de Avaliação:
-
-✅ **Conformidade W3C (35%):** Aderência total aos padrões HTML, CSS e WCAG  
-✅ **Implementação Semântica (25%):** Qualidade da estruturação semântica e Schema.org  
-✅ **Acessibilidade (25%):** Conformidade WCAG 2.1 AA e testes com usuários  
-✅ **SEO Técnico (15%):** Otimização para motores de busca e indexação
-
-### Instrumentos de Avaliação:
-
-- **Auditoria automatizada:** Validação com ferramentas W3C e acessibilidade
-- **Teste com usuários:** Avaliação com pessoas com deficiência
-- **SEO analysis:** Análise com ferramentas especializadas
-- **Code review:** Avaliação da qualidade semântica do código
-
----
-
-## 🎓 Conclusão
-
-Ao final desta aula, os alunos serão capazes de:
-
-- **Implementar dados estruturados** Schema.org para melhor indexação
-- **Otimizar SEO técnico** específico para Single Page Applications
-- **Garantir acessibilidade WCAG 2.1 AA** completa em aplicações web
-- **Realizar auditorias completas** de conformidade com padrões W3C
-- **Criar documentação técnica** de padrões e conformidade implementados
-
-Esta competência é fundamental para desenvolvedores que trabalham com aplicações profissionais, especialmente em contextos críticos como saúde, estabelecendo um padrão de qualidade que garante acessibilidade universal e conformidade total com especificações web.
-
----
-
-**Indicador de Competência Trabalhado:**  
-✔️ **Indicador 2** - Utiliza linguagem de marcação e estilo, de acordo com os padrões do W3C
-
-**Metodologia Ativa Aplicada:**  
-- **Auditoria Colaborativa:** Trabalho em equipe para identificação e correção de problemas
-- **Teste com Usuários Reais:** Validação prática de acessibilidade  
-- **Aprendizagem Baseada em Padrões:** Implementação rigorosa de especificações W3C
+### **Aprendizado Esperado:**  
+- Implementar estrutura semântica avançada em React  
+- Integrar Schema.org, meta tags dinâmicas e otimizações SEO  
+- Garantir acessibilidade máxima conforme WCAG 2.1  
+- Consolidar compatibilidade com padrões W3C e responsividade previamente implementada
