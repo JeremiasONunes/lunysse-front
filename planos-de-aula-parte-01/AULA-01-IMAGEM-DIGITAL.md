@@ -72,7 +72,7 @@ Apresentação do desafio real: criar uma plataforma visual moderna para agendam
 
 #### 📌 Demonstração Prática:
 **Metodologia Ativa - Demonstração Interativa:**
-- Abrir o Figma e mostrar ao vivo a diferença entre:
+- Abrir ferramenta e mostrar ao vivo a diferença entre:
   - Desenhar um ícone vetorial (círculo, quadrado)
   - Importar uma foto bitmap
   - Fazer zoom extremo em ambos para mostrar a diferença
@@ -85,7 +85,6 @@ Apresentação do desafio real: criar uma plataforma visual moderna para agendam
 - Em duplas, analisar 10 elementos visuais do Sistema Lunysse:
   - Logo principal
   - Ícones da sidebar (Dashboard, Pacientes, Agendamento, etc.)
-  - Fotos de perfil de usuários
   - Gráficos de relatórios
   - Botões e elementos de interface
 - Classificar cada elemento como "Vetor" ou "Bitmap" e justificar
@@ -99,11 +98,10 @@ Apresentação do desafio real: criar uma plataforma visual moderna para agendam
 
 #### 📌 Demonstração Prática:
 **Metodologia Ativa - Experimentação Guiada:**
-- Pegar o logo do Lunysse e salvar em 4 formatos diferentes
+- Pegar o logo do Lunysse e salvar em 3 formatos diferentes
 - Comparar tamanhos de arquivo e qualidade visual
 - Mostrar quando usar cada formato:
   - **PNG:** Logo com transparência, ícones com poucos cores
-  - **JPEG:** Fotos de perfil de psicólogos e pacientes
   - **SVG:** Ícones da interface, logo responsivo
   - **GIF:** Animações de loading (se necessário)
 
