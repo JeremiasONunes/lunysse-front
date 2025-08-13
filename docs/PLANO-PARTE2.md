@@ -53,10 +53,9 @@ Desenvolver competências em estruturação semântica de páginas web utilizand
 **Atividades:**  
 • Configuração do ambiente de desenvolvimento (VS Code, extensões, Vite)  
 • Criação da estrutura HTML semântica das páginas principais do Lunysse  
-• Implementação de navegação acessível com ARIA labels e roles  
-• Workshop de validação W3C e testes com screen readers  
-• Laboratório de SEO básico e meta tags para aplicações de saúde  
-• Exercício prático de estruturação da página de login
+• Implementação de navegação acessível com ARIA labels e roles   
+• Laboratório de SEO básico, meta tags e palavras chaves no corpo aplicações de saúde  
+• Exercício prático de estruturação das paginas home, sobre e login
 
 **Indicador trabalhado:**  
 ✔️ Indicador 2 - Utiliza linguagem de marcação e estilo, de acordo com os padrões do W3C
@@ -64,7 +63,7 @@ Desenvolver competências em estruturação semântica de páginas web utilizand
 **Descrição alinhada ao indicador:**  
 Esta aula estabelece as bases da estruturação semântica seguindo rigorosamente os padrões W3C, garantindo acessibilidade e usabilidade desde o início do desenvolvimento.
 
-### 🎓 Aula 7 – Estilização de Páginas e Integração
+### 🎓 Aula 7 – refinamento da estilização de Páginas e Integração
 
 **Objetivo:**  
 Implementar estilização de páginas web integrando CSS com HTML e utilizando framework Tailwind CSS de forma organizada e eficiente.
@@ -91,10 +90,8 @@ Desenvolver layouts responsivos utilizando técnicas modernas de CSS e garantind
 **Atividades:**  
 • Implementação de sidebar responsiva com Flexbox e CSS Grid  
 • Criação de sistema de breakpoints estratégicos  
-• Workshop de mobile-first development  
-• Testes de compatibilidade em múltiplos navegadores  
-• Implementação de menu hambúrguer para dispositivos móveis  
-• Laboratório de progressive enhancement e graceful degradation
+• Testes de compatibilidade em múltiplos navegadores    
+• Laboratório de progressive enhancement 
 
 **Indicador trabalhado:**  
 ✔️ Indicador 2 - Utiliza linguagem de marcação e estilo, de acordo com os padrões do W3C
@@ -130,7 +127,6 @@ Implementar interatividade web através de eventos, funções e manipulação do
 • Workshop de criação e chamada de funções com parâmetros e retornos  
 • Implementação de event listeners para diferentes tipos de eventos  
 • Laboratório de manipulação DOM: seleção e modificação de elementos  
-• Criação de sistema de notificações toast para o Lunysse  
 • Exercício de toggle da sidebar mobile com JavaScript  
 • Desenvolvimento de modais de confirmação interativos
 
@@ -150,7 +146,6 @@ Avançar na manipulação DOM implementando estilos dinâmicos e garantindo comp
 • Implementação de estilos dinâmicos via JavaScript  
 • Workshop de animações programáticas e classes dinâmicas  
 • Criação de sistema de filtros dinâmicos para listas  
-• Testes de compatibilidade e implementação de polyfills  
 • Desenvolvimento de feedback visual para ações do usuário
 
 **Indicador trabalhado:**  
