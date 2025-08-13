@@ -132,8 +132,7 @@ Implementar estruturas semânticas avançadas e otimizações SEO específicas p
 
 **Atividades:**  
 • Implementação de Schema.org e dados estruturados  
-• Workshop de SEO técnico para Single Page Applications  
-• Criação de sitemap e otimizações de indexação  
+• Revisão do sitemap e otimizações de indexação  
 • Laboratório de acessibilidade avançada (WCAG 2.1)  
 • Implementação de meta tags dinâmicas  
 • Auditoria completa de semântica e acessibilidade
@@ -147,7 +146,7 @@ Esta aula aprofunda conhecimentos em estruturação semântica, seguindo rigoros
 ### 🎓 Aula 17 – Programação Orientada a Objetos
 
 **Objetivo:**  
-Implementar programação orientada a objetos em JavaScript para criar arquitetura robusta e reutilizável no Sistema Lunysse.
+Implementar programação orientada a objetos em JavaScript para criar arquitetura robusta e reutilizável no Sistema Lunysse construção do mockAPI para simulação dos dados.
 
 **Atividades:**  
 • Workshop de classes ES6+ e encapsulamento  
@@ -170,8 +169,7 @@ Avançar em técnicas de manipulação DOM e implementação de eventos complexo
 
 **Atividades:**  
 • Implementação de Custom Events e Event Delegation  
-• Workshop de performance em manipulação DOM  
-• Criação de sistema de notificações avançado  
+• Workshop de performance em manipulação DOM   
 • Laboratório de Intersection Observer e APIs modernas  
 • Desenvolvimento de filtros dinâmicos complexos  
 • Implementação de drag-and-drop para agendamentos
@@ -204,7 +202,7 @@ A aula consolida competências em análise de performance, implementando metodol
 ### 🎓 Aula 20 – Linguagem SQL para Tratamento de Dados
 
 **Objetivo:**  
-Implementar integração com banco de dados utilizando SQL para tratamento eficiente de dados do Sistema Lunysse.
+Implementar integração com banco de dados utilizando SQL para tratamento eficiente de dados do Sistema Lunysse utlização de back-end construido no modulo anterior como base para implementação basica dessa sessão.
 
 **Atividades:**  
 • Workshop de modelagem de dados para sistema de saúde  
