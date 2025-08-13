@@ -76,7 +76,7 @@ Desenvolver competências em comunicação visual aplicando framework de design 
 ✔️ Indicador 1 - Cria imagens, layouts e animações otimizadas para website
 
 **Descrição alinhada ao indicador:**  
-A aula desenvolve o framework visual do projeto, estabelecendo padrões de comunicação visual que seguem tendências de mercado e princípios científicos de percepção visual.
+A aula desenvolve o protótipo visual do projeto, estabelecendo padrões de comunicação visual que seguem tendências de mercado e princípios científicos de percepção visual.
 
 ### 🎓 Aula 3 – Componentes Visuais: Ícones, Menus e Cards
 
