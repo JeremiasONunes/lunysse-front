@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Menu, X, LogOut, BarChart3, Calendar, User, Users, MessageCircle } from 'lucide-react';
+import { Menu, X, LogOut, BarChart3, Calendar, User, Users, MessageCircle, Bell } from 'lucide-react';
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,13 +17,14 @@ export const Sidebar = () => {
   const navLinks = user?.type === 'psicologo' 
     ? [
         { to: '/dashboard', label: 'Dashboard', icon: BarChart3 },
+        { to: '/solicitacoes', label: 'Solicitações', icon: Bell },
         { to: '/pacientes', label: 'Pacientes', icon: Users },
         { to: '/chat-ia', label: 'Chat IA', icon: MessageCircle },
         { to: '/relatorios', label: 'Relatórios', icon: BarChart3 }
       ]
     : [
         { to: '/dashboard', label: 'Dashboard', icon: BarChart3 },
-        { to: '/agendamento', label: 'Agendar', icon: Calendar }
+        { to: '/agendamento', label: 'Solicitar Sessão', icon: Calendar }
       ];
 
   const isActive = (path) => location.pathname === path;

@@ -21,6 +21,8 @@ import { Pacientes } from '../pages/Pacientes';
 import { PacienteDetalhes } from '../pages/PacienteDetalhes';
 import { SessaoDetalhes } from '../pages/SessaoDetalhes';
 import { ChatIA } from '../pages/ChatIA';
+import { Solicitacoes } from '../pages/Solicitacoes';
+import { Historico } from '../pages/Historico';
 import { NotFound } from '../pages/NotFound';
 
 const ProtectedRoute = ({ children }) => {
@@ -104,6 +106,12 @@ export const AppRoutes = () => {
           </ProtectedRoute>
         } />
         
+        <Route path="/solicitacoes" element={
+          <ProtectedRoute>
+            <Solicitacoes />
+          </ProtectedRoute>
+        } />
+        
         <Route path="/pacientes" element={
           <ProtectedRoute>
             <Pacientes />
@@ -133,6 +141,12 @@ export const AppRoutes = () => {
         <Route path="/relatorios" element={
           <ProtectedRoute>
             <Relatorios />
+          </ProtectedRoute>
+        } />
+        
+        <Route path="/historico" element={
+          <ProtectedRoute>
+            <Historico />
           </ProtectedRoute>
         } />
         

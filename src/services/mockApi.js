@@ -4,7 +4,8 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 const STORAGE_KEYS = {
   USERS: 'lunysse_users',
   PATIENTS: 'lunysse_patients',
-  APPOINTMENTS: 'lunysse_appointments'
+  APPOINTMENTS: 'lunysse_appointments',
+  REQUESTS: 'lunysse_requests'
 };
 
 const getStorageData = (key, defaultData) => {
@@ -53,6 +54,36 @@ const generateFutureDate = (daysFromNow) => {
   date.setDate(date.getDate() + daysFromNow);
   return date.toISOString().split('T')[0];
 };
+
+// Dados iniciais das solicitações
+const initialRequests = [
+  {
+    id: 1,
+    patientName: 'João Silva',
+    patientEmail: 'joao.silva@email.com',
+    patientPhone: '(11) 99999-1111',
+    preferredPsychologist: 2, // Dra. Ana Costa
+    description: 'Gostaria de ser seu paciente. Preciso de ajuda com ansiedade e estresse no trabalho. Tenho disponibilidade nas tardes.',
+    urgency: 'media',
+    preferredDates: ['2024-12-20', '2024-12-21'],
+    preferredTimes: ['14:00', '15:00'],
+    status: 'pendente',
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 2,
+    patientName: 'Ana Oliveira',
+    patientEmail: 'ana.oliveira@email.com',
+    patientPhone: '(11) 88888-2222',
+    preferredPsychologist: 3, // Dr. Carlos Mendes
+    description: 'Gostaria que você atendesse meu filho de 8 anos que está com dificuldades comportamentais na escola. Preciso de um especialista em psicologia infantil.',
+    urgency: 'alta',
+    preferredDates: ['2024-12-19'],
+    preferredTimes: ['09:00', '10:00'],
+    status: 'pendente',
+    createdAt: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString()
+  }
+];
 
 // Dados iniciais dos agendamentos
 const initialAppointments = [
@@ -147,12 +178,50 @@ const initialAppointments = [
     fullReport: ''
   },
   
+  // Sessões do paciente de teste Maria Santos (ID: 5)
+  { 
+    id: 17, 
+    patientId: 5, 
+    psychologistId: 2, 
+    date: generateFutureDate(-7), 
+    time: '14:00', 
+    status: 'concluido',
+    description: 'Sessão inicial - Avaliação psicológica',
+    duration: 60,
+    notes: 'Primeira consulta realizada com sucesso. Paciente demonstrou boa receptividade.',
+    fullReport: 'Anamnese completa. Identificados sintomas de ansiedade leve.'
+  },
+  { 
+    id: 18, 
+    patientId: 5, 
+    psychologistId: 2, 
+    date: generateFutureDate(-14), 
+    time: '15:00', 
+    status: 'concluido',
+    description: 'Terapia cognitivo-comportamental',
+    duration: 50,
+    notes: 'Trabalhamos técnicas de respiração e reestruturação cognitiva.',
+    fullReport: 'Paciente respondeu bem às técnicas de TCC aplicadas.'
+  },
+  { 
+    id: 19, 
+    patientId: 5, 
+    psychologistId: 2, 
+    date: generateFutureDate(-21), 
+    time: '14:00', 
+    status: 'concluido',
+    description: 'Sessão de acompanhamento',
+    duration: 50,
+    notes: 'Progresso significativo observado. Paciente relatou melhora na qualidade do sono.',
+    fullReport: 'Evolução positiva. Redução dos sintomas ansiosos.'
+  },
+  
   // Sessões antigas para dados históricos
   { 
     id: 15, 
     patientId: 1, 
     psychologistId: 1, 
-    date: generateFutureDate(-21), 
+    date: generateFutureDate(-28), 
     time: '14:00', 
     status: 'concluido',
     description: 'Sessão de acompanhamento',
@@ -164,7 +233,7 @@ const initialAppointments = [
     id: 16, 
     patientId: 2, 
     psychologistId: 1, 
-    date: generateFutureDate(-28), 
+    date: generateFutureDate(-35), 
     time: '10:00', 
     status: 'concluido',
     description: 'Sessão inicial',
@@ -185,11 +254,15 @@ if (!localStorage.getItem(STORAGE_KEYS.PATIENTS)) {
 if (!localStorage.getItem(STORAGE_KEYS.APPOINTMENTS)) {
   setStorageData(STORAGE_KEYS.APPOINTMENTS, initialAppointments);
 }
+if (!localStorage.getItem(STORAGE_KEYS.REQUESTS)) {
+  setStorageData(STORAGE_KEYS.REQUESTS, initialRequests);
+}
 
 // Obter dados atuais
 const users = getStorageData(STORAGE_KEYS.USERS, initialUsers);
 const patients = getStorageData(STORAGE_KEYS.PATIENTS, initialPatients);
 const appointments = getStorageData(STORAGE_KEYS.APPOINTMENTS, initialAppointments);
+const requests = getStorageData(STORAGE_KEYS.REQUESTS, initialRequests);
 
 export const mockApi = {
   async login(email, password) {
@@ -383,8 +456,48 @@ export const mockApi = {
       statusData,
       riskAlerts
     };
+  },
+
+  async getRequests(psychologistId) {
+    await delay(500);
+    const currentRequests = getStorageData(STORAGE_KEYS.REQUESTS, initialRequests);
+    return currentRequests.filter(req => 
+      !psychologistId || req.preferredPsychologist === psychologistId
+    );
+  },
+
+  async updateRequestStatus(requestId, status, notes = '') {
+    await delay(500);
+    const currentRequests = getStorageData(STORAGE_KEYS.REQUESTS, initialRequests);
+    const requestIndex = currentRequests.findIndex(req => req.id === requestId);
+    
+    if (requestIndex !== -1) {
+      currentRequests[requestIndex] = {
+        ...currentRequests[requestIndex],
+        status,
+        notes,
+        updatedAt: new Date().toISOString()
+      };
+      setStorageData(STORAGE_KEYS.REQUESTS, currentRequests);
+      return currentRequests[requestIndex];
+    }
+    throw new Error('Solicitação não encontrada');
+  },
+
+  async createRequest(requestData) {
+    await delay(1000);
+    const currentRequests = getStorageData(STORAGE_KEYS.REQUESTS, initialRequests);
+    const newRequest = {
+      id: Date.now(),
+      ...requestData,
+      status: 'pendente',
+      createdAt: new Date().toISOString()
+    };
+    currentRequests.push(newRequest);
+    setStorageData(STORAGE_KEYS.REQUESTS, currentRequests);
+    return newRequest;
   }
 };
 
 // Exportar dados para uso em componentes se necessário
-export { users, patients, appointments };
+export { users, patients, appointments, requests };

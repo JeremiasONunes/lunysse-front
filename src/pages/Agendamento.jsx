@@ -5,7 +5,7 @@ import { mockApi } from '../services/mockApi';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { LoadingSpinner } from '../components/LoadingSpinner';
-import { Calendar, Clock } from 'lucide-react';
+import { Calendar, Clock, Bell } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 export const Agendamento = () => {
@@ -18,6 +18,13 @@ export const Agendamento = () => {
   const [availableSlots, setAvailableSlots] = useState([]);
   const [loading, setLoading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [showRequestForm, setShowRequestForm] = useState(false);
+  const [requestData, setRequestData] = useState({
+    description: '',
+    urgency: 'media',
+    preferredDates: [],
+    preferredTimes: []
+  });
 
   useEffect(() => {
     loadPsychologists();
@@ -61,19 +68,52 @@ export const Agendamento = () => {
     setSubmitting(true);
     
     try {
-      await mockApi.createAppointment({
-        patientId: user.id,
-        psychologistId: parseInt(selectedPsychologist),
-        date: selectedDate,
-        time: selectedTime,
-        description: 'Sessão agendada pelo paciente',
-        duration: 50
+      await mockApi.createRequest({
+        patientName: user.name,
+        patientEmail: user.email,
+        patientPhone: user.phone || '(11) 99999-9999',
+        preferredPsychologist: parseInt(selectedPsychologist),
+        description: 'Solicitação de agendamento de sessão',
+        urgency: 'media',
+        preferredDates: [selectedDate],
+        preferredTimes: [selectedTime]
       });
       
-      toast.success('Agendamento realizado com sucesso!');
+      toast.success('Solicitação enviada! O psicólogo avaliará e entrará em contato.');
       navigate('/dashboard');
     } catch (error) {
-      toast.error('Erro ao realizar agendamento');
+      toast.error('Erro ao enviar solicitação');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const handleRequestSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!selectedPsychologist || !requestData.description) {
+      toast.error('Selecione um psicólogo e descreva sua necessidade');
+      return;
+    }
+
+    setSubmitting(true);
+    
+    try {
+      await mockApi.createRequest({
+        patientName: user.name,
+        patientEmail: user.email,
+        patientPhone: user.phone || '(11) 99999-9999',
+        preferredPsychologist: parseInt(selectedPsychologist),
+        description: requestData.description,
+        urgency: requestData.urgency,
+        preferredDates: requestData.preferredDates,
+        preferredTimes: requestData.preferredTimes
+      });
+      
+      toast.success('Solicitação enviada! O psicólogo avaliará e entrará em contato se aceitar você como paciente.');
+      navigate('/dashboard');
+    } catch (error) {
+      toast.error('Erro ao enviar solicitação');
     } finally {
       setSubmitting(false);
     }
@@ -84,8 +124,8 @@ export const Agendamento = () => {
   return (
     <div className="max-w-2xl mx-auto space-y-6">
       <div className="text-center">
-        <h1 className="text-3xl font-bold text-dark mb-2">Agendar Sessão</h1>
-        <p className="text-dark/70">Escolha a data e horário para sua próxima sessão</p>
+        <h1 className="text-3xl font-bold text-dark mb-2">Solicitar Sessão</h1>
+        <p className="text-dark/70">Escolha o psicólogo, data e horário preferidos para sua sessão</p>
       </div>
 
       <Card>
@@ -139,7 +179,18 @@ export const Agendamento = () => {
               {loading ? (
                 <LoadingSpinner />
               ) : availableSlots.length === 0 ? (
-                <p className="text-dark/70 text-center py-4">Nenhum horário disponível para esta data</p>
+                <div className="text-center py-4">
+                  <p className="text-dark/70 mb-4">Nenhum horário disponível para esta data</p>
+                  <Button
+                    type="button"
+                    variant="secondary"
+                    onClick={() => setShowRequestForm(true)}
+                    className="inline-flex items-center"
+                  >
+                    <Bell className="w-4 h-4 mr-2" />
+                    Solicitar ser Paciente
+                  </Button>
+                </div>
               ) : (
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                   {availableSlots.map(slot => (
@@ -161,10 +212,86 @@ export const Agendamento = () => {
             </div>
           )}
 
+          {/* Botão para Solicitar Atendimento */}
+          {selectedPsychologist && !showRequestForm && (
+            <div className="text-center">
+              <p className="text-dark/70 mb-3">Não encontrou um horário ideal?</p>
+              <Button
+                type="button"
+                variant="secondary"
+                onClick={() => setShowRequestForm(true)}
+                className="inline-flex items-center"
+              >
+                <Bell className="w-4 h-4 mr-2" />
+                Solicitar ser Paciente deste Psicólogo
+              </Button>
+            </div>
+          )}
+
+          {/* Formulário de Solicitação */}
+          {showRequestForm && (
+            <Card className="bg-blue-50">
+              <h3 className="font-semibold text-dark mb-4 flex items-center">
+                <Bell className="w-5 h-5 mr-2" />
+                Solicitar ser Paciente
+              </h3>
+              
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-dark mb-2">
+                    Descreva sua necessidade *
+                  </label>
+                  <textarea
+                    value={requestData.description}
+                    onChange={(e) => setRequestData({...requestData, description: e.target.value})}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-light"
+                    rows={3}
+                    placeholder="Ex: Gostaria de ser seu paciente. Preciso de ajuda com ansiedade, tenho disponibilidade nas manhãs..."
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-dark mb-2">
+                    Urgência
+                  </label>
+                  <select
+                    value={requestData.urgency}
+                    onChange={(e) => setRequestData({...requestData, urgency: e.target.value})}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-light"
+                  >
+                    <option value="baixa">Baixa - Posso aguardar</option>
+                    <option value="media">Média - Prefiro em breve</option>
+                    <option value="alta">Alta - Preciso urgentemente</option>
+                  </select>
+                </div>
+
+                <div className="flex gap-4">
+                  <Button
+                    type="button"
+                    variant="secondary"
+                    onClick={() => setShowRequestForm(false)}
+                    className="flex-1"
+                  >
+                    Cancelar
+                  </Button>
+                  <Button
+                    type="button"
+                    onClick={handleRequestSubmit}
+                    loading={submitting}
+                    className="flex-1"
+                  >
+                    Enviar Solicitação
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          )}
+
           {/* Resumo */}
-          {selectedDate && selectedTime && selectedPsychologist && (
-            <Card className="bg-accent/10">
-              <h3 className="font-semibold text-dark mb-2">Resumo do Agendamento</h3>
+          {selectedDate && selectedTime && selectedPsychologist && !showRequestForm && (
+            <Card className="bg-blue-50">
+              <h3 className="font-semibold text-dark mb-2">Resumo da Solicitação</h3>
               <p className="text-dark/70">
                 <strong>Psicólogo:</strong> {psychologists.find(p => p.id === parseInt(selectedPsychologist))?.name}
               </p>
@@ -172,32 +299,40 @@ export const Agendamento = () => {
                 <strong>Especialidade:</strong> {psychologists.find(p => p.id === parseInt(selectedPsychologist))?.specialty}
               </p>
               <p className="text-dark/70">
-                <strong>Data:</strong> {new Date(selectedDate).toLocaleDateString('pt-BR')}
+                <strong>Data preferida:</strong> {new Date(selectedDate).toLocaleDateString('pt-BR')}
               </p>
               <p className="text-dark/70">
-                <strong>Horário:</strong> {selectedTime}
+                <strong>Horário preferido:</strong> {selectedTime}
               </p>
+              <div className="mt-3 p-3 bg-blue-100 rounded-lg">
+                <p className="text-sm text-blue-800">
+                  <strong>Importante:</strong> Esta é uma solicitação que será avaliada pelo psicólogo. 
+                  Você será contatado se a solicitação for aprovada.
+                </p>
+              </div>
             </Card>
           )}
 
-          <div className="flex gap-4">
-            <Button
-              type="button"
-              variant="secondary"
-              onClick={() => navigate('/dashboard')}
-              className="flex-1"
-            >
-              Cancelar
-            </Button>
-            <Button
-              type="submit"
-              loading={submitting}
-              className="flex-1"
-              disabled={!selectedDate || !selectedTime || !selectedPsychologist}
-            >
-              Confirmar Agendamento
-            </Button>
-          </div>
+          {!showRequestForm && (
+            <div className="flex gap-4">
+              <Button
+                type="button"
+                variant="secondary"
+                onClick={() => navigate('/dashboard')}
+                className="flex-1"
+              >
+                Cancelar
+              </Button>
+              <Button
+                type="submit"
+                loading={submitting}
+                className="flex-1"
+                disabled={!selectedDate || !selectedTime || !selectedPsychologist}
+              >
+                Enviar Solicitação
+              </Button>
+            </div>
+          )}
         </form>
       </Card>
     </div>

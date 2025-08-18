@@ -3,23 +3,26 @@ import { useAuth } from '../context/AuthContext';
 import { mockApi } from '../services/mockApi';
 import { Card } from '../components/Card';
 import { LoadingSpinner } from '../components/LoadingSpinner';
-import { Calendar, Users, AlertTriangle } from 'lucide-react';
+import { Calendar, Users, AlertTriangle, Bell } from 'lucide-react';
 
 export const DashboardPsicologo = () => {
   const { user } = useAuth();
   const [appointments, setAppointments] = useState([]);
   const [patients, setPatients] = useState([]);
+  const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [appointmentsData, patientsData] = await Promise.all([
+        const [appointmentsData, patientsData, requestsData] = await Promise.all([
           mockApi.getAppointments(user.id, 'psicologo'),
-          mockApi.getPatients(user.id)
+          mockApi.getPatients(user.id),
+          mockApi.getRequests(user.id)
         ]);
         setAppointments(appointmentsData);
         setPatients(patientsData);
+        setRequests(requestsData);
       } catch (error) {
         console.error('Erro ao carregar dados:', error);
       } finally {
@@ -38,6 +41,7 @@ export const DashboardPsicologo = () => {
 
   const totalPatients = patients.length;
   const completedSessions = appointments.filter(apt => apt.status === 'concluido').length;
+  const pendingRequests = requests.filter(req => req.status === 'pendente').length;
   const upcomingAppointments = appointments.filter(apt => 
     new Date(apt.date) >= new Date() && apt.status === 'agendado'
   ).slice(0, 5);
@@ -50,7 +54,7 @@ export const DashboardPsicologo = () => {
       </div>
 
       {/* KPIs */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <Card className="text-center">
           <Users className="w-8 h-8 text-light mx-auto mb-2" />
           <h3 className="text-2xl font-bold text-dark">{totalPatients}</h3>
@@ -67,6 +71,12 @@ export const DashboardPsicologo = () => {
           <AlertTriangle className="w-8 h-8 text-medium mx-auto mb-2" />
           <h3 className="text-2xl font-bold text-dark">{completedSessions}</h3>
           <p className="text-dark/70">Sessões Concluídas</p>
+        </Card>
+
+        <Card className="text-center">
+          <Bell className="w-8 h-8 text-orange-500 mx-auto mb-2" />
+          <h3 className="text-2xl font-bold text-dark">{pendingRequests}</h3>
+          <p className="text-dark/70">Solicitações Pendentes</p>
         </Card>
       </div>
 
