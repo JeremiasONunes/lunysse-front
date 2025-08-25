@@ -52,7 +52,7 @@ export const Register = () => {
       <Card className="w-full max-w-md">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-dark mb-2">Criar Conta</h1>
-          <p className="text-dark/70">Cadastre-se no PsicoAgenda</p>
+          <p className="text-dark/70">Cadastre-se na lunysse</p>
         </div>
 
         {/* User Type Selector */}
