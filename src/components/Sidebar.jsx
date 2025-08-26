@@ -1,19 +1,22 @@
+// Componente Sidebar reutilizável
 import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Menu, X, LogOut, BarChart3, Calendar, User, Users, MessageCircle, Bell } from 'lucide-react';
 
 export const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const { user, logout } = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false); // Estado para abrir/fechar menu mobile
+  const { user, logout } = useAuth(); // Contexto de autenticação
+  const navigate = useNavigate(); // Para navegação programática
+  const location = useLocation(); // Para verificar rota atual
 
+  // Função de logout que limpa contexto e redireciona para login
   const handleLogout = () => {
     logout();
     navigate('/login');
   };
 
+  // Links de navegação dependendo do tipo de usuário
   const navLinks = user?.type === 'psicologo' 
     ? [
         { to: '/dashboard', label: 'Dashboard', icon: BarChart3 },
@@ -27,11 +30,12 @@ export const Sidebar = () => {
         { to: '/agendamento', label: 'Solicitar Sessão', icon: Calendar }
       ];
 
+  // Função para verificar se a rota atual é a ativa
   const isActive = (path) => location.pathname === path;
 
   return (
     <>
-      {/* Mobile Menu Button */}
+      {/* Botão para abrir/fechar menu em telas pequenas */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="lg:hidden fixed top-4 left-4 z-50 bg-dark text-white p-2 rounded-lg shadow-lg"
@@ -54,7 +58,7 @@ export const Sidebar = () => {
             </div>
           </div>
 
-          {/* User Info */}
+          {/* Informações do usuário */}
           <div className="p-6 border-b border-white/10">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-gradient-to-br from-light to-accent rounded-full flex items-center justify-center">
@@ -67,7 +71,7 @@ export const Sidebar = () => {
             </div>
           </div>
 
-          {/* Navigation */}
+          {/* Navegação */}
           <nav className="flex-1 p-4">
             <ul className="space-y-2">
               {navLinks.map(link => (
@@ -79,7 +83,7 @@ export const Sidebar = () => {
                         ? 'bg-light text-white'
                         : 'text-white/70 hover:text-white hover:bg-white/10'
                     }`}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => setIsOpen(false)} // Fecha menu mobile ao clicar
                   >
                     <link.icon size={20} />
                     <span>{link.label}</span>
@@ -102,7 +106,7 @@ export const Sidebar = () => {
         </div>
       </div>
 
-      {/* Overlay for mobile */}
+      {/* Overlay para mobile quando menu aberto */}
       {isOpen && (
         <div
           className="lg:hidden fixed inset-0 bg-black/50 z-30"

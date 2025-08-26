@@ -1,14 +1,14 @@
 // Importações necessárias
-import { Link } from 'react-router-dom'; // Para navegação entre páginas sem recarregar
-import { Button } from '../components/Button'; // Componente reutilizável de botão
-import { Heart, Target, Award, Users, Brain, Shield, Zap, Calendar, Activity, FileText } from 'lucide-react'; // Ícones SVG
+import { Link } from 'react-router-dom'; // Usado para navegação entre páginas sem recarregar o site
+import { Button } from '../components/Button'; // Importa um botão reutilizável
+import { Heart, Target, Award, Users, Brain, Shield, Zap, Calendar, Activity, FileText } from 'lucide-react'; // Biblioteca de ícones SVG
 
-// Componente funcional About
+// Componente funcional "About"
 export const About = () => {
-  // Array de valores da empresa/plataforma
+  // Array que define os valores da empresa/plataforma
   const values = [
     {
-      icon: <Heart className="w-6 h-6 text-light" />, // Ícone com tamanho e cor customizada
+      icon: <Heart className="w-6 h-6 text-light" />, // Ícone estilizado com cor e tamanho
       title: 'Impacto Social',
       description: 'Focamos em projetos voluntários que promovem saúde mental para comunidades vulneráveis'
     },
@@ -29,7 +29,7 @@ export const About = () => {
     }
   ];
 
-  // Array de funcionalidades principais da plataforma
+  // Array de funcionalidades principais
   const features = [
     {
       icon: <Calendar className="w-5 h-5 text-light" />,
@@ -53,7 +53,7 @@ export const About = () => {
     }
   ];
 
-  // Lista de problemas que a plataforma resolve
+  // Lista de problemas que a plataforma busca resolver
   const problems = [
     'Falta de controle e organização nos agendamentos', 
     'Dificuldade de busca psicólogos dispostos a realizar acompanhamentos voluntários',
@@ -61,7 +61,7 @@ export const About = () => {
     'Ausência de ferramentas de análise e acompanhamento'
   ];
 
-  // Lista de soluções oferecidas pela plataforma
+  // Lista de soluções propostas
   const solutions = [
     'Sistema digital centralizado com agendamento automatizado',
     'Registro estruturado e seguro de todas as sessões',
@@ -71,12 +71,12 @@ export const About = () => {
   ];
 
   return (
-    <div className="py-12 space-y-16"> {/* Container principal com espaçamento vertical entre seções */}
-      
-      {/* Hero Section */}
+    <div className="py-12 space-y-16"> {/* Container principal com espaçamento entre seções */}
+
+      {/* Seção Hero (introdução com logo e descrição) */}
       <section className="text-center py-12">
         <div className="max-w-4xl mx-auto">
-          {/* Logo */}
+          {/* Logo centralizado */}
           <div className="w-24 h-24 bg-white rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-xl">
             <img src="/logo.png" alt="Lunysse" className="w-16 h-16 rounded-2xl" />
           </div>
@@ -92,7 +92,7 @@ export const About = () => {
         </div>
       </section>
 
-      {/* Mission & Vision Section */}
+      {/* Seção Missão e Visão */}
       <section className="py-12">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
           {/* Missão */}
@@ -118,7 +118,7 @@ export const About = () => {
         </div>
       </section>
 
-      {/* Problems & Solutions Section */}
+      {/* Seção Problemas e Soluções */}
       <section className="py-12">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-dark text-center mb-8">Problemas que Resolvemos</h2>
@@ -129,6 +129,7 @@ export const About = () => {
               <ul className="space-y-3">
                 {problems.map((problem, index) => (
                   <li key={index} className="flex items-start space-x-3">
+                    {/* Bolinha decorativa */}
                     <div className="w-2 h-2 bg-medium rounded-full mt-2 flex-shrink-0"></div>
                     <span className="text-dark/70 text-sm">{problem}</span>
                   </li>
@@ -141,6 +142,7 @@ export const About = () => {
               <ul className="space-y-3">
                 {solutions.map((solution, index) => (
                   <li key={index} className="flex items-start space-x-3">
+                    {/* Bolinha decorativa */}
                     <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
                     <span className="text-dark/70 text-sm">{solution}</span>
                   </li>
@@ -151,7 +153,7 @@ export const About = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Seção Funcionalidades */}
       <section className="py-12">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-dark text-center mb-8">Funcionalidades Principais</h2>
@@ -159,8 +161,9 @@ export const About = () => {
             {features.map((feature, index) => (
               <div key={index} className="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-lg">
                 <div className="flex items-start space-x-4">
+                  {/* Ícone com fundo colorido */}
                   <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-light to-accent rounded-xl flex items-center justify-center">
-                    {feature.icon} {/* Ícone da funcionalidade */}
+                    {feature.icon}
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-dark mb-2">{feature.title}</h3>
@@ -173,15 +176,16 @@ export const About = () => {
         </div>
       </section>
 
-      {/* Values Section */}
+      {/* Seção Valores */}
       <section className="py-12">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-dark text-center mb-8">Nossos Valores</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
               <div key={index} className="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-lg text-center">
+                {/* Ícone centralizado com fundo */}
                 <div className="w-12 h-12 bg-gradient-to-br from-medium to-light rounded-xl flex items-center justify-center mx-auto mb-4">
-                  {value.icon} {/* Ícone do valor */}
+                  {value.icon}
                 </div>
                 <h3 className="text-lg font-semibold text-dark mb-3">{value.title}</h3>
                 <p className="text-dark/70 text-sm leading-relaxed">{value.description}</p>
