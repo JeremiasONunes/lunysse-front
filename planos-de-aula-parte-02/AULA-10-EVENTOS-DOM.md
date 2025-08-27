@@ -10,13 +10,13 @@
 ## 📖 Planejamento  
 
 ### 📌 Contextualização e Conexão com a Aula Anterior
-Na Aula 9, os alunos implementaram **scripts básicos e lógica de autenticação** no projeto Lunysse. Nesta aula, avançaremos para a **interatividade completa** utilizando eventos, funções e manipulação do DOM em React. O foco será criar funcionalidades dinâmicas e responsivas, mantendo boas práticas ECMAScript.  
+Na Aula 9, os alunos implementaram continuaram o desenvolvimento pratico no projeto Lunysse. Nesta aula, avançaremos para a **interatividade completa** utilizando eventos, funções e manipulação do DOM em React. O foco será criar funcionalidades dinâmicas e responsivas, mantendo boas práticas ECMAScript.  
 
 ### 📌 Conteúdo Formativo
 - Criação e chamada de funções com parâmetros e retornos  
 - Event listeners em React (onClick, onChange, onSubmit)  
 - Manipulação de elementos do DOM virtual via estado (`useState`) e refs (`useRef`)  
-- Toggle de componentes (ex.: sidebar mobile)  
+- Toggle de componentes (ex.: sidebar mobile) caso toda base do sistema estaja construida da inicio na construção da sidebar 
 - Modais interativos e feedback visual dinâmico  
 - Boas práticas de codificação e organização de funções  
 
@@ -31,7 +31,7 @@ Implementar **interatividade web profissional** em React, aplicando eventos, fun
 ✅ Garantir código limpo, organizado e compatível com padrões ECMAScript  
 
 ### 📌 Materiais Necessários
-📌 Projeto React + Vite da Aula 9 com scripts básicos e login funcional  
+📌 Projeto React + Vite  
 📌 VS Code com extensão React e JavaScript  
 📌 Navegador para testes de interatividade  
 📌 Protótipo visual do Sistema Lunysse  
@@ -43,7 +43,7 @@ Implementar **interatividade web profissional** em React, aplicando eventos, fun
 
 ### Introdução e Contextualização (20 min)  
 **Metodologia Ativa – Revisão e Demonstração:**  
-- Revisão dos scripts e login básico implementados na Aula 9  
+- Revisão dos scripts e login básico implementados na Aula 9  após a construção das paginas home e sobre estarem completas e a inteface visual de lgoin estar implementada vamos seguir para construção do contexto de autenticação.
 - Demonstração de funções com parâmetros e event listeners em React  
 - Discussão sobre boas práticas e manipulação de estado  
 
