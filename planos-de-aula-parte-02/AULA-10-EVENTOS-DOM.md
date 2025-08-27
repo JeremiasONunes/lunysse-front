@@ -57,20 +57,20 @@ Implementar **interatividade web profissional** em React, aplicando eventos, fun
 - Testes de chamadas de funções e console.log para debugging  
 
 #### 📌 Atividade Prática 1  
-🎯 **Objetivo:** Criar funções reutilizáveis em React  
+🎯 **Objetivo:** Criar novos componente reutilizaveis de acordo com a necessidade da construção do projeto reutilizáveis em React  
 📝 **Tarefa:**  
-- Criar funções para manipulação de dados de usuários e sessões  
-- Modularizar funções em arquivos separados  
-- Testar chamadas com diferentes parâmetros  
+- explicar conceito de manipulação do dom avançado em forma teorica e em seguida continuar a construção das paginas home, sobre e login.
+- implmentar botões , inputs e modais necessarios de acordo com a evolução do projeto
+- Testar impoetações em diferentes paginas 
 
-**Parte do Projeto Construída:** Funções modulares integradas ao React para manipulação de dados.  
-
+- a explicação teorica sera utilizada nas proximas aulas como base para desenvolvimento pratico das interfaces internas do sistema lunysse.
+-  
 ---
 
 ### **Tópico 2: Event Listeners e Manipulação DOM (60 min)**  
 #### 📌 Demonstração Prática  
 **Metodologia Ativa – Workshop Guiado:**  
-- Uso de `onClick`, `onChange`, `onSubmit` em formulários  
+- Uso de `onClick`, `onChange`, `onSubmit` em formulários da pagina de login finalizar a construção da pagina de login 
 - Manipulação do DOM virtual via `useState` e `useRef`  
 - Atualização de componentes em tempo real e feedback visual  
 
@@ -95,11 +95,10 @@ Implementar **interatividade web profissional** em React, aplicando eventos, fun
 #### 📌 Atividade Prática 3  
 🎯 **Objetivo:** Criar interações visuais completas  
 📝 **Tarefa:**  
-- Implementar modais de confirmação para ações críticas (ex.: deletar sessão)  
+continuar a construção das paginas home , Login, Sobre adicionando animações e ajustando a intercface para ficar alinha com o desing system de cada aluno
 - Adicionar feedback visual em botões e inputs  
 - Testar responsividade e compatibilidade cross-browser  
 
-**Parte do Projeto Construída:** Modais interativos e feedbacks visuais integrados à aplicação Lunysse.  
 
 ---
 
@@ -129,7 +128,7 @@ Implementar **interatividade web profissional** em React, aplicando eventos, fun
 ## 🎯 Avaliação  
 
 ### **Avaliação Formativa (Durante a aula):**  
-✅ Implementação correta de funções com parâmetros e retornos  
+✅ Implementação correta de componentes com parâmetros e retornos  
 ✅ Event listeners funcionando em todos os componentes  
 ✅ Manipulação de estado e DOM virtual sem erros  
 ✅ Modais e feedback visual funcionando corretamente  
