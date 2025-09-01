@@ -10,13 +10,13 @@
 ## 📖 Planejamento  
 
 ### 📌 Contextualização e Conexão com a Aula Anterior
-Na Aula 9, os alunos implementaram **scripts básicos e lógica de autenticação** no projeto Lunysse. Nesta aula, avançaremos para a **interatividade completa** utilizando eventos, funções e manipulação do DOM em React. O foco será criar funcionalidades dinâmicas e responsivas, mantendo boas práticas ECMAScript.  
+Na Aula 9, os alunos implementaram continuaram o desenvolvimento pratico no projeto Lunysse. Nesta aula, avançaremos para a **interatividade completa** utilizando eventos, funções e manipulação do DOM em React. O foco será criar funcionalidades dinâmicas e responsivas, mantendo boas práticas ECMAScript.  
 
 ### 📌 Conteúdo Formativo
 - Criação e chamada de funções com parâmetros e retornos  
 - Event listeners em React (onClick, onChange, onSubmit)  
 - Manipulação de elementos do DOM virtual via estado (`useState`) e refs (`useRef`)  
-- Toggle de componentes (ex.: sidebar mobile)  
+- Toggle de componentes (ex.: sidebar mobile) caso toda base do sistema estaja construida da inicio na construção da sidebar 
 - Modais interativos e feedback visual dinâmico  
 - Boas práticas de codificação e organização de funções  
 
@@ -31,7 +31,7 @@ Implementar **interatividade web profissional** em React, aplicando eventos, fun
 ✅ Garantir código limpo, organizado e compatível com padrões ECMAScript  
 
 ### 📌 Materiais Necessários
-📌 Projeto React + Vite da Aula 9 com scripts básicos e login funcional  
+📌 Projeto React + Vite  
 📌 VS Code com extensão React e JavaScript  
 📌 Navegador para testes de interatividade  
 📌 Protótipo visual do Sistema Lunysse  
@@ -43,7 +43,7 @@ Implementar **interatividade web profissional** em React, aplicando eventos, fun
 
 ### Introdução e Contextualização (20 min)  
 **Metodologia Ativa – Revisão e Demonstração:**  
-- Revisão dos scripts e login básico implementados na Aula 9  
+- Revisão dos scripts e login básico implementados na Aula 9  após a construção das paginas home e sobre estarem completas e a inteface visual de lgoin estar implementada vamos seguir para construção do contexto de autenticação.
 - Demonstração de funções com parâmetros e event listeners em React  
 - Discussão sobre boas práticas e manipulação de estado  
 
@@ -57,20 +57,20 @@ Implementar **interatividade web profissional** em React, aplicando eventos, fun
 - Testes de chamadas de funções e console.log para debugging  
 
 #### 📌 Atividade Prática 1  
-🎯 **Objetivo:** Criar funções reutilizáveis em React  
+🎯 **Objetivo:** Criar novos componente reutilizaveis de acordo com a necessidade da construção do projeto reutilizáveis em React  
 📝 **Tarefa:**  
-- Criar funções para manipulação de dados de usuários e sessões  
-- Modularizar funções em arquivos separados  
-- Testar chamadas com diferentes parâmetros  
+- explicar conceito de manipulação do dom avançado em forma teorica e em seguida continuar a construção das paginas home, sobre e login.
+- implmentar botões , inputs e modais necessarios de acordo com a evolução do projeto
+- Testar impoetações em diferentes paginas 
 
-**Parte do Projeto Construída:** Funções modulares integradas ao React para manipulação de dados.  
-
+- a explicação teorica sera utilizada nas proximas aulas como base para desenvolvimento pratico das interfaces internas do sistema lunysse.
+-  
 ---
 
 ### **Tópico 2: Event Listeners e Manipulação DOM (60 min)**  
 #### 📌 Demonstração Prática  
 **Metodologia Ativa – Workshop Guiado:**  
-- Uso de `onClick`, `onChange`, `onSubmit` em formulários  
+- Uso de `onClick`, `onChange`, `onSubmit` em formulários da pagina de login finalizar a construção da pagina de login 
 - Manipulação do DOM virtual via `useState` e `useRef`  
 - Atualização de componentes em tempo real e feedback visual  
 
@@ -95,11 +95,10 @@ Implementar **interatividade web profissional** em React, aplicando eventos, fun
 #### 📌 Atividade Prática 3  
 🎯 **Objetivo:** Criar interações visuais completas  
 📝 **Tarefa:**  
-- Implementar modais de confirmação para ações críticas (ex.: deletar sessão)  
+continuar a construção das paginas home , Login, Sobre adicionando animações e ajustando a intercface para ficar alinha com o desing system de cada aluno
 - Adicionar feedback visual em botões e inputs  
 - Testar responsividade e compatibilidade cross-browser  
 
-**Parte do Projeto Construída:** Modais interativos e feedbacks visuais integrados à aplicação Lunysse.  
 
 ---
 
@@ -129,7 +128,7 @@ Implementar **interatividade web profissional** em React, aplicando eventos, fun
 ## 🎯 Avaliação  
 
 ### **Avaliação Formativa (Durante a aula):**  
-✅ Implementação correta de funções com parâmetros e retornos  
+✅ Implementação correta de componentes com parâmetros e retornos  
 ✅ Event listeners funcionando em todos os componentes  
 ✅ Manipulação de estado e DOM virtual sem erros  
 ✅ Modais e feedback visual funcionando corretamente  
