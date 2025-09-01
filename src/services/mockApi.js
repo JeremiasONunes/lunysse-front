@@ -276,8 +276,10 @@ export const mockApi = {
   async register(userData) {
     await delay(1000);
     const currentUsers = getStorageData(STORAGE_KEYS.USERS, initialUsers);
+    const newUserId = Date.now();
+    
     const newUser = { 
-      id: Date.now(), 
+      id: newUserId, 
       ...userData,
       ...(userData.type === 'psicologo' && {
         crm: userData.crm,
@@ -287,6 +289,38 @@ export const mockApi = {
     };
     currentUsers.push(newUser);
     setStorageData(STORAGE_KEYS.USERS, currentUsers);
+
+    // Se for paciente, criar registro na tabela de pacientes
+    if (userData.type === 'paciente') {
+      const currentPatients = getStorageData(STORAGE_KEYS.PATIENTS, initialPatients);
+      
+      // Calcular idade
+      const calculateAge = (birthDate) => {
+        const today = new Date();
+        const birth = new Date(birthDate);
+        let age = today.getFullYear() - birth.getFullYear();
+        const monthDiff = today.getMonth() - birth.getMonth();
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+          age--;
+        }
+        return age;
+      };
+
+      const newPatient = {
+        id: newUserId,
+        name: userData.name,
+        email: userData.email,
+        phone: userData.phone,
+        birthDate: userData.birthDate,
+        age: calculateAge(userData.birthDate),
+        status: 'Ativo',
+        psychologistId: null // Será definido quando agendar primeira consulta
+      };
+      
+      currentPatients.push(newPatient);
+      setStorageData(STORAGE_KEYS.PATIENTS, currentPatients);
+    }
+
     return { user: { ...newUser, password: undefined }, token: 'mock-token' };
   },
 
@@ -496,6 +530,19 @@ export const mockApi = {
     currentRequests.push(newRequest);
     setStorageData(STORAGE_KEYS.REQUESTS, currentRequests);
     return newRequest;
+  },
+
+  async createPatient(patientData) {
+    await delay(1000);
+    const currentPatients = getStorageData(STORAGE_KEYS.PATIENTS, initialPatients);
+    const newPatient = {
+      id: Date.now(),
+      ...patientData,
+      status: 'Ativo'
+    };
+    currentPatients.push(newPatient);
+    setStorageData(STORAGE_KEYS.PATIENTS, currentPatients);
+    return newPatient;
   }
 };
 

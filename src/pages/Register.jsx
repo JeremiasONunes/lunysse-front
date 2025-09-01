@@ -16,7 +16,8 @@ export const Register = () => {
     confirmPassword: '',
     crm: '',
     specialty: '',
-    phone: ''
+    phone: '',
+    birthDate: ''
   });
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
@@ -142,6 +143,28 @@ export const Register = () => {
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 placeholder="(11) 99999-9999"
+                required
+              />
+            </>
+          )}
+
+          {/* Campos específicos para paciente */}
+          {userType === 'paciente' && (
+            <>
+              <Input
+                label="Telefone"
+                type="tel"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                placeholder="(11) 99999-9999"
+                required
+              />
+
+              <Input
+                label="Data de nascimento"
+                type="date"
+                value={formData.birthDate}
+                onChange={(e) => setFormData({ ...formData, birthDate: e.target.value })}
                 required
               />
             </>
