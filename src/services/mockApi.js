@@ -97,16 +97,6 @@ const initialUsers = [
 const initialPatients = [
   // Pacientes da Dra. Ana Costa (ID: 2) - Especialista em TCC
   { 
-    id: 5, 
-    name: 'Maria Santos', 
-    email: 'paciente@test.com', 
-    phone: '(11) 99999-5555', 
-    birthDate: '1992-03-12', 
-    age: 32, 
-    status: 'Em tratamento', 
-    psychologistId: 2 
-  },
-  { 
     id: 20, 
     name: 'Fernanda Lima', 
     email: 'fernanda.lima@email.com', 

@@ -21,7 +21,9 @@ export const Solicitacoes = () => {
     setLoading(true);
     try {
       const data = await mockApi.getRequests(user.id);
-      setRequests(data);
+      // Filtrar apenas solicitações pendentes
+      const pendingRequests = data.filter(req => req.status === 'pendente');
+      setRequests(pendingRequests);
     } catch (error) {
       console.error('Erro ao carregar solicitações:', error);
     } finally {
@@ -56,11 +58,8 @@ export const Solicitacoes = () => {
       // Atualizar status da solicitação
       await mockApi.updateRequestStatus(requestId, 'aceito', 'Paciente aceito e cadastrado no sistema');
       
-      setRequests(prev => prev.map(req => 
-        req.id === requestId 
-          ? { ...req, status: 'aceito', notes: 'Paciente aceito e cadastrado no sistema' }
-          : req
-      ));
+      // Remover solicitação da lista
+      setRequests(prev => prev.filter(req => req.id !== requestId));
       
       toast.success('Solicitação aceita! Paciente adicionado à sua lista.');
     } catch (error) {
@@ -81,11 +80,8 @@ export const Solicitacoes = () => {
     try {
       await mockApi.updateRequestStatus(requestId, 'rejeitado', 'Solicitação rejeitada pelo psicólogo');
       
-      setRequests(prev => prev.map(req => 
-        req.id === requestId 
-          ? { ...req, status: 'rejeitado', notes: 'Solicitação rejeitada pelo psicólogo' }
-          : req
-      ));
+      // Remover solicitação da lista
+      setRequests(prev => prev.filter(req => req.id !== requestId));
       
       toast.success('Solicitação rejeitada.');
     } catch (error) {
@@ -179,45 +175,25 @@ export const Solicitacoes = () => {
                 </div>
               )}
 
-              {request.status === 'pendente' && (
-                <div className="flex gap-3">
-                  <Button
-                    variant="secondary"
-                    onClick={() => handleRejectRequest(request.id)}
-                    loading={processingRequests.has(request.id)}
-                    className="flex-1 flex items-center justify-center gap-2"
-                  >
-                    <X className="w-4 h-4" />
-                    Rejeitar
-                  </Button>
-                  <Button
-                    onClick={() => handleAcceptRequest(request.id, request)}
-                    loading={processingRequests.has(request.id)}
-                    className="flex-1 flex items-center justify-center gap-2"
-                  >
-                    <CheckCircle className="w-4 h-4" />
-                    Aceitar como Paciente
-                  </Button>
-                </div>
-              )}
-
-              {request.status === 'aceito' && (
-                <div className="bg-green-50 rounded-lg p-3 flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                  <p className="text-green-800 font-medium">
-                    Solicitação aceita - Paciente adicionado à sua lista
-                  </p>
-                </div>
-              )}
-
-              {request.status === 'rejeitado' && (
-                <div className="bg-red-50 rounded-lg p-3 flex items-center gap-2">
-                  <AlertCircle className="w-5 h-5 text-red-600" />
-                  <p className="text-red-800 font-medium">
-                    Solicitação rejeitada
-                  </p>
-                </div>
-              )}
+              <div className="flex gap-3">
+                <Button
+                  variant="secondary"
+                  onClick={() => handleRejectRequest(request.id)}
+                  loading={processingRequests.has(request.id)}
+                  className="flex-1 flex items-center justify-center gap-2"
+                >
+                  <X className="w-4 h-4" />
+                  Rejeitar
+                </Button>
+                <Button
+                  onClick={() => handleAcceptRequest(request.id, request)}
+                  loading={processingRequests.has(request.id)}
+                  className="flex-1 flex items-center justify-center gap-2"
+                >
+                  <CheckCircle className="w-4 h-4" />
+                  Aceitar como Paciente
+                </Button>
+              </div>
             </Card>
           ))
         )}
