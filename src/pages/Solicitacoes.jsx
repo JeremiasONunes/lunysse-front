@@ -4,261 +4,224 @@ import { mockApi } from '../services/mockApi';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { LoadingSpinner } from '../components/LoadingSpinner';
-import { Modal } from '../components/Modal';
-import { Clock, User, Phone, Mail, AlertCircle, CheckCircle, XCircle } from 'lucide-react';
+import { Bell, User, Clock, AlertCircle, CheckCircle, X } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 export const Solicitacoes = () => {
   const { user } = useAuth();
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedRequest, setSelectedRequest] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-  const [actionLoading, setActionLoading] = useState(false);
+  const [processingRequests, setProcessingRequests] = useState(new Set());
 
   useEffect(() => {
     loadRequests();
   }, [user.id]);
 
   const loadRequests = async () => {
+    setLoading(true);
     try {
       const data = await mockApi.getRequests(user.id);
       setRequests(data);
     } catch (error) {
-      toast.error('Erro ao carregar solicitações');
+      console.error('Erro ao carregar solicitações:', error);
     } finally {
       setLoading(false);
     }
   };
 
-  const handleAction = async (requestId, status) => {
-    setActionLoading(true);
+  const handleAcceptRequest = async (requestId, requestData) => {
+    setProcessingRequests(prev => new Set([...prev, requestId]));
+    
     try {
-      await mockApi.updateRequestStatus(requestId, status);
+      // Verificar se já existe paciente com mesmo email
+      const existingPatients = await mockApi.getPatients(user.id);
+      const duplicatePatient = existingPatients.find(p => p.email === requestData.patientEmail);
       
-      // Se aprovado, criar agendamento automaticamente
-      if (status === 'aprovada') {
-        const request = requests.find(r => r.id === requestId);
-        if (request && request.preferredDates?.length > 0 && request.preferredTimes?.length > 0) {
-          await mockApi.createAppointment({
-            patientId: user.id, // Usar ID do psicólogo como temporário
-            psychologistId: user.id,
-            date: request.preferredDates[0],
-            time: request.preferredTimes[0],
-            description: 'Sessão aprovada pelo psicólogo',
-            duration: 50
-          });
-        }
+      if (duplicatePatient) {
+        toast.error('Este paciente já está cadastrado em sua lista!');
+        return;
       }
+
+      // Criar novo paciente
+      await mockApi.createPatient({
+        name: requestData.patientName,
+        email: requestData.patientEmail,
+        phone: requestData.patientPhone,
+        birthDate: '1990-01-01', // Valor padrão - pode ser atualizado depois
+        age: 30, // Valor padrão - pode ser atualizado depois
+        status: 'Ativo',
+        psychologistId: user.id
+      });
+
+      // Atualizar status da solicitação
+      await mockApi.updateRequestStatus(requestId, 'aceito', 'Paciente aceito e cadastrado no sistema');
       
-      await loadRequests();
-      setShowModal(false);
-      toast.success(
-        status === 'aprovada' ? 'Solicitação aprovada e sessão agendada!' : 'Solicitação recusada.'
-      );
+      setRequests(prev => prev.map(req => 
+        req.id === requestId 
+          ? { ...req, status: 'aceito', notes: 'Paciente aceito e cadastrado no sistema' }
+          : req
+      ));
+      
+      toast.success('Solicitação aceita! Paciente adicionado à sua lista.');
     } catch (error) {
+      console.error('Erro ao aceitar solicitação:', error);
       toast.error('Erro ao processar solicitação');
     } finally {
-      setActionLoading(false);
+      setProcessingRequests(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(requestId);
+        return newSet;
+      });
+    }
+  };
+
+  const handleRejectRequest = async (requestId) => {
+    setProcessingRequests(prev => new Set([...prev, requestId]));
+    
+    try {
+      await mockApi.updateRequestStatus(requestId, 'rejeitado', 'Solicitação rejeitada pelo psicólogo');
+      
+      setRequests(prev => prev.map(req => 
+        req.id === requestId 
+          ? { ...req, status: 'rejeitado', notes: 'Solicitação rejeitada pelo psicólogo' }
+          : req
+      ));
+      
+      toast.success('Solicitação rejeitada.');
+    } catch (error) {
+      console.error('Erro ao rejeitar solicitação:', error);
+      toast.error('Erro ao processar solicitação');
+    } finally {
+      setProcessingRequests(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(requestId);
+        return newSet;
+      });
     }
   };
 
   const getUrgencyColor = (urgency) => {
     switch (urgency) {
-      case 'alta': return 'text-red-600 bg-red-100';
-      case 'media': return 'text-yellow-600 bg-yellow-100';
-      case 'baixa': return 'text-green-600 bg-green-100';
-      default: return 'text-gray-600 bg-gray-100';
+      case 'alta': return 'bg-red-100 text-red-800';
+      case 'media': return 'bg-yellow-100 text-yellow-800';
+      case 'baixa': return 'bg-green-100 text-green-800';
+      default: return 'bg-gray-100 text-gray-800';
     }
   };
 
   const getStatusColor = (status) => {
     switch (status) {
-      case 'pendente': return 'text-blue-600 bg-blue-100';
-      case 'aprovada': return 'text-green-600 bg-green-100';
-      case 'rejeitada': return 'text-red-600 bg-red-100';
-      default: return 'text-gray-600 bg-gray-100';
+      case 'aceito': return 'bg-green-100 text-green-800';
+      case 'rejeitado': return 'bg-red-100 text-red-800';
+      case 'pendente': return 'bg-blue-100 text-blue-800';
+      default: return 'bg-gray-100 text-gray-800';
     }
   };
 
   if (loading) return <LoadingSpinner size="lg" />;
 
-  const pendingRequests = requests.filter(req => req.status === 'pendente');
-  const processedRequests = requests.filter(req => req.status !== 'pendente');
-
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-dark">Solicitações de Atendimento</h1>
-        <div className="flex items-center space-x-4">
-          <span className="text-sm text-dark/70">
-            {pendingRequests.length} pendentes
-          </span>
-        </div>
+      <div className="flex items-center gap-3">
+        <Bell className="w-8 h-8 text-light" />
+        <h1 className="text-3xl font-bold text-white">Solicitações de Pacientes</h1>
       </div>
 
-      {/* Solicitações Pendentes */}
-      <div>
-        <h2 className="text-xl font-semibold text-dark mb-4 flex items-center">
-          <Clock className="w-5 h-5 mr-2 text-blue-600" />
-          Pendentes ({pendingRequests.length})
-        </h2>
-        
-        {pendingRequests.length === 0 ? (
-          <Card className="text-center py-8">
-            <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-4" />
-            <p className="text-dark/70">Nenhuma solicitação pendente</p>
+      <div className="grid gap-6">
+        {requests.length === 0 ? (
+          <Card className="text-center py-12">
+            <Bell className="w-16 h-16 text-dark/30 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold text-dark mb-2">Nenhuma solicitação encontrada</h3>
+            <p className="text-dark/70">As solicitações de novos pacientes aparecerão aqui.</p>
           </Card>
         ) : (
-          <div className="grid gap-4">
-            {pendingRequests.map(request => (
-              <Card key={request.id} className="p-6">
-                <div className="flex justify-between items-start mb-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-light to-accent rounded-full flex items-center justify-center">
-                      <User className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-dark">{request.patientName}</h3>
-                      <p className="text-sm text-dark/70">
-                        {new Date(request.createdAt).toLocaleDateString('pt-BR')}
-                      </p>
-                    </div>
+          requests.map(request => (
+            <Card key={request.id} className="space-y-4">
+              <div className="flex justify-between items-start">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-light to-accent rounded-full flex items-center justify-center">
+                    <User className="w-6 h-6 text-white" />
                   </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-dark">{request.patientName}</h3>
+                    <p className="text-sm text-dark/60">{request.patientEmail}</p>
+                    <p className="text-sm text-dark/60">{request.patientPhone}</p>
+                  </div>
+                </div>
+                
+                <div className="flex gap-2">
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${getUrgencyColor(request.urgency)}`}>
-                    {request.urgency === 'alta' ? 'Alta' : 
-                     request.urgency === 'media' ? 'Média' : 'Baixa'} Urgência
+                    {request.urgency === 'alta' ? 'Alta' : request.urgency === 'media' ? 'Média' : 'Baixa'} urgência
+                  </span>
+                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(request.status)}`}>
+                    {request.status === 'aceito' ? 'Aceito' : request.status === 'rejeitado' ? 'Rejeitado' : 'Pendente'}
                   </span>
                 </div>
+              </div>
 
-                <div className="space-y-2 mb-4">
-                  <div className="flex items-center text-sm text-dark/70">
-                    <Mail className="w-4 h-4 mr-2" />
-                    {request.patientEmail}
-                  </div>
-                  <div className="flex items-center text-sm text-dark/70">
-                    <Phone className="w-4 h-4 mr-2" />
-                    {request.patientPhone}
-                  </div>
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h4 className="font-medium text-dark mb-2">Descrição da necessidade:</h4>
+                <p className="text-dark/70">{request.description}</p>
+              </div>
+
+              <div className="flex items-center gap-4 text-sm text-dark/60">
+                <div className="flex items-center gap-1">
+                  <Clock className="w-4 h-4" />
+                  Enviado em {new Date(request.createdAt).toLocaleDateString('pt-BR')}
                 </div>
+              </div>
 
-                <p className="text-dark mb-4 text-sm bg-white/20 p-3 rounded-lg">
-                  {request.description}
-                </p>
+              {request.notes && (
+                <div className="bg-blue-50 rounded-lg p-3">
+                  <p className="text-sm text-blue-800">
+                    <strong>Observações:</strong> {request.notes}
+                  </p>
+                </div>
+              )}
 
-                <div className="flex justify-between items-center">
+              {request.status === 'pendente' && (
+                <div className="flex gap-3">
                   <Button
                     variant="secondary"
-                    size="sm"
-                    onClick={() => {
-                      setSelectedRequest(request);
-                      setShowModal(true);
-                    }}
+                    onClick={() => handleRejectRequest(request.id)}
+                    loading={processingRequests.has(request.id)}
+                    className="flex-1 flex items-center justify-center gap-2"
                   >
-                    Ver Detalhes
+                    <X className="w-4 h-4" />
+                    Rejeitar
                   </Button>
-                  <div className="flex space-x-2">
-                    <Button
-                      variant="danger"
-                      size="sm"
-                      onClick={() => handleAction(request.id, 'rejeitada')}
-                      disabled={actionLoading}
-                    >
-                      <XCircle className="w-4 h-4 mr-1" />
-                      Recusar
-                    </Button>
-                    <Button
-                      variant="primary"
-                      size="sm"
-                      onClick={() => handleAction(request.id, 'aprovada')}
-                      disabled={actionLoading}
-                    >
-                      <CheckCircle className="w-4 h-4 mr-1" />
-                      Aceitar Paciente
-                    </Button>
-                  </div>
+                  <Button
+                    onClick={() => handleAcceptRequest(request.id, request)}
+                    loading={processingRequests.has(request.id)}
+                    className="flex-1 flex items-center justify-center gap-2"
+                  >
+                    <CheckCircle className="w-4 h-4" />
+                    Aceitar como Paciente
+                  </Button>
                 </div>
-              </Card>
-            ))}
-          </div>
+              )}
+
+              {request.status === 'aceito' && (
+                <div className="bg-green-50 rounded-lg p-3 flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                  <p className="text-green-800 font-medium">
+                    Solicitação aceita - Paciente adicionado à sua lista
+                  </p>
+                </div>
+              )}
+
+              {request.status === 'rejeitado' && (
+                <div className="bg-red-50 rounded-lg p-3 flex items-center gap-2">
+                  <AlertCircle className="w-5 h-5 text-red-600" />
+                  <p className="text-red-800 font-medium">
+                    Solicitação rejeitada
+                  </p>
+                </div>
+              )}
+            </Card>
+          ))
         )}
       </div>
-
-      {/* Solicitações Processadas */}
-      {processedRequests.length > 0 && (
-        <div>
-          <h2 className="text-xl font-semibold text-dark mb-4">
-            Histórico ({processedRequests.length})
-          </h2>
-          <div className="grid gap-4">
-            {processedRequests.map(request => (
-              <Card key={request.id} className="p-4 opacity-75">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <h3 className="font-medium text-dark">{request.patientName}</h3>
-                    <p className="text-sm text-dark/70">{request.patientEmail}</p>
-                  </div>
-                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(request.status)}`}>
-                    {request.status === 'aprovada' ? 'Aceito' : 'Recusado'}
-                  </span>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Modal de Detalhes */}
-      <Modal
-        isOpen={showModal}
-        onClose={() => setShowModal(false)}
-        title="Detalhes da Solicitação"
-      >
-        {selectedRequest && (
-          <div className="space-y-4">
-            <div>
-              <h3 className="font-semibold text-dark mb-2">Informações do Paciente</h3>
-              <div className="space-y-2 text-sm">
-                <p><strong>Nome:</strong> {selectedRequest.patientName}</p>
-                <p><strong>Email:</strong> {selectedRequest.patientEmail}</p>
-                <p><strong>Telefone:</strong> {selectedRequest.patientPhone}</p>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-dark mb-2">Descrição</h3>
-              <p className="text-sm bg-gray-50 p-3 rounded-lg">
-                {selectedRequest.description}
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-dark mb-2">Preferências</h3>
-              <div className="text-sm space-y-1">
-                <p><strong>Datas preferidas:</strong> {selectedRequest.preferredDates?.join(', ')}</p>
-                <p><strong>Horários preferidos:</strong> {selectedRequest.preferredTimes?.join(', ')}</p>
-              </div>
-            </div>
-
-            <div className="flex justify-end space-x-2 pt-4">
-              <Button
-                variant="danger"
-                onClick={() => handleAction(selectedRequest.id, 'rejeitada')}
-                disabled={actionLoading}
-              >
-                Recusar
-              </Button>
-              <Button
-                variant="primary"
-                onClick={() => handleAction(selectedRequest.id, 'aprovada')}
-                disabled={actionLoading}
-              >
-                Aceitar como Paciente
-              </Button>
-            </div>
-          </div>
-        )}
-      </Modal>
     </div>
   );
 };

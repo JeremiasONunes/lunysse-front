@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { mockApi } from '../services/mockApi';
 import { Card } from '../components/Card';
-import { Button } from '../components/Button';
-import { Modal } from '../components/Modal';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { Users, Mail, Phone, Calendar, Activity, CheckCircle } from 'lucide-react';
 
@@ -14,20 +12,29 @@ export const Pacientes = () => {
   const [patients, setPatients] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const loadPatients = async () => {
-      try {
-        const data = await mockApi.getPatients(user.id);
-        setPatients(data);
-      } catch (error) {
-        console.error('Erro ao carregar pacientes:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const loadPatients = async () => {
+    setLoading(true);
+    try {
+      const data = await mockApi.getPatients(user.id);
+      console.log('Pacientes carregados:', data); // Debug
+      setPatients(data);
+    } catch (error) {
+      console.error('Erro ao carregar pacientes:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     loadPatients();
   }, [user.id]);
+
+  // Recarrega quando a página fica visível
+  useEffect(() => {
+    const handleFocus = () => loadPatients();
+    window.addEventListener('focus', handleFocus);
+    return () => window.removeEventListener('focus', handleFocus);
+  }, []);
 
   if (loading) return <LoadingSpinner size="lg" />;
 

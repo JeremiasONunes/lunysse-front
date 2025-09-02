@@ -11,18 +11,25 @@ export const DashboardPaciente = () => {
   const { user } = useAuth();
   const [appointments, setAppointments] = useState([]);
   const [requests, setRequests] = useState([]);
+  const [_psychologists, setPsychologists] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [appointmentsData, requestsData] = await Promise.all([
-          mockApi.getAppointments(user.id, 'paciente'),
-          mockApi.getRequests() // Buscar todas as solicitações para filtrar por email
+        const [requestsData, psychologistsData] = await Promise.all([
+          mockApi.getRequests(),
+          mockApi.getPsychologists()
         ]);
-        setAppointments(appointmentsData);
+        
         // Filtrar solicitações do usuário atual
-        setRequests(requestsData.filter(req => req.patientEmail === user.email));
+        const userRequests = requestsData.filter(req => req.patientEmail === user.email);
+        setRequests(userRequests);
+        setPsychologists(psychologistsData);
+        
+        // Buscar agendamentos usando email do usuário
+        const allAppointments = await mockApi.getAppointmentsByEmail(user.email);
+        setAppointments(allAppointments);
       } catch (error) {
         console.error('Erro ao carregar dados:', error);
       } finally {
@@ -31,7 +38,7 @@ export const DashboardPaciente = () => {
     };
 
     loadData();
-  }, [user.id]);
+  }, [user.email]);
 
   if (loading) return <LoadingSpinner size="lg" />;
 
@@ -52,44 +59,82 @@ export const DashboardPaciente = () => {
         <Link to="/agendamento">
           <Button className="flex items-center gap-2">
             <Plus size={20} />
-            Solicitar Sessão
+            Solicitar ser Paciente
           </Button>
         </Link>
       </div>
 
-      {/* Solicitações Pendentes */}
-      {requests.filter(req => req.status === 'pendente').length > 0 && (
+      {/* Solicitações */}
+      {requests.length > 0 && (
         <Card className="bg-blue-50">
           <div className="flex items-center gap-2 mb-4">
             <Bell className="w-5 h-5 text-blue-600" />
-            <h2 className="text-xl font-semibold text-dark">Solicitações para ser Paciente</h2>
+            <h2 className="text-xl font-semibold text-dark">Minhas Solicitações</h2>
           </div>
           
           <div className="space-y-3">
-            {requests.filter(req => req.status === 'pendente').map(request => (
-              <div key={request.id} className="flex justify-between items-center p-4 bg-white/50 rounded-lg">
-                <div>
-                  <p className="font-medium text-dark">Solicitação para ser Paciente</p>
-                  <p className="text-sm text-dark/70">
-                    Enviada em {new Date(request.createdAt).toLocaleDateString('pt-BR')}
-                  </p>
-                  <p className="text-xs text-dark/60 mt-1">{request.description}</p>
+            {requests.map(request => {
+              const getStatusInfo = (status) => {
+                switch (status) {
+                  case 'pendente':
+                    return { color: 'bg-blue-100 text-blue-800', text: 'Aguardando Avaliação', icon: Clock };
+                  case 'aceito':
+                    return { color: 'bg-green-100 text-green-800', text: 'Aceito como Paciente', icon: Bell };
+                  case 'rejeitado':
+                    return { color: 'bg-red-100 text-red-800', text: 'Solicitação Rejeitada', icon: Bell };
+                  default:
+                    return { color: 'bg-gray-100 text-gray-800', text: 'Status Desconhecido', icon: Bell };
+                }
+              };
+              
+              const statusInfo = getStatusInfo(request.status);
+              const StatusIcon = statusInfo.icon;
+              
+              return (
+                <div key={request.id} className="p-4 bg-white/50 rounded-lg">
+                  <div className="flex justify-between items-start mb-2">
+                    <div className="flex-1">
+                      <p className="font-medium text-dark">Solicitação para ser Paciente</p>
+                      <p className="text-sm text-dark/70">
+                        Enviada em {new Date(request.createdAt).toLocaleDateString('pt-BR')}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <StatusIcon className="w-4 h-4" />
+                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${statusInfo.color}`}>
+                        {statusInfo.text}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <p className="text-xs text-dark/60 mb-3">{request.description}</p>
+                  
+                  {request.status === 'aceito' && (
+                    <div className="p-3 bg-green-100 rounded-lg">
+                      <p className="text-sm text-green-800">
+                        <strong>Parabéns!</strong> Você foi aceito como paciente. O psicólogo entrará em contato para agendar suas sessões.
+                      </p>
+                    </div>
+                  )}
+                  
+                  {request.status === 'pendente' && (
+                    <div className="p-3 bg-blue-100 rounded-lg">
+                      <p className="text-sm text-blue-800">
+                        <strong>Status:</strong> Sua solicitação está sendo analisada pelo psicólogo.
+                      </p>
+                    </div>
+                  )}
+                  
+                  {request.status === 'rejeitado' && (
+                    <div className="p-3 bg-red-100 rounded-lg">
+                      <p className="text-sm text-red-800">
+                        <strong>Solicitação não aceita.</strong> Você pode tentar com outro psicólogo.
+                      </p>
+                    </div>
+                  )}
                 </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-blue-600" />
-                  <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
-                    Aguardando Avaliação
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-4 p-3 bg-blue-100 rounded-lg">
-            <p className="text-sm text-blue-800">
-              <strong>Status:</strong> Sua solicitação foi enviada e está sendo analisada pelo psicólogo. 
-              Se aceito como paciente, você será contatado para agendar suas sessões.
-            </p>
+              );
+            })}
           </div>
         </Card>
       )}
@@ -105,7 +150,7 @@ export const DashboardPaciente = () => {
           <div className="text-center py-8">
             <p className="text-dark/70 mb-4">Você não tem sessões agendadas.</p>
             <Link to="/agendamento">
-              <Button>{hasHistory ? 'Solicitar nova sessão' : 'Solicitar primeira sessão'}</Button>
+              <Button>{hasHistory ? 'Solicitar novo psicólogo' : 'Solicitar ser paciente'}</Button>
             </Link>
           </div>
         ) : (
@@ -113,8 +158,9 @@ export const DashboardPaciente = () => {
             {upcomingAppointments.map(appointment => (
               <div key={appointment.id} className="flex justify-between items-center p-4 bg-white/10 rounded-lg">
                 <div>
-                  <p className="font-medium text-dark">Sessão com Dr. João Silva</p>
-                  <p className="text-sm text-dark/70">{appointment.date} às {appointment.time}</p>
+                  <p className="font-medium text-dark">{appointment.description}</p>
+                  <p className="text-sm text-dark/70">{new Date(appointment.date).toLocaleDateString('pt-BR')} às {appointment.time}</p>
+                  <p className="text-xs text-dark/60">Duração: {appointment.duration} minutos</p>
                 </div>
                 <span className="px-3 py-1 bg-accent/20 text-accent rounded-full text-sm font-medium">
                   Agendado
@@ -133,8 +179,8 @@ export const DashboardPaciente = () => {
             {pastAppointments.slice(0, 3).map(appointment => (
               <div key={appointment.id} className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
                 <div>
-                  <p className="font-medium text-dark">Sessão com Dr. João Silva</p>
-                  <p className="text-sm text-dark/70">{appointment.date} às {appointment.time}</p>
+                  <p className="font-medium text-dark">{appointment.description}</p>
+                  <p className="text-sm text-dark/70">{new Date(appointment.date).toLocaleDateString('pt-BR')} às {appointment.time}</p>
                 </div>
                 <span className="px-2 py-1 bg-green-500/20 text-green-700 rounded-full text-xs font-medium">
                   Concluída
