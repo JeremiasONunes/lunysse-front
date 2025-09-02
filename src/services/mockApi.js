@@ -418,7 +418,7 @@ const initialAppointments = [
     id: 21, 
     patientId: 5, 
     psychologistId: 2, 
-    date: generateFutureDate(3), 
+    date: generateFutureDate(1), 
     time: '15:00', 
     status: 'agendado',
     description: 'Sessão de acompanhamento',

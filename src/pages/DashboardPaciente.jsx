@@ -42,9 +42,14 @@ export const DashboardPaciente = () => {
 
   if (loading) return <LoadingSpinner size="lg" />;
 
-  const upcomingAppointments = appointments.filter(apt => 
-    new Date(apt.date) >= new Date() && apt.status === 'agendado'
-  );
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  
+  const upcomingAppointments = appointments.filter(apt => {
+    const appointmentDate = new Date(apt.date);
+    appointmentDate.setHours(0, 0, 0, 0);
+    return appointmentDate >= today && apt.status === 'agendado';
+  });
 
   const pastAppointments = appointments.filter(apt => 
     new Date(apt.date) < new Date() || apt.status === 'concluido'
