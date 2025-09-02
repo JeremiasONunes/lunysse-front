@@ -54,15 +54,7 @@ export const DashboardPaciente = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-dark">Meu Dashboard</h1>
-        <Link to="/agendamento">
-          <Button className="flex items-center gap-2">
-            <Plus size={20} />
-            Solicitar ser Paciente
-          </Button>
-        </Link>
-      </div>
+      <h1 className="text-3xl font-bold text-dark">Meu Dashboard</h1>
 
       {/* Solicitações */}
       {requests.length > 0 && (
