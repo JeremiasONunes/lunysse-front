@@ -835,39 +835,48 @@ export const mockApi = {
     const canceledSessions = psychologistAppointments.filter(apt => 
       apt.status === 'cancelado'
     ).length;
-    const rescheduledSessions = psychologistAppointments.filter(apt => 
-      apt.status === 'reagendado'
+    const sessionStarted = psychologistAppointments.filter(apt => 
+      apt.status === 'iniciado'
+    ).length;
+    
+    // Pacientes sem nenhuma sessão cadastrada
+    const patientsWithSessions = new Set(psychologistAppointments.map(apt => apt.patientId));
+    const patientsWithoutSessions = psychologistPatients.filter(patient => 
+      !patientsWithSessions.has(patient.id)
     ).length;
     
     // Dados para gráfico de frequência (simulados para demonstração)
     const frequencyData = [];
-    const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'];
+    const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
     
-    months.forEach((month, index) => {
+    months.forEach((month) => {
       // Simula dados de sessões por mês
       const monthSessions = Math.floor(Math.random() * 20) + 10;
       frequencyData.push({ month, sessions: monthSessions });
     });
     
-    // Dados para gráfico de status das sessões
-    const statusData = [
-      { 
-        name: 'Concluídas', 
-        value: Math.round((completedSessions / totalSessions) * 100) || 0, 
-        color: '#26B0BF' 
-      },
-      { 
-        name: 'Canceladas', 
-        value: Math.round((canceledSessions / totalSessions) * 100) || 0, 
-        color: '#ef4444' 
-      },
-      { 
-        name: 'Reagendadas', 
-        value: Math.round((rescheduledSessions / totalSessions) * 100) || 0, 
-        color: '#f59e0b' 
-      }
-    ];
+    // Dados para gráfico de status das sessões (valores absolutos)
+    const statusData = [];
+    const agendadoSessions = psychologistAppointments.filter(apt => apt.status === 'agendado').length;
     
+    if (completedSessions > 0) statusData.push({ name: 'Concluídas', value: completedSessions, color: '#26B0BF' });
+    if (canceledSessions > 0) statusData.push({ name: 'Canceladas', value: canceledSessions, color: '#ef4444' });
+    if (sessionStarted > 0) statusData.push({ name: 'Iniciadas', value: sessionStarted, color: '#f59e0b' });
+    if (agendadoSessions > 0) statusData.push({ name: 'Agendadas', value: agendadoSessions, color: '#10b981' });
+    
+    // Adiciona pacientes sem sessões como item separado
+   
+    // Dados para gráfico de pacientes
+    const patientsWithSessionsCount = psychologistPatients.length - patientsWithoutSessions;
+    const patientsData = [];
+    
+    if (patientsWithSessionsCount > 0) {
+      patientsData.push({ name: 'Com sessões', value: patientsWithSessionsCount, color: '#26B0BF' });
+    }
+    if (patientsWithoutSessions > 0) {
+      patientsData.push({ name: 'Sem sessões', value: patientsWithoutSessions, color: '#ef4444' });
+    }
+
     // Gera alertas de risco baseados nos pacientes (simulado)
     const riskAlerts = psychologistPatients.slice(0, 3).map((patient, index) => ({
       id: patient.id,
@@ -882,11 +891,12 @@ export const mockApi = {
         activePatients: psychologistPatients.length,
         totalSessions,
         completedSessions,
-        attendanceRate: totalSessions > 0 ? Math.round((completedSessions / totalSessions) * 100) : 0,
+        attendanceRate: totalSessions > 0 ? ((completedSessions / totalSessions) * 100).toFixed(1) : 0,
         riskAlerts: riskAlerts.length
       },
       frequencyData,
       statusData,
+      patientsData,
       riskAlerts
     };
   },

@@ -19,7 +19,6 @@ export const DashboardPsicologo = () => {
         mockApi.getPatients(user.id),
         mockApi.getRequests(user.id)
       ]);
-      console.log('Agendamentos carregados:', appointmentsData); // Debug
       setAppointments(appointmentsData);
       setPatients(patientsData);
       setRequests(requestsData);
@@ -34,20 +33,35 @@ export const DashboardPsicologo = () => {
     loadData();
   }, [user.id]);
 
-  // Recarrega quando a página fica visível
+  // Recarrega quando a página fica visível e a cada 5 segundos
   useEffect(() => {
     const handleFocus = () => loadData();
     window.addEventListener('focus', handleFocus);
-    return () => window.removeEventListener('focus', handleFocus);
+    
+    const interval = setInterval(loadData, 5000); // Recarrega a cada 5 segundos
+    
+    return () => {
+      window.removeEventListener('focus', handleFocus);
+      clearInterval(interval);
+    };
   }, []);
 
   if (loading) return <LoadingSpinner size="lg" />;
 
-  // Filtra agendamentos de hoje para o psicólogo logado
-  const todayAppointments = appointments.filter(apt => 
-    apt.date === new Date().toISOString().split('T')[0] && 
-    apt.psychologistId === user.id
-  );
+  // Filtra agendamentos de hoje para o psicólogo logado (apenas agendados)
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  
+  const todayAppointments = appointments.filter(apt => {
+    const appointmentDate = new Date(apt.date);
+    appointmentDate.setHours(0, 0, 0, 0);
+    
+    const isToday = appointmentDate.getTime() === today.getTime();
+    const isPsychologist = apt.psychologistId === user.id;
+    const isScheduled = apt.status === 'agendado';
+    
+    return isToday && isPsychologist && isScheduled;
+  });
 
   // Estatísticas baseadas nos dados reais do psicólogo
   const totalPatients = patients.length;

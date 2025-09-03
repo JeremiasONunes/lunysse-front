@@ -29,8 +29,8 @@ export const Relatorios = () => {
   if (loading) return <LoadingSpinner size="lg" />;
   if (!reportsData) return <div>Erro ao carregar dados</div>;
 
-  const { stats, frequencyData, statusData, riskAlerts } = reportsData;
-  
+  const { stats, frequencyData, statusData, riskAlerts, patientsData } = reportsData;
+
   // Verifica se é um psicólogo novo (sem dados)
   const hasNoData = stats.activePatients === 0 && stats.totalSessions === 0;
 
@@ -107,7 +107,7 @@ export const Relatorios = () => {
                     cy="50%"
                     outerRadius={80}
                     dataKey="value"
-                    label={({ name, value }) => `${name}: ${value}%`}
+                    label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(1)}%`}
                   >
                     {statusData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={entry.color} />
@@ -117,10 +117,30 @@ export const Relatorios = () => {
                 </PieChart>
               </ResponsiveContainer>
             </Card>
-          </div>
 
-          {/* Alertas de Risco */}
-          <Card>
+
+            <Card>
+              <h2 className="text-xl font-semibold text-dark mb-4 text-center">Pacientes por Status de Sessão</h2>
+              <ResponsiveContainer width="100%" height={300}>
+                <PieChart>
+                  <Pie
+                    data={patientsData}
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={80}
+                    dataKey="value"
+                    label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                  >
+                    {patientsData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                </PieChart>
+              </ResponsiveContainer>
+            </Card>
+
+             <Card>
             <h2 className="text-xl font-semibold text-dark mb-4 flex items-center gap-2">
               <AlertTriangle className="w-5 h-5 text-red-500" />
               Alertas de Risco
@@ -150,6 +170,8 @@ export const Relatorios = () => {
               )}
             </div>
           </Card>
+          </div>
+         
         </>
       )}
     </div>
