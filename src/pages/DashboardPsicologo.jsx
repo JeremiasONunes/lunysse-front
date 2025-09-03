@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { mockApi } from '../services/mockApi';
 import { Card } from '../components/Card';
 import { LoadingSpinner } from '../components/LoadingSpinner';
-import { Calendar, Users, AlertTriangle, Bell } from 'lucide-react';
+import { Calendar, Users, Bell , CheckCheck} from 'lucide-react';
 
 export const DashboardPsicologo = () => {
   const { user } = useAuth();
@@ -12,7 +12,7 @@ export const DashboardPsicologo = () => {
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     try {
       const [appointmentsData, patientsData, requestsData] = await Promise.all([
         mockApi.getAppointments(user.id, 'psicologo'),
@@ -27,11 +27,11 @@ export const DashboardPsicologo = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [user.id]);
 
   useEffect(() => {
     loadData();
-  }, [user.id]);
+  }, [loadData]);
 
   // Recarrega quando a página fica visível e a cada 5 segundos
   useEffect(() => {
@@ -44,7 +44,7 @@ export const DashboardPsicologo = () => {
       window.removeEventListener('focus', handleFocus);
       clearInterval(interval);
     };
-  }, []);
+  }, [loadData]);
 
   if (loading) return <LoadingSpinner size="lg" />;
 
@@ -119,7 +119,7 @@ export const DashboardPsicologo = () => {
         </Card>
 
         <Card className="text-center">
-          <AlertTriangle className="w-8 h-8 text-medium mx-auto mb-2" />
+          <CheckCheck className="w-8 h-8 text-medium mx-auto mb-2" />
           <h3 className="text-2xl font-bold text-dark">{completedSessions}</h3>
           <p className="text-dark/70">Sessões Concluídas</p>
         </Card>
