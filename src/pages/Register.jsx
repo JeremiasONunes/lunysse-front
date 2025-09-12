@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { mockApi } from '../services/mockApi';
@@ -23,16 +23,20 @@ export const Register = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
 
+  const handleInputChange = useCallback((field) => (e) => {
+    setFormData(prev => ({ ...prev, [field]: e.target.value }));
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (formData.password !== formData.confirmPassword) {
       toast.error('Senhas não coincidem');
       return;
     }
 
     setLoading(true);
-    
+
     try {
       const { user, token } = await mockApi.register({
         ...formData,
@@ -52,41 +56,37 @@ export const Register = () => {
     <div className="min-h-[calc(100vh-80px)] flex items-center justify-center p-4">
       <Card className="w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-dark mb-2">Criar Conta</h1>
+          <h1 className="text-3xl font-bold text-dark mb-2">{"Criar Conta"}</h1>
           <p className="text-dark/70">Cadastre-se na lunysse</p>
         </div>
 
         {/* User Type Selector */}
-        <div className="flex mb-6 bg-white/10 rounded-lg p-1">
-          <button
+        <div className="flex mb-6 gap-1">
+          <Button
             type="button"
+            variant={userType === 'paciente' ? 'primary' : 'secondary'}
+            size="sm"
             onClick={() => setUserType('paciente')}
-            className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
-              userType === 'paciente'
-                ? 'bg-light text-white'
-                : 'text-dark hover:text-light'
-            }`}
+            className="flex-1"
           >
-            Paciente
-          </button>
-          <button
+            {"Paciente"}
+          </Button>
+          <Button
             type="button"
+            variant={userType === 'psicologo' ? 'primary' : 'secondary'}
+            size="sm"
             onClick={() => setUserType('psicologo')}
-            className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
-              userType === 'psicologo'
-                ? 'bg-light text-white'
-                : 'text-dark hover:text-light'
-            }`}
+            className="flex-1"
           >
-            Psicólogo
-          </button>
+            {"Psicólogo"}
+          </Button>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input
             label="Nome completo"
             value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            onChange={handleInputChange('name')}
             placeholder="Seu nome completo"
             required
           />
@@ -95,7 +95,7 @@ export const Register = () => {
             label="E-mail"
             type="email"
             value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            onChange={handleInputChange('email')}
             placeholder="seu@email.com"
             required
           />
@@ -104,7 +104,7 @@ export const Register = () => {
             label="Senha"
             type="password"
             value={formData.password}
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+            onChange={handleInputChange('password')}
             placeholder="Sua senha"
             required
           />
@@ -113,7 +113,7 @@ export const Register = () => {
             label="Confirmar senha"
             type="password"
             value={formData.confirmPassword}
-            onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
+            onChange={handleInputChange('confirmPassword')}
             placeholder="Confirme sua senha"
             required
           />
@@ -124,7 +124,7 @@ export const Register = () => {
               <Input
                 label="CRM"
                 value={formData.crm}
-                onChange={(e) => setFormData({ ...formData, crm: e.target.value })}
+                onChange={handleInputChange('crm')}
                 placeholder="Ex: CRP 12/34567"
                 required
               />
@@ -132,7 +132,7 @@ export const Register = () => {
               <Input
                 label="Especialidade"
                 value={formData.specialty}
-                onChange={(e) => setFormData({ ...formData, specialty: e.target.value })}
+                onChange={handleInputChange('specialty')}
                 placeholder="Ex: Psicologia Clínica, Terapia Cognitiva"
                 required
               />
@@ -141,7 +141,7 @@ export const Register = () => {
                 label="Telefone"
                 type="tel"
                 value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                onChange={handleInputChange('phone')}
                 placeholder="(11) 99999-9999"
                 required
               />
@@ -155,7 +155,7 @@ export const Register = () => {
                 label="Telefone"
                 type="tel"
                 value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                onChange={handleInputChange('phone')}
                 placeholder="(11) 99999-9999"
                 required
               />
@@ -164,7 +164,7 @@ export const Register = () => {
                 label="Data de nascimento"
                 type="date"
                 value={formData.birthDate}
-                onChange={(e) => setFormData({ ...formData, birthDate: e.target.value })}
+                onChange={handleInputChange('birthDate')}
                 required
               />
             </>
@@ -181,14 +181,14 @@ export const Register = () => {
 
         <div className="mt-6 text-center space-y-2">
           <p className="text-dark/70">
-            Já tem uma conta?{' '}
+            {"Já tem uma conta?"}{' '}
             <Link to="/login" className="text-light hover:text-accent font-medium">
-              Fazer login
+              {"Fazer login"}
             </Link>
           </p>
           <p className="text-dark/70">
             <Link to="/" className="text-light hover:text-accent font-medium">
-              ← Voltar ao início
+              {"← Voltar ao início"}
             </Link>
           </p>
         </div>
