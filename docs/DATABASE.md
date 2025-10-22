@@ -57,11 +57,11 @@ erDiagram
         int created_by FK
     }
     
-    USER ||--o{ PATIENT : "atende"
-    USER ||--o{ APPOINTMENT : "realiza"
+    psychologist ||--o{ PATIENT : "atende"
+    psychologist ||--o{ APPOINTMENT : "realiza"
     PATIENT ||--o{ APPOINTMENT : "participa"
     APPOINTMENT ||--o{ SESSION_NOTE : "possui"
-    USER ||--o{ SESSION_NOTE : "cria"
+    psychologist ||--o{ SESSION_NOTE : "cria"
 ```
 
 ## Entidades Principais
