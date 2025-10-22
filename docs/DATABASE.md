@@ -8,7 +8,7 @@ O sistema Lunysse utiliza um modelo de dados relacional simples, atualmente impl
 
 ```mermaid
 erDiagram
-    USER {
+    psychologist {
         int id PK
         string name
         string email UK
