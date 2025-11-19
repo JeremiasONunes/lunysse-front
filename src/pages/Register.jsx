@@ -65,21 +65,21 @@ export const Register = () => {
   };
 
   return (
-    <div className="min-h-[calc(80vh-80px)] flex items-center justify-center p-4">
-      <Card className="w-500 max-w-lg">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-dark mb-2">{"Criar Conta"}</h1>
-          <p className="text-dark/70">Cadastre-se na lunysse</p>
+    <div className="min-h-[calc(100vh-80px)] flex items-center justify-center p-4">
+      <Card className="w-full max-w-md sm:max-w-lg">
+        <div className="text-center mb-6 sm:mb-8">
+          <h1 className="text-3xl sm:text-4xl font-bold text-dark mb-2">{"Criar Conta"}</h1>
+          <p className="text-sm sm:text-base text-dark/70">Cadastre-se na lunysse</p>
         </div>
 
         {/* User Type Selector */}
-        <div className="flex mb-6 gap-1">
+        <div className="flex mb-4 sm:mb-6 gap-1 sm:gap-2">
           <Button
             type="button"
             variant={userType === 'paciente' ? 'primary' : 'secondary'}
             size="sm"
             onClick={() => setUserType('paciente')}
-            className="flex-1"
+            className="flex-1 text-sm sm:text-base"
           >
             {"Paciente"}
           </Button>
@@ -88,13 +88,13 @@ export const Register = () => {
             variant={userType === 'psicologo' ? 'primary' : 'secondary'}
             size="sm"
             onClick={() => setUserType('psicologo')}
-            className="flex-1"
+            className="flex-1 text-sm sm:text-base"
           >
             {"Psicólogo"}
           </Button>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
           <Input
             label="Nome completo"
             value={formData.name}
@@ -185,20 +185,20 @@ export const Register = () => {
           <Button
             type="submit"
             loading={loading}
-            className="w-full"
+            className="w-full text-sm sm:text-base"
           >
             Cadastrar
           </Button>
         </form>
 
-        <div className="mt-6 text-center space-y-2">
-          <p className="text-dark/70">
+        <div className="mt-4 sm:mt-6 text-center space-y-2">
+          <p className="text-sm sm:text-base text-dark/70">
             {"Já tem uma conta?"}{' '}
             <Link to="/login" className="text-light hover:text-accent font-medium">
               {"Fazer login"}
             </Link>
           </p>
-          <p className="text-dark/70">
+          <p className="text-sm sm:text-base text-dark/70">
             <Link to="/" className="text-light hover:text-accent font-medium">
               {"← Voltar ao início"}
             </Link>

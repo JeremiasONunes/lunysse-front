@@ -71,16 +71,16 @@ export const About = () => {
   ];
 
   return (
-    <div className="py-12 space-y-16"> {/* Container principal com espaçamento entre seções */}
+    <div className="py-8 sm:py-12 space-y-12 sm:space-y-16 px-4"> {/* Container principal com espaçamento entre seções */}
 
       {/* Seção Hero (introdução com logo e descrição) */}
-      <section className="text-center py-12">
+      <section className="text-center py-8 sm:py-12">
         <div className="max-w-4xl mx-auto">
           {/* Logo centralizado */}
-          <div className="w-24 h-24 bg-white rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-xl">
-            <img src="/logo.png" alt="Lunysse" className="w-16 h-16 rounded-2xl" />
+          <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-xl">
+            <img src="/logo.png" alt="Lunysse" className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-dark mb-6">Sobre o Lunysse</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-dark mb-4 sm:mb-6">Sobre o Lunysse</h1>
           <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-xl">
             <p className="text-lg text-dark/70 leading-relaxed mb-6">
               Somos uma plataforma que une tecnologia e responsabilidade social...
@@ -93,8 +93,8 @@ export const About = () => {
       </section>
 
       {/* Seção Missão e Visão */}
-      <section className="py-12">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+      <section className="py-8 sm:py-12">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {/* Missão */}
           <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-xl">
             <h2 className="text-2xl font-bold text-dark mb-4">Nossa Missão</h2>
@@ -119,10 +119,10 @@ export const About = () => {
       </section>
 
       {/* Seção Problemas e Soluções */}
-      <section className="py-12">
+      <section className="py-8 sm:py-12">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-dark text-center mb-8">Problemas que Resolvemos</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-dark text-center mb-6 sm:mb-8">Problemas que Resolvemos</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {/* Lista de problemas */}
             <div className="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-lg">
               <h3 className="text-xl font-semibold text-dark mb-4">Desafios Identificados</h3>
@@ -154,10 +154,10 @@ export const About = () => {
       </section>
 
       {/* Seção Funcionalidades */}
-      <section className="py-12">
+      <section className="py-8 sm:py-12">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-dark text-center mb-8">Funcionalidades Principais</h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-dark text-center mb-6 sm:mb-8">Funcionalidades Principais</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {features.map((feature, index) => (
               <div key={index} className="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-lg">
                 <div className="flex items-start space-x-4">
@@ -177,10 +177,10 @@ export const About = () => {
       </section>
 
       {/* Seção Valores */}
-      <section className="py-12">
+      <section className="py-8 sm:py-12">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-dark text-center mb-8">Nossos Valores</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-dark text-center mb-6 sm:mb-8">Nossos Valores</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {values.map((value, index) => (
               <div key={index} className="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-lg text-center">
                 {/* Ícone centralizado com fundo */}

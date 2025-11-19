@@ -37,15 +37,15 @@ export const Login = () => {
   return (
     <div className="min-h-[calc(100vh-80px)] flex items-center justify-center p-4"> {/* Centraliza o card */}
       {/* Card que contém o formulário de login */}
-      <Card className="w-500 max-w-lg">
+      <Card className="w-full max-w-md sm:max-w-lg">
         {/* Cabeçalho com título e subtítulo */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-dark mb-2">Entrar</h1>
-          <p className="text-dark/70">Acesse sua conta no Lunysse</p>
+        <div className="text-center mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl font-bold text-dark mb-2">Entrar</h1>
+          <p className="text-sm sm:text-base text-dark/70">Acesse sua conta no Lunysse</p>
         </div>
 
         {/* Formulário de login */}
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
           {/* Campo de email */}
           <Input
             label="E-mail"
@@ -77,14 +77,14 @@ export const Login = () => {
         </form>
 
         {/* Links adicionais: criar conta e voltar ao início */}
-        <div className="mt-6 text-center space-y-2">
-          <p className="text-dark/70">
+        <div className="mt-4 sm:mt-6 text-center space-y-2">
+          <p className="text-sm sm:text-base text-dark/70">
             Não tem uma conta?{' '}
             <Link to="/register" className="text-light hover:text-accent font-medium">
               Criar conta
             </Link>
           </p>
-          <p className="text-dark/70">
+          <p className="text-sm sm:text-base text-dark/70">
             <Link to="/" className="text-light hover:text-accent font-medium">
               ← Voltar ao início
             </Link>

@@ -94,9 +94,9 @@ export const DashboardPsicologo = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-dark">Dashboard</h1>
-        <p className="text-white">Bem-vindo, {user.name}</p>
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+        <h1 className="text-2xl sm:text-3xl font-bold text-dark">Dashboard</h1>
+        <p className="text-white text-sm sm:text-base">Bem-vindo, {user.name}</p>
       </div>
 
       {/* Mensagem para psicólogos novos */}
@@ -115,29 +115,29 @@ export const DashboardPsicologo = () => {
       )}
 
       {/* KPIs - Dados específicos do psicólogo logado */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card className="text-center">
-          <Users className="w-8 h-8 text-light mx-auto mb-2" />
-          <h3 className="text-2xl font-bold text-dark">{totalPatients}</h3>
-          <p className="text-dark/70">Pacientes Ativos</p>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        <Card className="text-center p-4">
+          <Users className="w-6 h-6 sm:w-8 sm:h-8 text-light mx-auto mb-2" />
+          <h3 className="text-xl sm:text-2xl font-bold text-dark">{totalPatients}</h3>
+          <p className="text-xs sm:text-sm text-dark/70">Pacientes Ativos</p>
         </Card>
 
-        <Card className="text-center">
-          <Calendar className="w-8 h-8 text-accent mx-auto mb-2" />
-          <h3 className="text-2xl font-bold text-dark">{todayAppointments.length}</h3>
-          <p className="text-dark/70">Sessões Hoje</p>
+        <Card className="text-center p-4">
+          <Calendar className="w-6 h-6 sm:w-8 sm:h-8 text-accent mx-auto mb-2" />
+          <h3 className="text-xl sm:text-2xl font-bold text-dark">{todayAppointments.length}</h3>
+          <p className="text-xs sm:text-sm text-dark/70">Sessões Hoje</p>
         </Card>
 
-        <Card className="text-center">
-          <CheckCheck className="w-8 h-8 text-medium mx-auto mb-2" />
-          <h3 className="text-2xl font-bold text-dark">{completedSessions}</h3>
-          <p className="text-dark/70">Sessões Concluídas</p>
+        <Card className="text-center p-4">
+          <CheckCheck className="w-6 h-6 sm:w-8 sm:h-8 text-medium mx-auto mb-2" />
+          <h3 className="text-xl sm:text-2xl font-bold text-dark">{completedSessions}</h3>
+          <p className="text-xs sm:text-sm text-dark/70">Sessões Concluídas</p>
         </Card>
 
-        <Card className="text-center">
-          <Bell className="w-8 h-8 text-orange-500 mx-auto mb-2" />
-          <h3 className="text-2xl font-bold text-dark">{pendingRequests}</h3>
-          <p className="text-dark/70">Solicitações Pendentes</p>
+        <Card className="text-center p-4">
+          <Bell className="w-6 h-6 sm:w-8 sm:h-8 text-orange-500 mx-auto mb-2" />
+          <h3 className="text-xl sm:text-2xl font-bold text-dark">{pendingRequests}</h3>
+          <p className="text-xs sm:text-sm text-dark/70">Solicitações Pendentes</p>
         </Card>
       </div>
 

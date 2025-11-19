@@ -113,13 +113,13 @@ export const Solicitacoes = () => {
   if (loading) return <LoadingSpinner size="lg" />;
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center gap-3">
-        <Bell className="w-8 h-8 text-light" />
-        <h1 className="text-3xl font-bold text-white">Solicitações de Pacientes</h1>
+    <div className="space-y-4 sm:space-y-6">
+      <div className="flex items-center gap-2 sm:gap-3">
+        <Bell className="w-6 h-6 sm:w-8 sm:h-8 text-light" />
+        <h1 className="text-xl sm:text-3xl font-bold text-white">Solicitações de Pacientes</h1>
       </div>
 
-      <div className="grid gap-6">
+      <div className="grid gap-4 sm:gap-6">
         {requests.length === 0 ? (
           <Card className="text-center py-12">
             <Bell className="w-16 h-16 text-dark/30 mx-auto mb-4" />
@@ -128,22 +128,22 @@ export const Solicitacoes = () => {
           </Card>
         ) : (
           requests.map(request => (
-            <Card key={request.id} className="space-y-4">
-              <div className="flex justify-between items-start">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-light to-accent rounded-full flex items-center justify-center">
-                    <User className="w-6 h-6 text-white" />
+            <Card key={request.id} className="space-y-3 sm:space-y-4">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 sm:gap-0">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-light to-accent rounded-full flex items-center justify-center flex-shrink-0">
+                    <User className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-dark">{request.patient_name}</h3>
-                    <p className="text-sm text-dark/60">{request.patient_email}</p>
-                    <p className="text-sm text-dark/60">{request.patient_phone}</p>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-base sm:text-lg font-semibold text-dark">{request.patient_name}</h3>
+                    <p className="text-xs sm:text-sm text-dark/60 break-all">{request.patient_email}</p>
+                    <p className="text-xs sm:text-sm text-dark/60">{request.patient_phone}</p>
                   </div>
                 </div>
                 
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${getUrgencyColor(request.urgency)}`}>
-                    {request.urgency === 'alta' ? 'Alta' : request.urgency === 'media' ? 'Média' : 'Baixa'} urgência
+                    {request.urgency === 'alta' ? 'Alta' : request.urgency === 'media' ? 'Média' : 'Baixa'} urg��ncia
                   </span>
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(request.status)}`}>
                     {request.status === 'aceito' ? 'Aceito' : request.status === 'rejeitado' ? 'Rejeitado' : 'Pendente'}
@@ -151,14 +151,14 @@ export const Solicitacoes = () => {
                 </div>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-4">
-                <h4 className="font-medium text-dark mb-2">Descrição da necessidade:</h4>
-                <p className="text-dark/70">{request.description}</p>
+              <div className="bg-gray-50 rounded-lg p-3 sm:p-4">
+                <h4 className="text-sm sm:text-base font-medium text-dark mb-2">Descrição da necessidade:</h4>
+                <p className="text-sm sm:text-base text-dark/70">{request.description}</p>
               </div>
 
-              <div className="flex items-center gap-4 text-sm text-dark/60">
+              <div className="flex items-center gap-4 text-xs sm:text-sm text-dark/60">
                 <div className="flex items-center gap-1">
-                  <Clock className="w-4 h-4" />
+                  <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                   Enviado em {new Date(request.created_at).toLocaleDateString('pt-BR')}
                 </div>
               </div>
@@ -171,12 +171,12 @@ export const Solicitacoes = () => {
                 </div>
               )}
 
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                 <Button
                   variant="secondary"
                   onClick={() => handleRejectRequest(request.id)}
                   loading={processingRequests.has(request.id)}
-                  className="flex-1 flex items-center justify-center gap-2"
+                  className="flex-1 flex items-center justify-center gap-2 text-sm sm:text-base"
                 >
                   <X className="w-4 h-4" />
                   Rejeitar
@@ -184,7 +184,7 @@ export const Solicitacoes = () => {
                 <Button
                   onClick={() => handleAcceptRequest(request.id, request)}
                   loading={processingRequests.has(request.id)}
-                  className="flex-1 flex items-center justify-center gap-2"
+                  className="flex-1 flex items-center justify-center gap-2 text-sm sm:text-base"
                 >
                   <CheckCircle className="w-4 h-4" />
                   Aceitar como Paciente

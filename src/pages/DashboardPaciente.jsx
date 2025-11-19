@@ -64,8 +64,8 @@ export const DashboardPaciente = () => {
   const hasHistory = pastAppointments.length > 0;
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-dark">Meu Dashboard</h1>
+    <div className="space-y-4 sm:space-y-6">
+      <h1 className="text-2xl sm:text-3xl font-bold text-dark">Meu Dashboard</h1>
 
       {/* Solicitações */}
       {requests.length > 0 && (
@@ -94,11 +94,11 @@ export const DashboardPaciente = () => {
               const StatusIcon = statusInfo.icon;
               
               return (
-                <div key={request.id} className="p-4 bg-white/50 rounded-lg">
-                  <div className="flex justify-between items-start mb-2">
+                <div key={request.id} className="p-3 sm:p-4 bg-white/50 rounded-lg">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-0 mb-2">
                     <div className="flex-1">
-                      <p className="font-medium text-dark">Solicitação para ser Paciente</p>
-                      <p className="text-sm text-dark/70">
+                      <p className="font-medium text-dark text-sm sm:text-base">Solicitação para ser Paciente</p>
+                      <p className="text-xs sm:text-sm text-dark/70">
                         Enviada em {new Date(request.createdAt).toLocaleDateString('pt-BR')}
                       </p>
                     </div>
@@ -150,8 +150,8 @@ export const DashboardPaciente = () => {
         </div>
         
         {upcomingAppointments.length === 0 ? (
-          <div className="text-center py-8">
-            <p className="text-dark/70 mb-4">Você não tem sessões agendadas.</p>
+          <div className="text-center py-6 sm:py-8">
+            <p className="text-dark/70 mb-4 text-sm sm:text-base">Você não tem sessões agendadas.</p>
             <Link to="/agendamento">
               <Button>{hasHistory ? 'Solicitar novo psicólogo' : 'Solicitar ser paciente'}</Button>
             </Link>
@@ -159,13 +159,13 @@ export const DashboardPaciente = () => {
         ) : (
           <div className="space-y-3">
             {upcomingAppointments.map(appointment => (
-              <div key={appointment.id} className="flex justify-between items-center p-4 bg-white/10 rounded-lg">
-                <div>
-                  <p className="font-medium text-dark">{appointment.description}</p>
-                  <p className="text-sm text-dark/70">{new Date(appointment.date).toLocaleDateString('pt-BR')} às {appointment.time}</p>
+              <div key={appointment.id} className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-0 p-3 sm:p-4 bg-white/10 rounded-lg">
+                <div className="flex-1">
+                  <p className="font-medium text-dark text-sm sm:text-base">{appointment.description}</p>
+                  <p className="text-xs sm:text-sm text-dark/70">{new Date(appointment.date).toLocaleDateString('pt-BR')} às {appointment.time}</p>
                   <p className="text-xs text-dark/60">Duração: {appointment.duration} minutos</p>
                 </div>
-                <span className="px-3 py-1 bg-accent/20 text-accent rounded-full text-sm font-medium">
+                <span className="px-3 py-1 bg-accent/20 text-accent rounded-full text-xs sm:text-sm font-medium self-start sm:self-center">
                   Agendado
                 </span>
               </div>
@@ -180,12 +180,12 @@ export const DashboardPaciente = () => {
           <h2 className="text-xl font-semibold text-dark mb-4">Histórico Recente</h2>
           <div className="space-y-3">
             {pastAppointments.slice(0, 3).map(appointment => (
-              <div key={appointment.id} className="flex justify-between items-center p-3 bg-white/5 rounded-lg">
-                <div>
-                  <p className="font-medium text-dark">{appointment.description}</p>
-                  <p className="text-sm text-dark/70">{new Date(appointment.date).toLocaleDateString('pt-BR')} às {appointment.time}</p>
+              <div key={appointment.id} className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0 p-3 bg-white/5 rounded-lg">
+                <div className="flex-1">
+                  <p className="font-medium text-dark text-sm sm:text-base">{appointment.description}</p>
+                  <p className="text-xs sm:text-sm text-dark/70">{new Date(appointment.date).toLocaleDateString('pt-BR')} às {appointment.time}</p>
                 </div>
-                <span className="px-2 py-1 bg-green-500/20 text-green-700 rounded-full text-xs font-medium">
+                <span className="px-2 py-1 bg-green-500/20 text-green-700 rounded-full text-xs font-medium self-start sm:self-center">
                   Concluída
                 </span>
               </div>

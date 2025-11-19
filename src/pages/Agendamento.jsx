@@ -161,7 +161,7 @@ export const Agendamento = () => {
     // mx-auto: margin horizontal automática (centraliza)
     // space-y-6: espaçamento vertical de 1.5rem entre filhos diretos
     // PORQUE: Design responsivo que funciona bem em desktop e mobile
-    <div className="max-w-2xl mx-auto space-y-6">
+    <div className="max-w-2xl mx-auto space-y-4 sm:space-y-6 px-4">
       
       {/* ===== CABEÇALHO DA PÁGINA ===== */}
       {/* HIERARQUIA VISUAL: Título grande + subtítulo menor */}
@@ -171,12 +171,12 @@ export const Agendamento = () => {
         {/* SEMÂNTICA: h1 indica o título mais importante da página */}
         {/* ESTILO: text-3xl (30px), font-bold (700), text-dark (cor customizada) */}
         {/* ESPAÇAMENTO: mb-2 (margin-bottom 0.5rem) */}
-        <h1 className="text-3xl font-bold text-dark mb-2">Solicitar ser Paciente</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-dark mb-2">Solicitar ser Paciente</h1>
         
         {/* SUBTÍTULO EXPLICATIVO */}
         {/* CONTRASTE: text-dark/70 = cor escura com 70% de opacidade */}
         {/* PORQUE: Hierarquia visual - menos importante que o título */}
-        <p className="text-dark/70">Escolha um psicólogo e descreva sua necessidade de atendimento</p>
+        <p className="text-sm sm:text-base text-dark/70">Escolha um psicólogo e descreva sua necessidade de atendimento</p>
       </div>
 
       {/* ===== CARD PRINCIPAL COM FORMULÁRIO ===== */}
@@ -188,7 +188,7 @@ export const Agendamento = () => {
         {/* EVENT BINDING: onSubmit conecta evento HTML com função JavaScript */}
         {/* LAYOUT: space-y-6 = espaçamento vertical de 1.5rem entre campos */}
         {/* PORQUE: Organização visual clara entre diferentes seções */}
-        <form onSubmit={handleRequestSubmit} className="space-y-6">
+        <form onSubmit={handleRequestSubmit} className="space-y-4 sm:space-y-6">
           
           {/* ===== CAMPO 1: SELETOR DE PSICÓLOGO ===== */}
           <div>
@@ -196,11 +196,11 @@ export const Agendamento = () => {
             {/* LAYOUT: flex items-center = alinha ícone e texto horizontalmente */}
             {/* ESPAÇAMENTO: gap-2 = 0.5rem entre ícone e texto */}
             {/* TIPOGRAFIA: text-lg (18px), font-medium (500) */}
-            <label className="flex items-center gap-2 text-lg font-medium text-dark mb-3">
+            <label className="flex items-center gap-2 text-base sm:text-lg font-medium text-dark mb-3">
               {/* ÍCONE DECORATIVO */}
               {/* TAMANHO: w-5 h-5 = 20x20px */}
               {/* PORQUE: Melhora identificação visual do campo */}
-              <Bell className="w-5 h-5" />
+              <Bell className="w-4 h-4 sm:w-5 sm:h-5" />
               Escolha o Psicólogo
             </label>
             
@@ -234,7 +234,7 @@ export const Agendamento = () => {
             {/* LABEL COM INDICADOR DE OBRIGATÓRIO */}
             {/* ASTERISCO: Convenção universal para campos obrigatórios */}
             {/* PORQUE: Usuário sabe quais campos deve preencher */}
-            <label className="block text-lg font-medium text-dark mb-3">
+            <label className="block text-base sm:text-lg font-medium text-dark mb-3">
               Descreva sua necessidade *
             </label>
             
@@ -256,7 +256,7 @@ export const Agendamento = () => {
 
           {/* ===== CAMPO 3: NÍVEL DE URGÊNCIA ===== */}
           <div>
-            <label className="block text-lg font-medium text-dark mb-3">
+            <label className="block text-base sm:text-lg font-medium text-dark mb-3">
               Nível de Urgência
             </label>
             <select
@@ -302,7 +302,7 @@ export const Agendamento = () => {
           {/* ===== ÁREA DE BOTÕES ===== */}
           {/* LAYOUT FLEXÍVEL: Botões lado a lado com espaçamento igual */}
           {/* gap-4: espaçamento de 1rem entre botões */}
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             
             {/* BOTÃO CANCELAR */}
             {/* type="button": previne submit do formulário */}
@@ -314,7 +314,7 @@ export const Agendamento = () => {
               type="button"
               variant="secondary"
               onClick={() => navigate('/dashboard')}  // Volta para dashboard
-              className="flex-1"
+              className="flex-1 w-full"
             >
               Cancelar
             </Button>
@@ -328,7 +328,7 @@ export const Agendamento = () => {
             <Button
               type="submit"
               loading={submitting}  // Estado de carregamento
-              className="flex-1"
+              className="flex-1 w-full"
               disabled={!selectedPsychologist || !requestData.description}
             >
               Enviar Solicitação

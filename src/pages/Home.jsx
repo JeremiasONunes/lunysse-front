@@ -43,8 +43,8 @@ export const Home = () => {
   return (
     <div>
       {/* ================= HERO SECTION ================= */}
-      <section className="min-h-screen flex items-center justify-center text-center py-20">
-        <div>
+      <section className="min-h-screen flex items-center justify-center text-center py-12 px-4">
+        <div className="w-full max-w-4xl">
           {/* Animação de entrada do framer-motion */}
           <motion.div
             initial={{ opacity: 0, y: 20 }} // Início invisível + deslocado
@@ -52,28 +52,28 @@ export const Home = () => {
             transition={{ duration: 0.8 }}
           >
             {/* Logo centralizada */}
-            <div className="w-32 h-32 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl overflow-hidden bg-white">
+            <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl sm:rounded-3xl flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-2xl overflow-hidden bg-white">
               <img src="/logo.png" alt="Lunysse" className="w-full h-full object-cover" />
             </div>
             
             {/* Nome do sistema */}
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6">
               Lunysse
             </h1>
             
             {/* Subtítulo */}
-            <h2 className="text-2xl md:text-3xl font-medium text-white mb-6">
+            <h2 className="text-lg sm:text-2xl md:text-3xl font-medium text-white mb-4 sm:mb-6">
               Sistema de Agendamento Psicológico
             </h2>
             
             {/* Descrição principal */}
-            <p className="text-xl text-white mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-white mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-4">
               Plataforma digital que otimiza o agendamento e gestão de atendimentos psicológicos voluntários. 
               Desenvolvida para universidades, ONGs e projetos sociais que promovem saúde mental.
             </p>
             
             {/* Botões de ação (CTA) */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
               {/* Botão para criar conta */}
               <Link to="/register">
                 <Button size="lg" className="w-full sm:w-auto">
@@ -96,27 +96,27 @@ export const Home = () => {
       </section>
 
       {/* ================= FEATURES SECTION ================= */}
-      <section id="features" className="min-h-screen flex items-center py-20">
+      <section id="features" className="min-h-screen flex items-center py-12 sm:py-20 px-4">
         <div className="w-full">
           {/* Título da seção */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 sm:mb-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }} // Só anima quando o usuário vê no scroll
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
                 Tecnologia a Serviço do Cuidado
               </h2>
-              <p className="text-xl text-white max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-white max-w-3xl mx-auto px-4">
                 Ferramentas inteligentes para organizar, acompanhar e potencializar atendimentos voluntários
               </p>
             </motion.div>
           </div>
 
           {/* Grid com os recursos (features) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 max-w-7xl mx-auto">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -124,15 +124,15 @@ export const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }} // Cada card aparece ao entrar na tela
                 transition={{ delay: index * 0.1, duration: 0.6 }} // Delay incremental
                 viewport={{ once: true }}
-                className="text-center"
+                className="text-center px-4"
               >
                 {/* Ícone dentro de um card arredondado */}
-                <div className="w-20 h-20 bg-gradient-to-br from-light to-accent rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-2xl">
-                  <feature.icon className="w-10 h-10 text-white" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-light to-accent rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-2xl">
+                  <feature.icon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                 </div>
                 {/* Título e descrição do recurso */}
-                <h3 className="text-xl font-bold text-white mb-4">{feature.title}</h3>
-                <p className="text-white leading-relaxed">{feature.description}</p>
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">{feature.title}</h3>
+                <p className="text-sm sm:text-base text-white leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -140,24 +140,24 @@ export const Home = () => {
       </section>
 
       {/* ================= CTA (CALL TO ACTION) SECTION ================= */}
-      <section className="min-h-screen flex items-center py-20">
-        <div className="w-full text-center">
+      <section className="min-h-screen flex items-center py-12 sm:py-20 px-4">
+        <div className="w-full text-center max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }} // Aparece com scroll
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 sm:mb-8">
               Faça Parte desta Transformação Social
             </h2>
-            <p className="text-xl text-white mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-white mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
               Una tecnologia e responsabilidade social. Ajude a democratizar o acesso 
               à saúde mental através de uma plataforma pensada para o bem-estar coletivo.
             </p>
             {/* Botão para criar conta */}
             <Link to="/register">
-              <Button size="lg" className="text-xl px-12 py-5 rounded-2xl font-semibold">
+              <Button size="lg" className="text-lg sm:text-xl px-8 sm:px-12 py-4 sm:py-5 rounded-xl sm:rounded-2xl font-semibold">
                 Criar Conta Gratuita
               </Button>
             </Link>
