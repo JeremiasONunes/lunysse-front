@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { mockApi } from '../services/mockApi';
+import { appointmentService, patientService } from '../services/apiService';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { LoadingSpinner } from '../components/LoadingSpinner';
@@ -22,14 +22,14 @@ export const SessaoDetalhes = () => {
   useEffect(() => {
     const loadSessionData = async () => {
       try {
-        const sessionData = await mockApi.getSessionDetails(parseInt(sessionId));
-        setSession(sessionData);
-        setEditNotes(sessionData.notes || '');
-        setEditReport(sessionData.fullReport || '');
-        setEditStatus(sessionData.status);
+        const sessionData = await appointmentService.getAppointments({ id: parseInt(sessionId) });
+        const session = sessionData[0];
+        setSession(session);
+        setEditNotes(session.notes || '');
+        setEditReport(session.full_report || '');
+        setEditStatus(session.status);
 
-        const patients = await mockApi.getPatients(user.id);
-        const patientData = patients.find(p => p.id === sessionData.patientId);
+        const patientData = await patientService.getPatientDetails(session.patient_id);
         setPatient(patientData);
       } catch (error) {
         console.error('Erro ao carregar dados da sessão:', error);
@@ -44,8 +44,11 @@ export const SessaoDetalhes = () => {
 
   const handleSave = async () => {
     try {
-      await mockApi.updateSessionStatus(session.id, editStatus);
-      await mockApi.updateSessionNotes(session.id, editNotes, editReport);
+      await appointmentService.updateAppointment(session.id, {
+        status: editStatus,
+        notes: editNotes,
+        full_report: editReport
+      });
       
       setSession({
         ...session,

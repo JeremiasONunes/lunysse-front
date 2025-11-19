@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { mockApi } from '../services/mockApi';
+import { patientService } from '../services/apiService';
 import { Card } from '../components/Card';
 import { LoadingSpinner } from '../components/LoadingSpinner';
-import { Users, Mail, Phone, Calendar, Activity, CheckCircle } from 'lucide-react';
+import { Users, Mail, Phone, Calendar, CheckCircle } from 'lucide-react';
 
 export const Pacientes = () => {
   const { user } = useAuth();
@@ -15,8 +15,8 @@ export const Pacientes = () => {
   const loadPatients = async () => {
     setLoading(true);
     try {
-      const data = await mockApi.getPatients(user.id);
-      console.log('Pacientes carregados:', data); // Debug
+      const data = await patientService.getPatients();
+      console.log('Pacientes carregados:', data);
       setPatients(data);
     } catch (error) {
       console.error('Erro ao carregar pacientes:', error);
@@ -83,7 +83,7 @@ export const Pacientes = () => {
                     <Calendar className="w-5 h-5 text-dark/60" />
                     <div>
                       <p className="text-sm text-dark/60">Data de Nascimento</p>
-                      <p className="font-medium text-dark">{new Date(patient.birthDate).toLocaleDateString('pt-BR')}</p>
+                      <p className="font-medium text-dark">{new Date(patient.birth_date).toLocaleDateString('pt-BR')}</p>
                     </div>
                   </div>
 
@@ -97,13 +97,7 @@ export const Pacientes = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3">
-                    <Activity className="w-5 h-5 text-dark/60" />
-                    <div>
-                      <p className="text-sm text-dark/60">Total de Sessões</p>
-                      <p className="font-medium text-dark">{patient.totalSessions}</p>
-                    </div>
-                  </div>
+                  
 
                   <div className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-dark/60" />

@@ -16,7 +16,7 @@ import { useAuth } from '../context/AuthContext';
 
 // API mockada para simulação de backend
 // PORQUE: Em desenvolvimento, simulamos um servidor real para testar funcionalidades
-import { mockApi } from '../services/mockApi';
+import { psychologistService, requestService } from '../services/apiService';
 
 // Componentes reutilizáveis do sistema
 // PORQUE: Mantém consistência visual e reduz duplicação de código
@@ -69,8 +69,8 @@ export const Agendamento = () => {
   // PORQUE: Armazena informações digitadas pelo usuário
   // TIPO: objeto com description (string) e urgency (string)
   const [requestData, setRequestData] = useState({
-    description: '', // Texto livre descrevendo a necessidade
-    urgency: 'media' // Padrão: urgência média
+    description: '',
+    urgency: 'media'
   });
 
   // ===== EFEITOS COLATERAIS =====
@@ -89,16 +89,9 @@ export const Agendamento = () => {
   // PORQUE: Chamadas de API são assíncronas (não sabemos quanto tempo demora)
   const loadPsychologists = async () => {
     try {
-      // Chama API mockada que simula busca no servidor
-      // AWAIT: Espera a resposta antes de continuar
-      const data = await mockApi.getPsychologists();
-      
-      // Atualiza estado com dados recebidos
-      // PORQUE: Isso faz o React re-renderizar o componente com novos dados
+      const data = await psychologistService.getPsychologists();
       setPsychologists(data);
     } catch {
-      // Se der erro (rede, servidor, etc), mostra notificação
-      // PORQUE: Usuário precisa saber que algo deu errado
       toast.error('Erro ao carregar psicólogos');
     }
   };
@@ -115,8 +108,8 @@ export const Agendamento = () => {
     // PORQUE: Feedback imediato, não precisa ir ao servidor para validar
     // PERFORMANCE: Evita requisições desnecessárias
     if (!selectedPsychologist || !requestData.description) {
-      toast.error('Selecione um psicólogo e descreva sua necessidade');
-      return; // Para execução se validação falhar
+      toast.error('Preencha todos os campos obrigatórios');
+      return;
     }
 
     // Ativa estado de loading
@@ -125,16 +118,16 @@ export const Agendamento = () => {
     setSubmitting(true);
     
     try {
-      // ===== ENVIO PARA API =====
-      // Monta objeto com todos os dados necessários
-      // ESTRUTURA: Combina dados do usuário logado + dados do formulário
-      await mockApi.createRequest({
-        patientName: user.name,           // Do contexto de autenticação
-        patientEmail: user.email,         // Do contexto de autenticação
-        patientPhone: user.phone || '(11) 99999-9999', // Fallback se não tiver telefone
-        preferredPsychologist: parseInt(selectedPsychologist), // Converte string para número
-        description: requestData.description,  // Do estado do formulário
-        urgency: requestData.urgency          // Do estado do formulário
+      await requestService.createRequest({
+        patient_id: user.id,
+        patient_name: user.name,
+        patient_email: user.email,
+        patient_phone: user.phone || '(11) 99999-9999',
+        preferred_psychologist: parseInt(selectedPsychologist),
+        description: requestData.description,
+        urgency: requestData.urgency,
+        preferred_dates: [],
+        preferred_times: []
       });
       
       // ===== SUCESSO =====
@@ -259,25 +252,18 @@ export const Agendamento = () => {
             />
           </div>
 
+
+
           {/* ===== CAMPO 3: NÍVEL DE URGÊNCIA ===== */}
           <div>
-            {/* LABEL SIMPLES */}
-            {/* SEM ASTERISCO: Campo opcional, tem valor padrão */}
             <label className="block text-lg font-medium text-dark mb-3">
               Nível de Urgência
             </label>
-            
-            {/* SELECT COM OPÇÕES PRÉ-DEFINIDAS */}
-            {/* VALORES CONTROLADOS: baixa/media/alta para padronização */}
-            {/* PADRÃO: 'media' definido no estado inicial */}
-            {/* PORQUE: Ajuda psicólogo a priorizar solicitações */}
             <select
-              value={requestData.urgency}  // Valor atual (padrão: 'media')
-              onChange={(e) => setRequestData({...requestData, urgency: e.target.value})}  // Atualiza só urgency
+              value={requestData.urgency}
+              onChange={(e) => setRequestData({...requestData, urgency: e.target.value})}
               className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-dark focus:outline-none focus:ring-2 focus:ring-light"
             >
-              {/* OPÇÕES COM DESCRIÇÕES CLARAS */}
-              {/* PORQUE: Usuário entende exatamente o que cada nível significa */}
               <option value="baixa">Baixa - Posso aguardar</option>
               <option value="media">Média - Prefiro em breve</option>
               <option value="alta">Alta - Preciso urgentemente</option>
@@ -343,7 +329,7 @@ export const Agendamento = () => {
               type="submit"
               loading={submitting}  // Estado de carregamento
               className="flex-1"
-              disabled={!selectedPsychologist || !requestData.description}  // Validação visual
+              disabled={!selectedPsychologist || !requestData.description}
             >
               Enviar Solicitação
             </Button>

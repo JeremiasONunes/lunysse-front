@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { mockApi } from '../services/mockApi';
+import { appointmentService, requestService, psychologistService } from '../services/apiService';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { LoadingSpinner } from '../components/LoadingSpinner';
@@ -17,19 +17,25 @@ export const DashboardPaciente = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [requestsData, psychologistsData] = await Promise.all([
-          mockApi.getRequests(),
-          mockApi.getPsychologists()
+        const [psychologistsData, appointmentsData] = await Promise.all([
+          psychologistService.getPsychologists(),
+          appointmentService.getAppointments()
         ]);
         
-        // Filtrar solicitações do usuário atual
-        const userRequests = requestsData.filter(req => req.patientEmail === user.email);
-        setRequests(userRequests);
-        setPsychologists(psychologistsData);
+        // Pacientes não podem acessar requests - apenas psicólogos
+        let requestsData = [];
+        try {
+          requestsData = await requestService.getRequests();
+        } catch (error) {
+          // Ignora erro 403 para pacientes
+          if (!error.message.includes('403') && !error.message.includes('Apenas psicólogos')) {
+            throw error;
+          }
+        }
         
-        // Buscar agendamentos usando email do usuário
-        const allAppointments = await mockApi.getAppointmentsByEmail(user.email);
-        setAppointments(allAppointments);
+        setRequests(requestsData);
+        setPsychologists(psychologistsData);
+        setAppointments(appointmentsData);
       } catch (error) {
         console.error('Erro ao carregar dados:', error);
       } finally {

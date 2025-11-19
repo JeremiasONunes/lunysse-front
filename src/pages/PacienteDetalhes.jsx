@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { mockApi } from '../services/mockApi';
+import { appointmentService, patientService } from '../services/apiService';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { LoadingSpinner } from '../components/LoadingSpinner';
@@ -12,10 +12,9 @@ import toast from 'react-hot-toast';
 const PatientInfo = ({ patient }) => {
   const fields = [
     { icon: Calendar, label: 'Idade', value: `${patient.age} anos` },
-    { icon: Calendar, label: 'Data de Nascimento', value: new Date(patient.birthDate).toLocaleDateString('pt-BR') },
+    { icon: Calendar, label: 'Data de Nascimento', value: new Date(patient.birth_date).toLocaleDateString('pt-BR') },
     { icon: Phone, label: 'Telefone', value: patient.phone, href: `tel:${patient.phone}` },
     { icon: Mail, label: 'Email', value: patient.email, href: `mailto:${patient.email}` },
-    { icon: Activity, label: 'Total de Sessões', value: patient.totalSessions },
     { icon: CheckCircle, label: 'Status do Tratamento', value: patient.status, isStatus: true }
   ];
 
@@ -221,7 +220,7 @@ export const PacienteDetalhes = () => {
   const updateSessionStatus = async (sessionId, newStatus) => {
     setUpdatingSessions(prev => new Set([...prev, sessionId]));
     try {
-      await mockApi.updateSessionStatus(sessionId, newStatus);
+      await appointmentService.updateAppointment(sessionId, { status: newStatus });
       setSessions(prev => prev.map(session => 
         session.id === sessionId ? { ...session, status: newStatus } : session
       ));
@@ -237,49 +236,69 @@ export const PacienteDetalhes = () => {
   };
 
   const handleCreateSession = async (e) => {
-    e.preventDefault();
-    if (!newSessionData.date || !newSessionData.time) return;
+  e.preventDefault();
 
-    setCreatingSession(true);
-    try {
-      const newSession = await mockApi.createAppointment({
-        patientId: parseInt(id),
-        psychologistId: user.id,
-        ...newSessionData,
-        notes: '',
-        fullReport: ''
-      });
-      
-      setSessions(prev => [newSession, ...prev]);
-      setShowNewSessionForm(false);
-      setNewSessionData({ date: '', time: '', description: 'Sessão de acompanhamento', duration: 50 });
-      setPatient(prev => ({ ...prev, totalSessions: (prev.totalSessions || 0) + 1 }));
-      toast.success('Sessão agendada com sucesso!');
-    } catch (error) {
-      console.error('Erro ao criar sessão:', error);
+  // Validação dos campos obrigatórios
+  if (!newSessionData.date || !newSessionData.time || !newSessionData.description) {
+    toast.error('Preencha todos os campos obrigatórios: Data, Hora e Descrição.');
+    return;
+  }
+
+  setCreatingSession(true);
+
+  try {
+    // Monta o payload corretamente conforme o backend espera
+    const payload = {
+      patient_id: parseInt(id),
+      psychologist_id: user.id,
+      date: newSessionData.date,          // obrigatório
+      time: newSessionData.time,          // obrigatório
+      description: newSessionData.description, // obrigatório
+      duration: newSessionData.duration   // opcional, caso a API aceite
+    };
+
+    const newSession = await appointmentService.createAppointment(payload);
+
+    // Atualiza lista de sessões
+    setSessions(prev => [newSession, ...prev]);
+
+    // Fecha o formulário e reseta os campos
+    setShowNewSessionForm(false);
+    setNewSessionData({
+      date: '',
+      time: '',
+      description: 'Sessão de acompanhamento',
+      duration: 50
+    });
+
+    // Atualiza contador de sessões do paciente
+    setPatient(prev => ({ ...prev, totalSessions: (prev.totalSessions || 0) + 1 }));
+
+    toast.success('Sessão agendada com sucesso!');
+  } catch (error) {
+    console.error('Erro ao criar sessão:', error);
+
+    // Tenta mostrar mensagem específica do backend, se existir
+    if (error?.response?.data?.detail) {
+      const messages = error.response.data.detail.map(d => `${d.loc[1]}: ${d.msg}`).join(', ');
+      toast.error(`Erro ao agendar sessão: ${messages}`);
+    } else {
       toast.error('Erro ao agendar sessão. Tente novamente.');
-    } finally {
-      setCreatingSession(false);
     }
-  };
+  } finally {
+    setCreatingSession(false);
+  }
+};
+
 
   useEffect(() => {
     const loadPatientData = async () => {
       try {
-        const patients = await mockApi.getPatients(user.id);
-        const patientData = patients.find(p => p.id === parseInt(id));
-        
-        if (!patientData) {
-          navigate('/pacientes');
-          return;
-        }
-
+        const patientData = await patientService.getPatientDetails(parseInt(id));
         setPatient(patientData);
         
-        const appointments = await mockApi.getAppointments(user.id, 'psicologo');
-        const patientSessions = appointments
-          .filter(apt => apt.patientId === parseInt(id))
-          .sort((a, b) => new Date(b.date) - new Date(a.date));
+        const patientSessions = await patientService.getPatientSessions(parseInt(id));
+        setSessions(patientSessions.sort((a, b) => new Date(b.appointment_date) - new Date(a.appointment_date)));
         
         setSessions(patientSessions);
       } catch (error) {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { mockApi } from '../services/mockApi';
+import { appointmentService, psychologistService } from '../services/apiService';
 import { Card } from '../components/Card';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { Calendar, Clock, FileText } from 'lucide-react';
@@ -15,8 +15,8 @@ export const Historico = () => {
     const loadData = async () => {
       try {
         const [appointmentsData, psychologistsData] = await Promise.all([
-          mockApi.getAppointments(user.id, 'paciente'),
-          mockApi.getPsychologists()
+          appointmentService.getAppointments(),
+          psychologistService.getPsychologists()
         ]);
         const completedAppointments = appointmentsData.filter(apt => apt.status === 'concluido');
         setAppointments(completedAppointments.sort((a, b) => new Date(b.date) - new Date(a.date)));

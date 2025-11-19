@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { mockApi } from '../services/mockApi';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
 import { Card } from '../components/Card';
@@ -20,7 +19,7 @@ export const Register = () => {
     birthDate: ''
   });
   const [loading, setLoading] = useState(false);
-  const { login } = useAuth();
+  const { register } = useAuth();
   const navigate = useNavigate();
 
   const handleInputChange = useCallback((field) => (e) => {
@@ -38,14 +37,27 @@ export const Register = () => {
     setLoading(true);
 
     try {
-      const { user, token } = await mockApi.register({
-        ...formData,
-        type: userType
-      });
-      login(user, token);
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+        type: userType === 'psicologo' ? 'psicologo' : 'paciente',
+        phone: formData.phone || null,
+        ...(userType === 'psicologo' && {
+          specialty: formData.specialty,
+          crp: formData.crm
+        }),
+        ...(userType === 'paciente' && {
+          birth_date: formData.birthDate
+        })
+      };
+      
+      console.log('Payload enviado:', payload);
+      await register(payload);
       toast.success('Conta criada com sucesso!');
       navigate('/dashboard');
     } catch (error) {
+      console.error('Erro no registro:', error);
       toast.error(error.message);
     } finally {
       setLoading(false);

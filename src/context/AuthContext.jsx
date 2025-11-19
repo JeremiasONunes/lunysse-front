@@ -1,61 +1,72 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import api from '../services/api';
 
-// Criação de um contexto de autenticação.
-// Esse contexto vai permitir que qualquer componente da aplicação acesse informações
-// sobre o usuário autenticado, sem precisar passar props manualmente.
 const AuthContext = createContext();
 
-// Hook personalizado para consumir o contexto de autenticação.
-// Se alguém tentar usar esse hook fora do AuthProvider, será lançada uma exceção.
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) throw new Error('useAuth must be used within AuthProvider');
   return context;
 };
 
-// Componente Provider que vai encapsular a aplicação ou partes dela
-// e fornecer os dados de autenticação (user, login, logout, loading) para os filhos.
 export const AuthProvider = ({ children }) => {
-  // Estado para armazenar os dados do usuário autenticado
   const [user, setUser] = useState(null);
-
-  // Estado para controlar se ainda está carregando as informações iniciais (ex: leitura do localStorage)
   const [loading, setLoading] = useState(true);
 
-  // Efeito que roda apenas uma vez (quando o componente é montado).
-  // Ele verifica se já existe um token e dados de usuário no localStorage
-  // e, caso existam, atualiza o estado do usuário.
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    const userData = localStorage.getItem('user');
+    const token = localStorage.getItem('lunysse_token');
+    const userData = localStorage.getItem('lunysse_user');
+    
     if (token && userData) {
-      setUser(JSON.parse(userData)); // Converte a string salva em objeto
+      try {
+        const parsedUser = JSON.parse(userData);
+        setUser(parsedUser);
+        api.setToken(token);
+      } catch (error) {
+        console.error('Error parsing user data:', error);
+        logout();
+      }
     }
-    setLoading(false); // Finaliza o estado de carregamento
+    setLoading(false);
   }, []);
 
-  // Função de login:
-  // - Salva o token e os dados do usuário no localStorage
-  // - Atualiza o estado do usuário para o contexto
-  const login = (userData, token) => {
-    localStorage.setItem('token', token);
-    localStorage.setItem('user', JSON.stringify(userData));
-    setUser(userData);
+  const login = async (email, password) => {
+    try {
+      const response = await api.login(email, password);
+      const userData = response.user;
+      
+      localStorage.setItem('lunysse_user', JSON.stringify(userData));
+      setUser(userData);
+      
+      return response;
+    } catch (error) {
+      throw error;
+    }
   };
 
-  // Função de logout:
-  // - Remove token e dados de usuário do localStorage
-  // - Reseta o estado do usuário para null
+  const register = async (userData) => {
+    try {
+      const response = await api.register(userData);
+      const user = response.user;
+      
+      localStorage.setItem('lunysse_user', JSON.stringify(user));
+      setUser(user);
+      
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  };
+
   const logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem('lunysse_token');
+    localStorage.removeItem('lunysse_user');
+    api.removeToken();
     setUser(null);
   };
 
-  // Retorna o Provider com os valores que estarão disponíveis
-  // para todos os componentes que estiverem dentro dele.
   return (
-    <AuthContext.Provider value={{ user, login, logout, loading }}>
+    <AuthContext.Provider value={{ user, login, register, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { mockApi } from '../services/mockApi';
+import { appointmentService, patientService, requestService } from '../services/apiService';
 import { Card } from '../components/Card';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { Calendar, Users, Bell , CheckCheck} from 'lucide-react';
@@ -14,11 +14,18 @@ export const DashboardPsicologo = () => {
 
   const loadData = useCallback(async () => {
     try {
+      console.log('Carregando dados do dashboard para psicólogo:', user.id);
+      
       const [appointmentsData, patientsData, requestsData] = await Promise.all([
-        mockApi.getAppointments(user.id, 'psicologo'),
-        mockApi.getPatients(user.id),
-        mockApi.getRequests(user.id)
+        appointmentService.getAppointments(),
+        patientService.getPatients(),
+        requestService.getRequests('pendente')
       ]);
+      
+      console.log('Agendamentos:', appointmentsData);
+      console.log('Pacientes:', patientsData);
+      console.log('Solicitações:', requestsData);
+      
       setAppointments(appointmentsData);
       setPatients(patientsData);
       setRequests(requestsData);
@@ -53,11 +60,11 @@ export const DashboardPsicologo = () => {
   today.setHours(0, 0, 0, 0);
   
   const todayAppointments = appointments.filter(apt => {
-    const appointmentDate = new Date(apt.date);
+    const appointmentDate = new Date(apt.appointment_date || apt.date);
     appointmentDate.setHours(0, 0, 0, 0);
     
     const isToday = appointmentDate.getTime() === today.getTime();
-    const isPsychologist = apt.psychologistId === user.id;
+    const isPsychologist = (apt.psychologist_id || apt.psychologistId) === user.id;
     const isScheduled = apt.status === 'agendado';
     
     return isToday && isPsychologist && isScheduled;
@@ -66,18 +73,21 @@ export const DashboardPsicologo = () => {
   // Estatísticas baseadas nos dados reais do psicólogo
   const totalPatients = patients.length;
   const completedSessions = appointments.filter(apt => 
-    apt.status === 'concluido' && apt.psychologistId === user.id
+    apt.status === 'concluido' && (apt.psychologist_id || apt.psychologistId) === user.id
   ).length;
   const pendingRequests = requests.filter(req => 
-    req.status === 'pendente' && req.preferredPsychologist === user.id
+    req.status === 'pendente' && req.preferred_psychologist === user.id
   ).length;
   
   // Próximos agendamentos do psicólogo
-  const upcomingAppointments = appointments.filter(apt => 
-    new Date(apt.date) >= new Date() && 
-    apt.status === 'agendado' &&
-    apt.psychologistId === user.id
-  ).slice(0, 5);
+  const upcomingAppointments = appointments.filter(apt => {
+    const appointmentDate = new Date(apt.appointment_date || apt.date);
+    const isPsychologist = (apt.psychologist_id || apt.psychologistId) === user.id;
+    const isScheduled = apt.status === 'agendado';
+    const isFuture = appointmentDate >= new Date();
+    
+    return isFuture && isScheduled && isPsychologist;
+  }).slice(0, 5);
 
   // Verifica se é um psicólogo novo (sem dados)
   const isNewPsychologist = totalPatients === 0 && appointments.length === 0 && requests.length === 0;
@@ -148,13 +158,17 @@ export const DashboardPsicologo = () => {
           ) : (
             <div className="space-y-3">
               {upcomingAppointments.map(appointment => {
-                const patient = patients.find(p => p.id === appointment.patientId);
+                const patient = patients.find(p => p.id === (appointment.patient_id || appointment.patientId));
+                const appointmentDate = new Date(appointment.appointment_date || appointment.date);
+                
                 return (
                   <div key={appointment.id} className="flex justify-between items-center p-3 bg-white/10 rounded-lg">
                     <div>
                       <p className="font-medium text-dark">{patient?.name || 'Paciente não encontrado'}</p>
-                      <p className="text-sm text-dark/70">{new Date(appointment.date).toLocaleDateString('pt-BR')} às {appointment.time}</p>
-                      <p className="text-xs text-dark/60">{appointment.description}</p>
+                      <p className="text-sm text-dark/70">
+                        {appointmentDate.toLocaleDateString('pt-BR')} às {appointmentDate.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
+                      </p>
+                      <p className="text-xs text-dark/60">{appointment.notes || appointment.description || 'Consulta agendada'}</p>
                     </div>
                     <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                       appointment.status === 'agendado' 

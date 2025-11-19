@@ -1,12 +1,11 @@
 // Importações necessárias
-import { useState } from 'react'; // Hook do React para gerenciar estado local (email/senha, loading, etc.)
-import { Link, useNavigate } from 'react-router-dom'; // Link para navegação declarativa e useNavigate para navegação programática
-import { useAuth } from '../context/AuthContext'; // Contexto de autenticação (fornece login e dados do usuário)
-import { mockApi } from '../services/mockApi'; // API simulada para validar login
-import { Button } from '../components/Button'; // Componente de botão reutilizável
-import { Input } from '../components/Input'; // Componente de input reutilizável
-import { Card } from '../components/Card'; // Componente de card que organiza o layout
-import toast from 'react-hot-toast'; // Biblioteca para exibir notificações de sucesso/erro
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import { Button } from '../components/Button';
+import { Input } from '../components/Input';
+import { Card } from '../components/Card';
+import toast from 'react-hot-toast';
 
 // Componente funcional Login
 export const Login = () => {
@@ -21,23 +20,16 @@ export const Login = () => {
 
   // Função que trata o envio do formulário de login
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Impede o recarregamento da página
-    setLoading(true); // Ativa estado de loading no botão
+    e.preventDefault();
+    setLoading(true);
 
     try {
-      // Faz chamada à API simulada para autenticação
-      const { user, token } = await mockApi.login(formData.email, formData.password);
-      // Salva usuário e token no contexto de autenticação
-      login(user, token);
-      // Exibe mensagem de sucesso
+      await login(formData.email, formData.password);
       toast.success('Login realizado com sucesso!');
-      // Redireciona para o dashboard
       navigate('/dashboard');
     } catch (error) {
-      // Exibe mensagem de erro caso as credenciais sejam inválidas
       toast.error(error.message);
     } finally {
-      // Desativa o estado de loading independentemente do resultado
       setLoading(false);
     }
   };
