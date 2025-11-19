@@ -66,17 +66,16 @@ export const PublicNavbar = () => {
               </Link>
             ))}
 
-            {/* Botão de Login (diferente dos outros links) */}
-            <Link to="/login">
+            {/* Botão de Login (apenas desktop) */}
+            <Link to="/login" className="hidden sm:block">
               <button className="bg-gradient-to-r from-light to-accent text-white px-3 md:px-4 py-2 rounded-lg font-medium hover:shadow-lg transition-all duration-300 text-sm md:text-base">
-                <span className="hidden sm:inline">Entrar</span>
-                <span className="sm:hidden">Login</span>
+                Entrar
               </button>
             </Link>
           </div>
 
           {/* Botão de abrir/fechar menu mobile */}
-          <div className="md:hidden flex items-center ml-2">
+          <div className="sm:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)} // Alterna estado
               className="text-dark/70 hover:text-light"
