@@ -97,11 +97,24 @@ export const Sidebar = () => {
           <div className="p-4 border-t border-white/10">
             <button
               onClick={handleLogout}
-              className="flex items-center space-x-3 w-full px-4 py-3 text-white/70 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
+              className="flex items-center space-x-3 w-full px-4 py-3 text-white/70 hover:text-white hover:bg-white/10 rounded-xl transition-colors mb-4"
             >
               <LogOut size={20} />
               <span>Sair</span>
             </button>
+            
+            {/* Créditos do desenvolvedor */}
+            <div className="text-center px-2">
+              <p className="text-xs text-white/40 leading-relaxed">
+                Projeto desenvolvido por
+              </p>
+              <p className="text-xs text-white/60 font-medium">
+                Jeremias O Nunes
+              </p>
+              <p className="text-xs text-white/40">
+                © 2025 Desenvolvedor Full Stack
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ import { useAuth } from '../context/AuthContext';
 // Componentes reutilizáveis
 import { Sidebar } from '../components/Sidebar';
 import { PublicNavbar } from '../components/PublicNavbar';
+import { Footer } from '../components/Footer';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 
 // Páginas públicas
@@ -57,11 +58,12 @@ const PublicRoute = ({ children }) => {
   if (user) return <Navigate to="/dashboard" replace />; // Redireciona usuário logado para dashboard
   
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <PublicNavbar /> {/* Navbar pública */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {children} {/* Conteúdo da página pública */}
       </main>
+      <Footer /> {/* Footer público */}
     </div>
   );
 };

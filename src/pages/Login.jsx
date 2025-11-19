@@ -37,7 +37,7 @@ export const Login = () => {
   return (
     <div className="min-h-[calc(100vh-80px)] flex items-center justify-center p-4"> {/* Centraliza o card */}
       {/* Card que contém o formulário de login */}
-      <Card className="w-full max-w-md">
+      <Card className="w-500 max-w-lg">
         {/* Cabeçalho com título e subtítulo */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-dark mb-2">Entrar</h1>
