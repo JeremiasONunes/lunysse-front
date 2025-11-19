@@ -4,7 +4,7 @@
  */
 
 class LunysseAPI {
-  constructor(baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000') {
+  constructor(baseURL = import.meta.env.VITE_API_BASE_URL || 'https://lunysse-backend-fmmc.onrender.com') {
     this.baseURL = baseURL;
     this.token = localStorage.getItem('lunysse_token');
   }
