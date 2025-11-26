@@ -124,7 +124,7 @@ const Header = ({ onBack, title }) => (
   </div>
 );
 
-const SessionsCard = ({ sessions, showForm, formData, onFormChange, onFormSubmit, onFormCancel, onShowForm, onStatusUpdate, updatingSessions, creatingSession, navigate }) => (
+const SessionsCard = ({ sessions, showForm, formData, onFormChange, onFormSubmit, onFormCancel, onShowForm, creatingSession, navigate }) => (
   <Card>
     <div className="space-y-4">
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-0">
@@ -146,12 +146,12 @@ const SessionsCard = ({ sessions, showForm, formData, onFormChange, onFormSubmit
           loading={creatingSession}
         />
       )}
-      <SessionList sessions={sessions} onStatusUpdate={onStatusUpdate} updatingSessions={updatingSessions} navigate={navigate} />
+      <SessionList sessions={sessions} navigate={navigate} />
     </div>
   </Card>
 );
 
-const SessionList = ({ sessions, onStatusUpdate, updatingSessions, navigate }) => {
+const SessionList = ({ sessions, navigate }) => {
   if (sessions.length === 0) {
     return (
       <div className="text-center py-8">
@@ -169,17 +169,16 @@ const SessionList = ({ sessions, onStatusUpdate, updatingSessions, navigate }) =
             <div className="flex-1 min-w-0">
               <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
                 <p className="text-sm sm:text-base font-semibold text-dark">Sessão #{session.id}</p>
-                <select
-                  value={session.status}
-                  onChange={(e) => onStatusUpdate(session.id, e.target.value)}
-                  disabled={updatingSessions.has(session.id)}
-                  className="px-2 py-1 text-xs font-medium border-0 rounded-full focus:ring-2 focus:ring-light bg-blue-100 text-blue-800 self-start"
-                >
-                  <option value="agendado">Agendado</option>
-                  <option value="iniciado">Iniciado</option>
-                  <option value="concluido">Concluído</option>
-                  <option value="cancelado">Cancelado</option>
-                </select>
+                <span className={`px-2 py-1 text-xs font-medium rounded-full self-start ${
+                  session.status === 'agendado' ? 'bg-blue-100 text-blue-800' :
+                  session.status === 'iniciado' ? 'bg-yellow-100 text-yellow-800' :
+                  session.status === 'concluido' ? 'bg-green-100 text-green-800' :
+                  'bg-red-100 text-red-800'
+                }`}>
+                  {session.status === 'agendado' ? 'Agendado' :
+                   session.status === 'iniciado' ? 'Iniciado' :
+                   session.status === 'concluido' ? 'Concluído' : 'Cancelado'}
+                </span>
               </div>
               <p className="text-xs sm:text-sm text-dark/70 mb-2">
                 {new Date(session.date).toLocaleDateString('pt-BR')} às {session.time}
@@ -217,23 +216,7 @@ export const PacienteDetalhes = () => {
   });
   const [creatingSession, setCreatingSession] = useState(false);
 
-  const updateSessionStatus = async (sessionId, newStatus) => {
-    setUpdatingSessions(prev => new Set([...prev, sessionId]));
-    try {
-      await appointmentService.updateAppointment(sessionId, { status: newStatus });
-      setSessions(prev => prev.map(session => 
-        session.id === sessionId ? { ...session, status: newStatus } : session
-      ));
-    } catch (error) {
-      console.error('Erro ao atualizar status:', error);
-    } finally {
-      setUpdatingSessions(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(sessionId);
-        return newSet;
-      });
-    }
-  };
+  // Função removida - status será atualizado apenas na página de detalhes da sessão
 
   const handleCreateSession = async (e) => {
   e.preventDefault();
@@ -326,8 +309,7 @@ export const PacienteDetalhes = () => {
         onFormSubmit={handleCreateSession}
         onFormCancel={() => setShowNewSessionForm(false)}
         onShowForm={() => setShowNewSessionForm(true)}
-        onStatusUpdate={updateSessionStatus}
-        updatingSessions={updatingSessions}
+
         creatingSession={creatingSession}
         navigate={navigate}
       />

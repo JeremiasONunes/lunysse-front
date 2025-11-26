@@ -44,7 +44,11 @@ export const SessaoDetalhes = () => {
 
   const handleSave = async () => {
     try {
+      // Incluir todos os campos obrigatórios do backend
       await appointmentService.updateAppointment(session.id, {
+        date: session.date || session.appointment_date,
+        time: session.time,
+        description: session.description,
         status: editStatus,
         notes: editNotes,
         full_report: editReport
