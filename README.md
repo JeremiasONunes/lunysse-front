@@ -1,6 +1,6 @@
 # 🧠 Lunysse - Sistema de Agendamento Psicológico
 
-Sistema web moderno para gestão de consultas psicológicas, desenvolvido com React 19 + Vite, focado em atendimentos voluntários em universidades, ONGs e projetos sociais.
+Sistema web moderno para gestão de consultas psicológicas com **backend real integrado**, desenvolvido com React 19 + Vite. Plataforma completa para psicólogos e pacientes com IA especializada.
 
 ![Lunysse Logo](public/logo.png)
 
@@ -8,86 +8,85 @@ Sistema web moderno para gestão de consultas psicológicas, desenvolvido com Re
 [![React](https://img.shields.io/badge/React-19.1.1-61dafb.svg)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-7.1.0-646cff.svg)](https://vitejs.dev/)
 [![Tailwind](https://img.shields.io/badge/Tailwind-4.1.11-38bdf8.svg)](https://tailwindcss.com/)
+[![Backend](https://img.shields.io/badge/Backend-Integrado-green.svg)](https://lunysse-backend-fmmc.onrender.com)
+[![AI](https://img.shields.io/badge/IA-Hugging%20Face-orange.svg)](https://huggingface.co/)
 
 ## 📋 Índice
 
 - [Sobre o Projeto](#sobre-o-projeto)
 - [Funcionalidades](#funcionalidades)
-- [Tecnologias](#tecnologias)
+- [Stack Tecnológico](#stack-tecnológico)
 - [Instalação](#instalação)
 - [Uso](#uso)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Modelo de Dados](#modelo-de-dados)
-- [API Mock](#api-mock)
-- [Chat com IA](#chat-com-ia)
-- [Componentes](#componentes)
-- [Rotas](#rotas)
-- [Design System](#design-system)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
+- [Integração com Backend](#integração-com-backend)
+- [IA Especializada](#ia-especializada-em-psicologia)
+- [Funcionalidades Avançadas](#funcionalidades-avançadas)
+- [Arquitetura](#arquitetura)
+- [Segurança](#segurança)
+- [Status do Projeto](#status-do-projeto)
 
 ## 🎯 Sobre o Projeto
 
-O **Lunysse** é uma plataforma web desenvolvida para facilitar o agendamento e gestão de consultas psicológicas em ambientes de atendimento voluntário. O sistema oferece interfaces diferenciadas para psicólogos e pacientes, com foco na experiência do usuário e eficiência operacional.
+O **Lunysse** é uma plataforma web completa para gestão de consultas psicológicas com **backend real** e **IA especializada**. Sistema profissional que conecta psicólogos e pacientes através de uma interface moderna e intuitiva.
 
-### Objetivos
+### 🚀 Características Principais
 
-- Simplificar o processo de agendamento de consultas
-- Facilitar a gestão de pacientes para psicólogos
-- Fornecer relatórios e analytics para acompanhamento
-- Manter histórico completo de sessões
-- Garantir interface moderna e responsiva
+- **Backend Real Integrado**: API completa hospedada no Render
+- **IA Especializada**: Chat com modelo GLM-4.5 focado em psicologia clínica
+- **Dashboards Dinâmicos**: KPIs em tempo real para psicólogos e pacientes
+- **Sistema de Solicitações**: Fluxo completo de aceite de pacientes
+- **Relatórios Avançados**: Analytics com gráficos interativos
+- **Arquitetura Moderna**: React 19, Tailwind CSS 4, Vite 7
 
 ## ✨ Funcionalidades
 
-### 👨‍⚕️ Para Psicólogos
+### 👨⚕️ Para Psicólogos
 
-- **Dashboard Personalizado**: Visão geral com KPIs e próximos agendamentos
-- **Gestão de Pacientes**: Lista completa com informações detalhadas
-- **Detalhes do Paciente**: Histórico de sessões, anotações e relatórios
-- **Gestão de Sessões**: Edição de status, anotações e relatórios clínicos
+- **Dashboard Personalizado**: KPIs em tempo real (pacientes ativos, sessões hoje, concluídas)
+- **Gestão de Solicitações**: Sistema completo de aceite/rejeição de pacientes
+- **Gestão de Pacientes**: Lista completa com informações detalhadas e histórico
 - **Chat com IA**: Assistente especializada em psicologia clínica
-- **Relatórios e Analytics**: Gráficos de frequência, status e alertas de risco
-- **Agenda Individual**: Controle de disponibilidade por psicólogo
+- **Relatórios e Analytics**: Gráficos interativos com análise ML de risco
+- **Gestão de Sessões**: Controle completo do ciclo de vida das consultas
 
 ### 👤 Para Pacientes
 
-- **Dashboard Simples**: Próximos agendamentos e informações relevantes
-- **Agendamento Flexível**: Escolha de psicólogo, data e horário
-- **Seleção de Especialista**: Lista de psicólogos com especialidades
-- **Verificação de Disponibilidade**: Horários livres em tempo real
+- **Dashboard Simples**: Status de solicitações e próximas sessões
+- **Sistema de Solicitações**: Solicitar ser aceito como paciente
+- **Acompanhamento**: Visualizar status (pendente/aceito/rejeitado)
+- **Histórico**: Consultas anteriores e relatórios
 
 ### 🔐 Sistema de Autenticação
 
-- Login seguro com validação
-- Diferenciação automática de perfis (psicólogo/paciente)
-- Duas interfaces de login (padrão e moderna com glassmorphism)
-- Registro de novos usuários com validação
-- Contexto global de autenticação
-- Proteção de rotas por perfil
+- **JWT Authentication**: Tokens seguros com backend real
+- **Diferenciação de Perfis**: Psicólogo vs Paciente automática
+- **Proteção de Rotas**: Middleware de autenticação
+- **Persistência Segura**: LocalStorage com contexto global
+- **Registro Completo**: Validação de dados no frontend/backend
+- **Auto-redirect**: Baseado no status de autenticação
 
-## 🛠 Tecnologias
+## 🛠 Stack Tecnológico
 
 ### Frontend
-- **React 19.1.1** - Biblioteca principal
-- **Vite 7.1.0** - Build tool e dev server
-- **React Router DOM 7.8.0** - Roteamento
-- **Tailwind CSS 4.1.11** - Framework CSS moderno
+- **React 19.1.1** - Framework moderno com concurrent features
+- **Vite 7.1.0** - Build tool ultra-rápido
+- **React Router DOM 7.8.0** - Roteamento SPA avançado
+- **Tailwind CSS 4.1.11** - Framework CSS utilitário
 - **Framer Motion 12.23.12** - Animações fluidas
-- **Lucide React 0.539.0** - Ícones modernos
-- **Recharts 3.1.2** - Gráficos e visualizações
-- **Chart.js 4.5.0** - Gráficos alternativos
-- **React Hot Toast 2.5.2** - Notificações
-- **@huggingface/inference 4.6.1** - Integração com IA
+- **Lucide React 0.539.0** - Ícones SVG otimizados
+- **Recharts 3.1.2** + **Chart.js 4.5.0** - Visualizações interativas
+- **React Hot Toast 2.5.2** - Sistema de notificações
 
-### Persistência
-- **LocalStorage** - Armazenamento local dos dados
-- **Mock API** - Simulação de backend
+### Backend & IA
+- **Backend Real**: `https://lunysse-backend-fmmc.onrender.com`
+- **Hugging Face Inference 4.6.1** - Integração com IA
+- **Modelo IA**: zai-org/GLM-4.5 via Novita
+- **JWT Authentication** - Autenticação segura
 
-### Design
+### Design System
 - **Glassmorphism** - Efeitos visuais modernos
-- **Design System** - Paleta de cores consistente
-- **Responsivo** - Mobile-first approach
+- **Mobile-First** - Design responsivo
+- **Paleta Consistente** - Sistema de cores profissional
 
 ## 🚀 Instalação
 
@@ -100,28 +99,24 @@ O **Lunysse** é uma plataforma web desenvolvida para facilitar o agendamento e 
 
 1. **Clone o repositório**
 ```bash
-git clone https://github.com/seu-usuario/sistema-agendamento-psicologico.git
-cd sistema-agendamento-psicologico
+git clone https://github.com/JeremiasONunes/vlibras-jeremias.git
+cd lunysse-front
 ```
 
 2. **Instale as dependências**
 ```bash
 npm install
-# ou
-yarn install
 ```
 
 3. **Configure as variáveis de ambiente**
 ```bash
 cp .env.example .env
-# Edite o arquivo .env e adicione seu token do Hugging Face
+# Edite o arquivo .env se necessário
 ```
 
 4. **Execute o projeto**
 ```bash
 npm run dev
-# ou
-yarn dev
 ```
 
 5. **Acesse no navegador**
@@ -131,31 +126,151 @@ http://localhost:5173
 
 ## 💻 Uso
 
-### Contas de Teste
+### 🔑 Contas de Demonstração
 
-#### Psicólogos
-- **Dr. João Silva**: `psicologo@test.com` / `123456` - Psicologia Clínica
-- **Dra. Ana Costa**: `ana@test.com` / `123456` - Terapia Cognitivo-Comportamental
-- **Dr. Carlos Mendes**: `carlos@test.com` / `123456` - Psicologia Infantil
-- **Dra. Lucia Ferreira**: `lucia@test.com` / `123456` - Terapia Familiar
+> **Importante**: O sistema está integrado com backend real. Crie sua própria conta ou use as contas de demonstração.
 
-#### Paciente
-- **Maria Santos**: `paciente@test.com` / `123456`
+#### Para Psicólogos
+- Registre-se como psicólogo no sistema
+- Acesse dashboard com KPIs em tempo real
+- Gerencie solicitações de pacientes
+- Use o chat com IA especializada
+
+#### Para Pacientes
+- Registre-se como paciente
+- Solicite ser aceito por um psicólogo
+- Acompanhe status das solicitações
+- Visualize histórico de sessões
 
 ### Fluxo de Uso
 
-1. **Login**: Acesse com uma das contas de teste
-2. **Dashboard**: Visualize informações relevantes ao seu perfil
-3. **Navegação**: Use a sidebar para acessar diferentes seções
-4. **Agendamento** (Pacientes): Escolha psicólogo, data e horário
-5. **Gestão** (Psicólogos): Gerencie pacientes e sessões
+1. **Registro**: Crie conta como psicólogo ou paciente
+2. **Login**: Acesse com suas credenciais
+3. **Dashboard**: Visualize informações relevantes ao seu perfil
+4. **Solicitações** (Pacientes): Solicite ser aceito por um psicólogo
+5. **Gestão** (Psicólogos): Aceite/rejeite solicitações e gerencie pacientes
 
-## 📁 Estrutura do Projeto
+## 🔌 Integração com Backend
+
+### API Real Integrada
+
+**Base URL**: `https://lunysse-backend-fmmc.onrender.com`
+
+O sistema possui integração completa com backend real hospedado no Render:
+
+#### 🔐 Autenticação
+- `POST /auth/login` - Login com JWT
+- `POST /auth/register` - Registro de usuários
+- **Bearer Token** - Autenticação em todas as rotas
+
+#### 👥 Gestão de Usuários
+- `GET /psychologists/` - Lista psicólogos
+- `GET /patients/` - Lista pacientes do psicólogo
+- `GET /patients/{id}` - Detalhes do paciente
+- `PUT /patients/{id}` - Atualizar paciente
+
+#### 📅 Agendamentos
+- `GET /appointments/` - Lista agendamentos
+- `POST /appointments/` - Criar agendamento
+- `PUT /appointments/{id}` - Atualizar agendamento
+- `DELETE /appointments/{id}` - Cancelar agendamento
+- `GET /appointments/available-slots` - Horários disponíveis
+
+#### 📋 Solicitações
+- `GET /requests/` - Lista solicitações
+- `POST /requests/` - Criar solicitação
+- `PUT /requests/{id}` - Atualizar status
+
+#### 📊 Relatórios & ML
+- `GET /reports/{psychologist_id}` - Relatórios do psicólogo
+- `GET /ml/risk-analysis` - Análise de risco geral
+- `GET /ml/risk-analysis/{patient_id}` - Análise específica
+
+### Tratamento de Erros
+- **401**: Token expirado (auto-redirect para login)
+- **422**: Erros de validação detalhados
+- **403**: Permissões insuficientes
+- **Network**: Tratamento de falhas de conexão
+
+## 🤖 IA Especializada em Psicologia
+
+### Assistente Inteligente
+
+**Modelo**: `zai-org/GLM-4.5` via Novita (Hugging Face)
+**Especialização**: Psicologia clínica e terapêutica
+
+### 🎯 Características Avançadas
+
+- **Contexto Mantido**: Últimas 10 mensagens da conversa
+- **Respostas Estruturadas**: Markdown com títulos, listas e formatação
+- **Evidências Científicas**: Orientações baseadas em literatura
+- **Técnicas Específicas**: Sugestões de abordagens terapêuticas
+- **Aspectos Éticos**: Considerações profissionais
+
+### ⚙️ Configuração Técnica
+
+```javascript
+// Parâmetros do modelo
+max_tokens: 1500
+temperature: 0.7
+top_p: 0.9
+frequency_penalty: 0.1
+presence_penalty: 0.1
+```
+
+### 💡 Exemplos de Consultas
+
+- **Técnicas Terapêuticas**: "Abordagens para ansiedade generalizada"
+- **Casos Específicos**: "Terapia infantil para trauma"
+- **Aspectos Éticos**: "Limites na relação terapêutica"
+- **Diagnóstico**: "Sinais de alerta em depressão"
+- **Intervenções**: "Técnicas de mindfulness para pacientes"
+
+### 🛡️ Tratamento de Erros
+
+- **Token Inválido**: Mensagem específica para configuração
+- **Rate Limit**: Orientação sobre limite de requisições
+- **Conexão**: Feedback sobre problemas de rede
+- **Timeout**: Tratamento de respostas lentas
+
+## 🚀 Funcionalidades Avançadas
+
+### 📊 Dashboard Inteligente
+
+- **KPIs em Tempo Real**: Atualização automática a cada 5 segundos
+- **Dados Específicos**: Filtros por psicólogo logado
+- **Psicólogos Novos**: Interface especial para primeiros acessos
+- **Próximos Agendamentos**: Lista dinâmica com detalhes
+
+### 🔄 Sistema de Solicitações
+
+- **Fluxo Completo**: Paciente → Solicitação → Psicólogo → Aceite
+- **Status Dinâmicos**: Pendente, Aceito, Rejeitado
+- **Notificações**: Feedback visual para cada etapa
+- **Gestão Centralizada**: Dashboard para psicólogos
+
+### 📈 Relatórios & Analytics
+
+- **Gráficos Interativos**: Recharts + Chart.js
+- **Análise ML**: Integração com backend para risk analysis
+- **Dados Históricos**: Tendências e padrões
+- **Exportação**: Relatórios detalhados
+
+### 📱 Design Responsivo
+
+- **Mobile-First**: Otimizado para smartphones
+- **Sidebar Adaptativa**: Menu hambúrguer automático
+- **Breakpoints**: sm(640px), md(768px), lg(1024px), xl(1280px)
+- **Touch-Friendly**: Botões e inputs otimizados para toque
+
+## 🏗️ Arquitetura
+
+### Estrutura do Projeto
 
 ```
 src/
 ├── components/          # Componentes reutilizáveis
-│   ├── Button.jsx      # Botão customizado com variantes
+│   ├── Button.jsx      # Botão com variantes e loading
 │   ├── Card.jsx        # Container com glassmorphism
 │   ├── Input.jsx       # Input com validação e show/hide password
 │   ├── LoadingSpinner.jsx # Spinner de carregamento
@@ -164,290 +279,59 @@ src/
 │   ├── PublicNavbar.jsx # Navbar para páginas públicas
 │   └── Sidebar.jsx     # Sidebar adaptativa para usuários autenticados
 ├── context/            # Contextos React
-│   └── AuthContext.jsx # Contexto de autenticação
+│   └── AuthContext.jsx # Contexto de autenticação global
 ├── pages/              # Páginas da aplicação
-│   ├── About.jsx       # Página sobre o projeto
-│   ├── Agendamento.jsx # Sistema de agendamento (pacientes)
-│   ├── ChatIA.jsx      # Chat com IA especializada (psicólogos)
-│   ├── DashboardPaciente.jsx # Dashboard para pacientes
 │   ├── DashboardPsicologo.jsx # Dashboard para psicólogos
-│   ├── Home.jsx        # Página inicial pública
-│   ├── Login.jsx       # Login padrão
-│   ├── NotFound.jsx    # Página 404 personalizada
-│   ├── PacienteDetalhes.jsx # Detalhes e histórico do paciente
-│   ├── Pacientes.jsx   # Lista de pacientes (psicólogos)
+│   ├── DashboardPaciente.jsx # Dashboard para pacientes
+│   ├── ChatIA.jsx      # Chat com IA especializada
+│   ├── Login.jsx       # Página de login
 │   ├── Register.jsx    # Cadastro de usuários
-│   ├── Relatorios.jsx  # Relatórios e analytics (psicólogos)
-│   └── SessaoDetalhes.jsx # Detalhes e gestão de sessões
+│   └── ...            # Outras páginas
 ├── routes/             # Configuração de rotas
-│   └── AppRoutes.jsx   # Rotas principais
+│   └── AppRoutes.jsx   # Rotas protegidas e públicas
 ├── services/           # Serviços e APIs
-│   ├── aiService.js    # Serviço de IA
-│   └── mockApi.js      # API mockada
-├── App.jsx             # Componente principal
-├── index.css           # Estilos globais Tailwind
-└── main.jsx            # Entry point
+│   ├── api.js          # Cliente HTTP para backend
+│   ├── apiService.js   # Camada de serviços organizados
+│   └── aiService.js    # Serviço de IA
+└── App.jsx             # Componente principal
 ```
 
-## 🔌 API Mock
+### Padrões Utilizados
+
+- **Context API**: Gerenciamento de estado global
+- **Custom Hooks**: Lógica reutilizável
+- **Component Composition**: Componentes modulares
+- **Service Layer**: Separação de responsabilidades
+- **Protected Routes**: Segurança baseada em autenticação
+
+## 🔒 Segurança
+
+### Medidas Implementadas
+- **JWT Authentication** com backend seguro
+- **Proteção de Rotas** baseada em autenticação
+- **Validação de Dados** no frontend e backend
+- **HTTPS** em produção
+- **Sanitização** de inputs do usuário
+
+### Questões Identificadas
+- ⚠️ **LocalStorage**: Dados sensíveis (migrar para httpOnly cookies)
+- ⚠️ **Dependencies**: Atualizar Vite e js-yaml
+- ⚠️ **CORS**: Configurar políticas adequadas
+
+## 🎯 Status do Projeto
+
+**v1.0.0** - ✅ **PRODUÇÃO**
+
+### ✅ Funcionalidades Implementadas
+- [x] Backend real integrado (Render)
+- [x] Autenticação JWT completa
+- [x] Dashboards dinâmicos para psicólogos/pacientes
+- [x] Sistema de solicitações completo
+- [x] Chat IA especializada (GLM-4.5)
+- [x] Relatórios com gráficos interativos
+- [x] Design responsivo moderno
+- [x] Gestão completa de agendamentos
 
-### Estrutura da API
-
-A API mockada simula um backend real com as seguintes funcionalidades:
-
-#### Autenticação
-- `login(email, password)` - Autenticação de usuário
-- `register(userData)` - Registro de novo usuário
-
-#### Usuários
-- `getPsychologists()` - Lista psicólogos disponíveis
-
-#### Pacientes
-- `getPatients(psychologistId)` - Lista pacientes do psicólogo
-
-#### Agendamentos
-- `getAppointments(userId, userType)` - Lista agendamentos
-- `createAppointment(appointmentData)` - Criar agendamento
-- `getAvailableSlots(date, psychologistId)` - Horários disponíveis
-- `updateAppointment(id, data)` - Atualizar agendamento
-- `cancelAppointment(id)` - Cancelar agendamento
-
-#### Sessões
-- `getSessionDetails(sessionId)` - Detalhes da sessão
-- `updateSessionStatus(sessionId, status)` - Atualizar status
-- `updateSessionNotes(sessionId, notes, report)` - Atualizar anotações
-
-#### Relatórios
-- `getReportsData(psychologistId)` - Dados para relatórios
-
-### Persistência
-
-Os dados são armazenados no `localStorage` do navegador:
-
-- `lunysse_users` - Usuários do sistema
-- `lunysse_patients` - Pacientes cadastrados
-- `lunysse_appointments` - Agendamentos e sessões
-
-## 🤖 Chat com IA
-
-### Funcionalidades
-
-- **Assistente Especializada**: IA treinada em psicologia clínica
-- **Respostas Estruturadas**: Formatação markdown para melhor legibilidade
-- **Histórico de Conversa**: Contexto mantido durante a sessão
-- **Tratamento de Erros**: Mensagens informativas para problemas de conexão
-- **Interface Moderna**: Design consistente com o sistema
-
-### Configuração
-
-1. **Token do Hugging Face já configurado**:
-   - O projeto já possui um token configurado no arquivo `.env`
-   - Para usar seu próprio token, substitua o valor em `VITE_HF_TOKEN`
-
-2. **Modelo Utilizado**:
-   - **Provider**: Novita
-   - **Modelo**: zai-org/GLM-4.5
-   - **Especialização**: Psicologia clínica
-   - **Parâmetros**: max_tokens: 1500, temperature: 0.7
-
-3. **Funcionalidades da IA**:
-   - Respostas formatadas em markdown
-   - Contexto de conversa mantido (últimas 10 mensagens)
-   - Orientações baseadas em evidências científicas
-   - Tratamento de erros específicos (token inválido, rate limit, conexão)
-
-### Exemplos de Uso
-
-- "Como lidar com pacientes com ansiedade?"
-- "Técnicas para terapia infantil"
-- "Abordagens para terapia de casal"
-- "Sinais de alerta em depressão"
-- "Orientações sobre aspectos éticos"
-
-### Componentes
-
-#### `ChatIA.jsx`
-- Interface principal do chat
-- Gerenciamento de mensagens e estado
-- Integração com o serviço de IA
-
-#### `MarkdownRenderer.jsx`
-- Renderização de markdown nas respostas
-- Formatação de títulos, listas e código
-- Estilos consistentes com o design system
-
-#### `aiService.js`
-- Integração com Hugging Face Inference API
-- Tratamento de erros e timeouts
-- Configuração de parâmetros do modelo
-
-## 🎨 Design System
-
-### Paleta de Cores
-
-```css
-:root {
-  --dark: #010440;      /* Azul escuro principal */
-  --medium: #024873;    /* Azul médio */
-  --light: #2493BF;     /* Azul claro */
-  --accent: #26B0BF;    /* Azul accent */
-  --background: #F2EFE9; /* Bege claro */
-}
-```
-
-### Tipografia
-
-- **Primária**: Inter (títulos e interface)
-- **Secundária**: Nunito (textos corridos)
-- **Monospace**: Roboto Mono (códigos)
-
-### Componentes Base
-
-#### Button
-- Variantes: primary, secondary, danger
-- Estados: normal, hover, loading, disabled
-- Tamanhos: sm, md, lg
-
-#### Card
-- Glassmorphism effect
-- Sombras suaves
-- Bordas arredondadas
-
-#### Modal
-- Overlay com blur
-- Animações de entrada/saída
-- Responsivo
-
-### Breakpoints
-
-```css
-sm: 640px
-md: 768px
-lg: 1024px
-xl: 1280px
-2xl: 1536px
-```
-
-## 🧩 Componentes
-
-### Componentes de UI
-
-#### `<Button />`
-Botão customizado com variantes e estados.
-
-```jsx
-<Button variant="primary" size="lg" loading={isLoading}>
-  Confirmar
-</Button>
-```
-
-#### `<Card />`
-Container com efeito glassmorphism.
-
-```jsx
-<Card className="p-6">
-  <h2>Título do Card</h2>
-  <p>Conteúdo...</p>
-</Card>
-```
-
-#### `<Modal />`
-Modal responsivo com overlay.
-
-```jsx
-<Modal isOpen={isOpen} onClose={handleClose} title="Título">
-  <p>Conteúdo do modal...</p>
-</Modal>
-```
-
-#### `<MarkdownRenderer />`
-Renderizador de markdown para mensagens da IA.
-
-```jsx
-<MarkdownRenderer content={markdownText} />
-```
-
-### Componentes de Layout
-
-#### `<Sidebar />`
-Navegação lateral para usuários autenticados.
-
-#### `<PublicNavbar />`
-Navbar para páginas públicas.
-
-### Componentes de Utilidade
-
-#### `<LoadingSpinner />`
-Indicador de carregamento com tamanhos variados.
-
-## 🛣 Rotas
-
-### Rotas Públicas
-- `/` - Página inicial
-- `/about` - Sobre o projeto
-- `/login` - Login padrão
-- `/lunysse` - Login moderno
-- `/register` - Cadastro
-
-### Rotas Protegidas
-- `/dashboard` - Dashboard (redireciona por tipo de usuário)
-- `/agendamento` - Agendamento (apenas pacientes)
-- `/pacientes` - Lista de pacientes (apenas psicólogos)
-- `/pacientes/:id` - Detalhes do paciente
-- `/sessao/:sessionId` - Detalhes da sessão
-- `/chat-ia` - Chat com IA (apenas psicólogos)
-- `/relatorios` - Relatórios (apenas psicólogos)
-
-### Proteção de Rotas
-
-```jsx
-const ProtectedRoute = ({ children }) => {
-  const { user, loading } = useAuth();
-  
-  if (loading) return <LoadingSpinner />;
-  if (!user) return <Navigate to="/login" />;
-  
-  return (
-    <div className="min-h-screen flex">
-      <Sidebar />
-      <main className="flex-1 lg:ml-64 p-8">
-        {children}
-      </main>
-    </div>
-  );
-};
-```
-
-## 📊 Funcionalidades Avançadas
-
-### Sistema de Relatórios
-
-- **KPIs Dinâmicos**: Calculados em tempo real
-- **Gráficos Interativos**: Recharts para visualizações
-- **Alertas de Risco**: Baseados em padrões de comportamento
-- **Dados Históricos**: Análise temporal de sessões
-
-### Chat com IA Especializada
-
-- **Assistente Inteligente**: IA especializada em psicologia clínica
-- **Respostas Estruturadas**: Formatação markdown automática
-- **Contexto Mantido**: Histórico de conversa preservado
-- **Sugestões Inteligentes**: Perguntas pré-definidas para facilitar uso
-- **Tratamento de Erros**: Feedback claro sobre problemas de conexão
-
-### Gestão de Agenda
-
-- **Disponibilidade Individual**: Cada psicólogo tem sua agenda
-- **Conflito de Horários**: Prevenção automática
-- **Horários Flexíveis**: Configuração de slots disponíveis
-- **Status de Sessões**: Controle completo do ciclo de vida
-
-### Interface Responsiva
-
-- **Mobile-First**: Design otimizado para dispositivos móveis
-- **Sidebar Adaptativa**: Menu hambúrguer em telas pequenas
-- **Cards Flexíveis**: Layout que se adapta ao conteúdo
-- **Navegação Intuitiva**: UX consistente em todos os dispositivos
 
 ## 🔧 Scripts Disponíveis
 
@@ -461,62 +345,35 @@ npm run build
 # Preview da build
 npm run preview
 
-# Lint do código (ESLint 9.32.0)
+# Lint do código
 npm run lint
-
-# Instalar dependências
-npm install
 ```
-
-## 🤝 Contribuição
-
-1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
-
-### Padrões de Código
-
-- Use ESLint para manter consistência
-- Siga os padrões do Prettier
-- Componentes em PascalCase
-- Funções em camelCase
-- Constantes em UPPER_CASE
 
 ## 📝 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-## 👥 Equipe
+## 👥 Desenvolvedor
 
-- **Desenvolvedor Principal**: [Seu Nome]
-- **Design**: [Nome do Designer]
-- **Consultoria Psicológica**: [Nome do Consultor]
+- **Desenvolvedor Full Stack**: Jeremias O Nunes
+- **GitHub**: [JeremiasONunes](https://github.com/JeremiasONunes)
+- **Especialização**: React, Node.js, Python, IA
 
-## 📚 Documentação Adicional
+## 📞 Contato & Deploy
 
-- **[CHANGELOG.md](CHANGELOG.md)** - Histórico de versões e mudanças
-- **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** - Arquitetura do sistema
-- **[docs/DATABASE.md](docs/DATABASE.md)** - Modelo de dados e ER
-- **[docs/API.md](docs/API.md)** - Documentação da API
-- **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)** - Guia de deploy
-
-## 🔄 Versão Atual
-
-**v1.0.0** - Sistema completo com todas as funcionalidades principais implementadas.
-
-Veja o [CHANGELOG.md](CHANGELOG.md) para detalhes completos das funcionalidades e melhorias.
-
-## 📞 Contato
-
-- **GitHub**: https://github.com/JeremiasONunes/sistema-agendamento-psicologico
-- **Desenvolvedor**: Jeremias Nunes
+- **Frontend**: [Vercel Deploy](https://lunysse-front.vercel.app)
+- **Backend**: [Render API](https://lunysse-backend-fmmc.onrender.com)
+- **GitHub**: [Repositório](https://github.com/JeremiasONunes/vlibras-jeremias)
+- **Desenvolvedor**: Jeremias O Nunes
 
 ---
 
 <div align="center">
+  <p><strong>🧠 Lunysse - Psicologia Digital Moderna</strong></p>
   <p>Desenvolvido com ❤️ para facilitar o acesso à saúde mental</p>
-  <p><strong>Lunysse v1.0.0 - Sistema de Agendamento Psicológico</strong></p>
-  <p>React 19 • Vite 7 • Tailwind CSS 4 • Hugging Face AI</p>
+  <p><em>React 19 • Vite 7 • Tailwind 4 • Backend Real • IA Especializada</em></p>
+  
+  <br>
+  
+  <p>⭐ <strong>Sistema Completo em Produção</strong> ⭐</p>
 </div>
