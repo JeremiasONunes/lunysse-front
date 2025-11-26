@@ -147,15 +147,15 @@ export const Register = () => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-80px)] flex items-center justify-center p-4">
-      <Card className="w-500 max-w-md sm:max-w-lg">
-        <div className="text-center mb-6 sm:mb-8">
-          <h1 className="text-3xl sm:text-4xl font-bold text-dark mb-2">{"Criar Conta"}</h1>
-          <p className="text-sm sm:text-base text-dark/70">Cadastre-se na lunysse</p>
+    <div className="min-h-[calc(100vh-80px)] flex items-center justify-center p-2 sm:p-4">
+      <Card className="w-500 max-w-xs sm:max-w-lg">
+        <div className="text-center mb-4 sm:mb-8">
+          <h1 className="text-xl sm:text-4xl font-bold text-dark mb-2">{"Criar Conta"}</h1>
+          <p className="text-xs sm:text-base text-dark/70">Cadastre-se na lunysse</p>
         </div>
 
         {/* User Type Selector */}
-        <div className="flex mb-4 sm:mb-6 gap-1 sm:gap-2">
+        <div className="flex mb-3 sm:mb-6 gap-1 sm:gap-2">
           <Button
             type="button"
             variant={userType === 'paciente' ? 'primary' : 'secondary'}
@@ -176,7 +176,7 @@ export const Register = () => {
           </Button>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-4">
           <Input
             label="Nome completo"
             value={formData.name}
@@ -315,14 +315,14 @@ export const Register = () => {
           </Button>
         </form>
 
-        <div className="mt-4 sm:mt-6 text-center space-y-2">
-          <p className="text-sm sm:text-base text-dark/70">
+        <div className="mt-3 sm:mt-6 text-center space-y-1 sm:space-y-2">
+          <p className="text-xs sm:text-base text-dark/70">
             {"Já tem uma conta?"}{' '}
             <Link to="/login" className="text-light hover:text-accent font-medium">
               {"Fazer login"}
             </Link>
           </p>
-          <p className="text-sm sm:text-base text-dark/70">
+          <p className="text-xs sm:text-base text-dark/70">
             <Link to="/" className="text-light hover:text-accent font-medium">
               {"← Voltar ao início"}
             </Link>
